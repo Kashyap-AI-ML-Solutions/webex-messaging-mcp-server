@@ -12,7 +12,7 @@
     "test:runner": "node tests/test-runner.js",
     "lint": "echo '🔍 Checking code quality...' && node -c index.js && echo '✅ Syntax check passed'",
     "validate": "npm run lint && npm test",
-    "prepare": "husky",
+    "prepare": "node -e \"if (!process.env.CI && !process.env.NODE_ENV) { try { require('child_process').execSync('husky', {stdio:'inherit'}); } catch(e) {} }\"",
     "pre-commit": "npm run validate"
   },
   "dependencies": {
