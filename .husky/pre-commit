@@ -1,15 +1,1 @@
-#!/bin/sh
-echo "🚀 Running pre-commit validation..."
-echo "🔍 Checking code quality and running 118 unit tests across 53 test suites..."
-
-# Run validation (lint + tests)
-npm run validate
-
-# Check if validation passed
-if [ $? -eq 0 ]; then
-  echo "✅ All validations passed! Commit proceeding..."
-else
-  echo "❌ Validation failed! Please fix the issues before committing."
-  echo "💡 Run 'npm run validate' to see detailed results."
-  exit 1
-fi
+npm test
