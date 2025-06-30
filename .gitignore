@@ -1,0 +1,11 @@
+# Node modules
+node_modules/
+
+# Environment variables
+.env*
+
+.DS_Store
+
+# Test coverage
+coverage/
+.nyc_output/
