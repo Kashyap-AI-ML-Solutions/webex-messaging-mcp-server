@@ -1,0 +1,85 @@
+name: Continuous Integration
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  test:
+    name: Test on Node.js ${{ matrix.node-version }}
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18, 20, 22]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run linting
+        run: npm run lint
+
+      - name: Run tests
+        run: npm test
+
+      - name: Run test coverage
+        run: npm run test:coverage
+
+  docker-build:
+    name: Docker Build Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          platforms: linux/amd64,linux/arm64
+          push: false
+          tags: webex-mcp-server:test
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      - name: Test Docker image
+        run: |
+          docker build -t webex-mcp-server:test .
+          echo "WEBEX_PUBLIC_WORKSPACE_API_KEY=test-token" > .env.test
+          docker run --rm --env-file .env.test webex-mcp-server:test node index.js tools
+
+  security:
+    name: Security Audit
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run security audit
+        run: npm audit --audit-level=moderate
+
+      - name: Check for vulnerabilities
+        run: npm audit --audit-level=high --dry-run

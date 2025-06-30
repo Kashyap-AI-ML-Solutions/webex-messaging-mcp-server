@@ -1,6 +1,6 @@
 {
   "name": "postman-mcp-generator-mcp",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "A simple MCP server with packaged tools",
   "main": "index.js",
   "type": "module",
