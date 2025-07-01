@@ -2,6 +2,10 @@
 
 A Model Context Protocol (MCP) server that provides AI assistants with comprehensive access to Cisco Webex messaging capabilities.
 
+<a href="https://glama.ai/mcp/servers/@Kashyap-AI-ML-Solutions/webex-messaging-mcp-server">
+  <img width="380" height="200" src="https://glama.ai/mcp/servers/@Kashyap-AI-ML-Solutions/webex-messaging-mcp-server/badge" alt="Webex Server MCP server" />
+</a>
+
 ## Overview
 
 This MCP server enables AI assistants to interact with Webex messaging through 52 different tools covering:
