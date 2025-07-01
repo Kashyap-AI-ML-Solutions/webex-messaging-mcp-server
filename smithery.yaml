@@ -1,0 +1,130 @@
+# Smithery configuration file: https://smithery.ai/docs/config#smitheryyaml
+
+startCommand:
+  type: stdio
+  configSchema:
+    # JSON Schema defining the configuration options for the Webex MCP Server
+    type: object
+    required:
+      - webexApiKey
+    properties:
+      webexApiKey:
+        type: string
+        description: Webex API Bearer token from developer.webex.com (without 'Bearer ' prefix)
+        minLength: 10
+      webexApiBaseUrl:
+        type: string
+        description: Base URL for Webex API (defaults to https://webexapis.com/v1)
+        default: "https://webexapis.com/v1"
+        pattern: "^https?://.+"
+  commandFunction:
+    # A JS function that produces the CLI command based on the given config to start the MCP on stdio
+    |-
+    (config) => ({
+      command: 'node', 
+      args: ['mcpServer.js'], 
+      env: {
+        WEBEX_PUBLIC_WORKSPACE_API_KEY: config.webexApiKey,
+        WEBEX_API_BASE_URL: config.webexApiBaseUrl || 'https://webexapis.com/v1'
+      }
+    })
+  exampleConfig:
+    webexApiKey: "your-webex-api-token-here"
+    webexApiBaseUrl: "https://webexapis.com/v1"
+
+# Metadata for Smithery marketplace
+metadata:
+  name: "Webex Messaging MCP Server"
+  description: "A comprehensive MCP server providing AI assistants with full access to Cisco Webex messaging capabilities including messages, rooms, teams, people, webhooks, and enterprise features."
+  version: "0.1.0"
+  author: "Kashyap Kambhatla"
+  license: "MIT"
+  homepage: "https://github.com/Kashyap-AI-ML-Solutions/webex-messaging-mcp-server/blob/main/README.md"
+  repository: "https://github.com/Kashyap-AI-ML-Solutions/webex-messaging-mcp-server"
+  keywords:
+    - "webex"
+    - "cisco"
+    - "messaging"
+    - "collaboration"
+    - "enterprise"
+    - "teams"
+    - "chat"
+    - "api"
+  categories:
+    - "communication"
+    - "enterprise"
+    - "productivity"
+  
+  # Tool capabilities
+  tools:
+    count: 52
+    categories:
+      - name: "Messages"
+        description: "Send, edit, delete, and retrieve messages"
+        tools: ["create_message", "edit_message", "delete_message", "get_message_details", "list_messages", "list_direct_messages"]
+      - name: "Rooms & Spaces"
+        description: "Create and manage Webex spaces"
+        tools: ["create_room", "update_room", "delete_room", "get_room_details", "list_rooms", "get_room_meeting_details"]
+      - name: "Teams"
+        description: "Team creation and membership management"
+        tools: ["create_team", "update_team", "delete_team", "get_team_details", "list_teams"]
+      - name: "Memberships"
+        description: "Manage room and team memberships"
+        tools: ["create_membership", "update_membership", "delete_membership", "get_membership_details", "list_memberships", "create_team_membership", "update_team_membership", "delete_team_membership", "get_team_membership_details", "list_team_memberships"]
+      - name: "People & Directory"
+        description: "User management and directory operations"
+        tools: ["create_person", "update_person", "delete_person", "get_person_details", "list_people", "get_my_own_details"]
+      - name: "Webhooks & Events"
+        description: "Event notifications and integrations"
+        tools: ["create_webhook", "update_webhook", "delete_webhook", "get_webhook_details", "list_webhooks", "list_events", "get_event_details"]
+      - name: "Enterprise Features"
+        description: "ECM folders, room tabs, and attachments"
+        tools: ["create_room_tab", "update_room_tab", "delete_room_tab", "get_room_tab_details", "list_room_tabs", "create_ecm_folder", "update_ecm_linked_folder", "unlink_ecm_linked_folder", "get_ecm_folder_details", "list_ecm_folder", "create_attachment_action", "get_attachment_action_details"]
+
+  # Requirements and setup
+  requirements:
+    node: ">=18.0.0"
+    dependencies:
+      - "@modelcontextprotocol/sdk"
+      - "commander"
+      - "dotenv"
+      - "express"
+  
+  # Setup instructions
+  setup:
+    steps:
+      - "Get a Webex API token from https://developer.webex.com"
+      - "Note: Webex tokens expire every 12 hours and need renewal"
+      - "Remove 'Bearer ' prefix from token when configuring"
+      - "Ensure you have appropriate Webex permissions for the operations you want to perform"
+    
+  # Usage examples
+  examples:
+    - name: "Send a message to a room"
+      description: "Send a text message to a specific Webex room"
+      tool: "create_message"
+      parameters:
+        roomId: "Y2lzY29zcGFyazovL3VzL1JPT00vYmJjZWIxYWQtNDNmMS0zYjU4LTkxNDctZjE0YmIwYzRkMTU0"
+        text: "Hello from the MCP server!"
+    
+    - name: "Create a new room"
+      description: "Create a new Webex space for collaboration"
+      tool: "create_room"
+      parameters:
+        title: "Project Discussion"
+        teamId: "optional-team-id"
+    
+    - name: "List recent messages"
+      description: "Get recent messages from a room"
+      tool: "list_messages"
+      parameters:
+        roomId: "Y2lzY29zcGFyazovL3VzL1JPT00vYmJjZWIxYWQtNDNmMS0zYjU4LTkxNDctZjE0YmIwYzRkMTU0"
+        max: 10
+
+  # Additional notes
+  notes:
+    - "This server provides comprehensive Webex messaging capabilities for AI assistants"
+    - "Supports both individual and enterprise Webex accounts"
+    - "Token renewal required every 12 hours due to Webex API limitations"
+    - "All 52 tools are production-ready with proper error handling"
+    - "Supports Docker deployment for production environments"
