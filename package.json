@@ -1,10 +1,15 @@
 {
-  "name": "postman-mcp-generator-mcp",
+  "name": "webex-messaging-mcp-server",
   "version": "0.1.0",
-  "description": "A simple MCP server with packaged tools",
+  "description": "A comprehensive MCP server providing AI assistants with full access to Cisco Webex messaging capabilities including messages, rooms, teams, people, webhooks, and enterprise features.",
   "main": "index.js",
+  "bin": {
+    "webex-mcp-server": "./mcpServer.js"
+  },
   "type": "module",
   "scripts": {
+    "start": "node mcpServer.js",
+    "start:sse": "node mcpServer.js --sse",
     "list-tools": "node index.js tools",
     "test": "node --test tests/*.test.js",
     "test:watch": "node --test --watch tests/*.test.js",
@@ -26,8 +31,28 @@
     "husky": "^9.1.7"
   },
   "engines": {
-    "node": ">=16.0.0"
+    "node": ">=18.0.0"
   },
-  "author": "Postman, Inc.",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "webex",
+    "cisco",
+    "messaging",
+    "collaboration",
+    "enterprise",
+    "teams",
+    "chat",
+    "api"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Kashyap-AI-ML-Solutions/webex-messaging-mcp-server.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Kashyap-AI-ML-Solutions/webex-messaging-mcp-server/issues"
+  },
+  "homepage": "https://github.com/Kashyap-AI-ML-Solutions/webex-messaging-mcp-server/blob/main/README.md",
+  "author": "Kashyap Kambhatla",
   "license": "MIT"
 }
