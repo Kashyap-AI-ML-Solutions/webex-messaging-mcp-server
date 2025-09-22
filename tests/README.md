@@ -68,21 +68,23 @@ Integration tests for specific Webex tool implementations with mocked API calls.
 - ✅ Error handling for API failures
 
 #### `mcp-server.test.js`
-Tests MCP server integration and tool registration capabilities.
+Tests MCP server integration and tool registration capabilities with MCP 2025-06-18 protocol.
 
 **Coverage:**
-- MCP server creation
-- Tool registration format
-- JSON schema validation
+- MCP server creation with McpServer class
+- Tool registration format (new registerTool pattern)
+- JSON schema validation for Zod compatibility
 - Parameter type checking
 - Tool categorization
+- Protocol version compliance
 
 **Key Tests:**
-- ✅ Server metadata configuration
+- ✅ Server metadata configuration (MCP 2025-06-18)
 - ✅ Tool availability for registration
-- ✅ MCP format compliance
-- ✅ JSON schema validation
+- ✅ MCP format compliance with new SDK
+- ✅ JSON schema validation (Zod-compatible)
 - ✅ Parameter naming and type validation
+- ✅ Tool registration without inputSchema in registerTool calls
 
 #### `tool-implementations.test.js`
 Detailed tests for specific tool implementations including edge cases and error scenarios.
@@ -150,6 +152,9 @@ Tests the command-line interface functionality.
 # Run all tests
 npm test
 
+# Run tests locally (same as npm test)
+npm run test:local
+
 # Run with coverage
 npm run test:coverage
 
@@ -158,6 +163,15 @@ npm run test:watch
 
 # Run custom test runner
 npm run test:runner
+
+# Validate code quality + tests
+npm run validate
+
+# Tool discovery and analysis
+npm run discover-tools
+
+# Tool discovery with JSON output
+npm run discover-tools -- --json
 ```
 
 ### Test Environment
@@ -166,6 +180,29 @@ Tests use a controlled environment with:
 - Test-specific environment variables
 - Isolated configuration state
 - Network error simulation
+- MCP 2025-06-18 protocol compliance testing
+- Zod schema validation testing
+
+### Tool Discovery Testing
+The `discover-tools.js` utility provides comprehensive tool analysis:
+
+```bash
+# Validate all 52 tools are discovered
+npm run discover-tools
+
+# Check tool categorization and manifest compliance
+npm run discover-tools -- --json | jq '.summary'
+
+# Test tool filtering
+ENABLED_TOOLS=create_message,list_rooms npm run discover-tools
+```
+
+**Discovery Features:**
+- ✅ **Tool Validation**: Checks MCP 2025-06-18 compliance
+- ✅ **Duplicate Detection**: Identifies conflicting tool names
+- ✅ **Category Analysis**: Validates tool organization
+- ✅ **Manifest Verification**: Compares against `tools-manifest.json`
+- ✅ **Environment Filtering**: Tests `ENABLED_TOOLS` functionality
 
 ### Test Data
 - **Mock API Token**: `test-token-123`
@@ -182,9 +219,10 @@ Tests use a controlled environment with:
 
 ### 🔗 Integration Tests
 - Tool discovery system
-- MCP server integration
+- MCP server integration (MCP 2025-06-18)
 - API request construction
 - Authentication flows
+- Transport mode testing (STDIO and HTTP)
 
 ### 🎯 End-to-End Tests
 - Complete workflow validation
@@ -254,7 +292,16 @@ afterEach(() => {
 
 ## Recent Improvements
 
-### 🔧 Bug Fixes and Enhancements (Latest Update)
+### � MCP Protocol Migration (Latest Update)
+- **Upgraded MCP SDK**: From 1.9.0 to 1.17.4+ with MCP 2025-06-18 protocol
+- **New Transport Support**: Added StreamableHTTP transport alongside STDIO
+- **Parameter Passing Fix**: Removed inputSchema from registerTool calls (critical SDK 1.17.4+ fix)
+- **Zod Schema Compatibility**: Ensured all 52 tools have proper type: 'object' declarations
+- **HTTP Mode Testing**: Added comprehensive HTTP transport testing
+- **Session Management**: Implemented proper mcp-session-id header handling
+- **CORS Configuration**: Added exposedHeaders for HTTP 406 error resolution
+
+### �🔧 Bug Fixes and Enhancements (Previous Update)
 - **Fixed 20+ critical template literal bugs** across API implementations
 - **Enhanced parameter validation** for membership and team APIs
 - **Improved URL encoding** for all path parameters
@@ -289,7 +336,7 @@ npm test        # Run all 118 unit tests
 ### 🚀 Pre-Commit Process
 When you commit code, the pre-commit hook automatically:
 1. **Syntax Check**: Validates JavaScript syntax using `node -c`
-2. **Unit Tests**: Runs all 118 tests across 53 test suites
+2. **Unit Tests**: Runs all 118 tests across 53 test suites via `npm run test:local`
 3. **Quality Gate**: Prevents commit if any validation fails
 
 ```bash
@@ -310,6 +357,35 @@ npm install husky --save-dev
 npx husky init
 ```
 
+## HTTP Mode Testing
+
+### Testing HTTP Transport
+The test suite includes comprehensive testing for the new HTTP transport mode:
+
+```bash
+# Test HTTP mode functionality
+npm run start:http &
+SERVER_PID=$!
+
+# Test health endpoint
+curl http://localhost:3001/health
+
+# Test MCP initialization
+curl -X POST http://localhost:3001/mcp \
+  -H "Content-Type: application/json" \
+  -H "Accept: application/json, text/event-stream" \
+  -d '{"jsonrpc": "2.0", "id": 1, "method": "initialize", "params": {"protocolVersion": "2025-06-18", "capabilities": {}, "clientInfo": {"name": "test", "version": "1.0.0"}}}'
+
+# Clean up
+kill $SERVER_PID
+```
+
+### MCP 2025-06-18 Protocol Testing
+- **Session Management**: Tests proper `mcp-session-id` header handling
+- **CORS Configuration**: Validates `exposedHeaders` configuration
+- **StreamableHTTP Transport**: Tests SSE response format
+- **Protocol Compliance**: Ensures MCP 2025-06-18 compatibility
+
 ## Continuous Integration
 
 Tests are designed to run in CI/CD environments:
@@ -318,6 +394,7 @@ Tests are designed to run in CI/CD environments:
 - Fast execution (< 15 seconds)
 - Clear failure reporting
 - Pre-commit hooks for local quality assurance
+- MCP protocol compliance validation
 
 ## Contributing
 

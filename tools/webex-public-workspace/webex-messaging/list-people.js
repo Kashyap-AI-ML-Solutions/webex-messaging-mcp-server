@@ -97,7 +97,8 @@ const apiTool = {
             type: 'integer',
             description: 'Limit the maximum number of people in the response.'
           }
-        }
+        },
+        required: []
       }
     }
   }

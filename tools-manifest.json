@@ -1,0 +1,168 @@
+{
+  "name": "webex-messaging-mcp-server",
+  "version": "0.1.0",
+  "description": "A comprehensive MCP server providing AI assistants with full access to Cisco Webex messaging capabilities",
+  "protocol": "MCP 2025-06-18",
+  "sdk_version": "1.17.4+",
+  "total_tools": 52,
+  "categories": {
+    "messages": {
+      "description": "Message creation, editing, deletion, and retrieval operations",
+      "tools": [
+        "create_message",
+        "list_messages", 
+        "get_message_details",
+        "edit_message",
+        "delete_message",
+        "list_direct_messages"
+      ],
+      "count": 6
+    },
+    "rooms": {
+      "description": "Room/space management and configuration operations",
+      "tools": [
+        "create_room",
+        "list_rooms",
+        "get_room_details", 
+        "update_room",
+        "delete_room",
+        "get_room_meeting_details"
+      ],
+      "count": 6
+    },
+    "teams": {
+      "description": "Team creation, management, and configuration operations",
+      "tools": [
+        "create_team",
+        "list_teams",
+        "get_team_details",
+        "update_team", 
+        "delete_team"
+      ],
+      "count": 5
+    },
+    "memberships": {
+      "description": "Room and team membership management operations",
+      "tools": [
+        "create_membership",
+        "list_memberships",
+        "get_membership_details",
+        "update_membership",
+        "delete_membership",
+        "create_team_membership",
+        "list_team_memberships",
+        "get_team_membership_details",
+        "update_team_membership",
+        "delete_team_membership"
+      ],
+      "count": 10
+    },
+    "people": {
+      "description": "User profile and directory management operations",
+      "tools": [
+        "get_my_own_details",
+        "list_people",
+        "get_person_details",
+        "create_person",
+        "update_person",
+        "delete_person"
+      ],
+      "count": 6
+    },
+    "webhooks": {
+      "description": "Webhook management and event notification operations",
+      "tools": [
+        "create_webhook",
+        "list_webhooks",
+        "get_webhook_details",
+        "update_webhook",
+        "delete_webhook",
+        "list_events",
+        "get_event_details"
+      ],
+      "count": 7
+    },
+    "enterprise": {
+      "description": "Enterprise features including ECM folders, room tabs, and attachments",
+      "tools": [
+        "create_room_tab",
+        "list_room_tabs",
+        "get_room_tab_details",
+        "update_room_tab",
+        "delete_room_tab",
+        "create_attachment_action",
+        "get_attachment_action_details",
+        "list_ecm_folder",
+        "get_ecm_folder_details",
+        "create_ecm_folder",
+        "update_ecm_linked_folder",
+        "unlink_ecm_linked_folder"
+      ],
+      "count": 12
+    }
+  },
+  "workspace_structure": {
+    "webex-public-workspace": {
+      "webex-messaging": {
+        "description": "Cisco Webex messaging API tools",
+        "tool_count": 52,
+        "api_base": "https://webexapis.com/v1"
+      }
+    }
+  },
+  "environment_variables": {
+    "required": [
+      "WEBEX_PUBLIC_WORKSPACE_API_KEY"
+    ],
+    "optional": [
+      "WEBEX_API_BASE_URL",
+      "WEBEX_USER_EMAIL",
+      "PORT",
+      "MCP_MODE",
+      "ENABLED_TOOLS"
+    ]
+  },
+  "transport_modes": [
+    "stdio",
+    "http"
+  ],
+  "features": {
+    "tool_filtering": true,
+    "environment_configuration": true,
+    "error_handling": true,
+    "docker_support": true,
+    "smithery_integration": true,
+    "pre_commit_hooks": true,
+    "comprehensive_testing": true
+  },
+  "testing": {
+    "total_tests": 118,
+    "test_suites": 53,
+    "coverage_areas": [
+      "tool_discovery",
+      "mcp_server_integration", 
+      "api_implementations",
+      "configuration_management",
+      "error_handling",
+      "cli_interface"
+    ]
+  },
+  "metadata": {
+    "author": "Kashyap Kambhatla",
+    "license": "MIT",
+    "repository": "https://github.com/Kashyap-AI-ML-Solutions/webex-messaging-mcp-server",
+    "documentation": "README.md",
+    "last_updated": "2025-09-22",
+    "mcp_protocol_migration": {
+      "from_sdk": "1.9.0",
+      "to_sdk": "1.17.4+",
+      "migration_date": "2025-09-22",
+      "breaking_changes": [
+        "Parameter passing pattern (removed inputSchema from registerTool)",
+        "Server class migration (Server → McpServer)",
+        "Transport migration (SSE → StreamableHTTP)",
+        "Zod schema compatibility requirements"
+      ]
+    }
+  }
+}

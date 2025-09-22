@@ -1,36 +1,34 @@
 # Smithery configuration file: https://smithery.ai/docs/config#smitheryyaml
 
-startCommand:
-  type: stdio
-  configSchema:
-    # JSON Schema defining the configuration options for the Webex MCP Server
-    type: object
-    required:
-      - webexApiKey
-    properties:
-      webexApiKey:
-        type: string
-        description: Webex API Bearer token from developer.webex.com (without 'Bearer ' prefix)
-        minLength: 10
-      webexApiBaseUrl:
-        type: string
-        description: Base URL for Webex API (defaults to https://webexapis.com/v1)
-        default: "https://webexapis.com/v1"
-        pattern: "^https?://.+"
-  commandFunction:
-    # A JS function that produces the CLI command based on the given config to start the MCP on stdio
-    |-
-    (config) => ({
-      command: 'node', 
-      args: ['mcpServer.js'], 
-      env: {
-        WEBEX_PUBLIC_WORKSPACE_API_KEY: config.webexApiKey,
-        WEBEX_API_BASE_URL: config.webexApiBaseUrl || 'https://webexapis.com/v1'
-      }
-    })
-  exampleConfig:
-    webexApiKey: "your-webex-api-token-here"
-    webexApiBaseUrl: "https://webexapis.com/v1"
+runtime: "nodejs"
+
+# Entry point for the MCP server
+main: "mcpServer.js"
+
+# Environment variable mapping for configuration
+envMapping:
+  webexApiKey: "WEBEX_PUBLIC_WORKSPACE_API_KEY"
+  webexApiBaseUrl: "WEBEX_API_BASE_URL"
+
+configSchema:
+  # JSON Schema defining the configuration options for the Webex MCP Server
+  type: object
+  required:
+    - webexApiKey
+  properties:
+    webexApiKey:
+      type: string
+      description: Webex API Bearer token from developer.webex.com (without 'Bearer ' prefix)
+      minLength: 10
+    webexApiBaseUrl:
+      type: string
+      description: Base URL for Webex API (defaults to https://webexapis.com/v1)
+      default: "https://webexapis.com/v1"
+      pattern: "^https?://.+"
+
+exampleConfig:
+  webexApiKey: "your-webex-api-token-here"
+  webexApiBaseUrl: "https://webexapis.com/v1"
 
 # Metadata for Smithery marketplace
 metadata:
@@ -127,4 +125,5 @@ metadata:
     - "Supports both individual and enterprise Webex accounts"
     - "Token renewal required every 12 hours due to Webex API limitations"
     - "All 52 tools are production-ready with proper error handling"
-    - "Supports Docker deployment for production environments"
+    - "HTTP mode with StreamableHTTP transport (MCP 2025-06-18 protocol)"
+    - "Automatic containerization and deployment via Smithery CLI"

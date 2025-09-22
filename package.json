@@ -9,29 +9,34 @@
   "type": "module",
   "scripts": {
     "start": "node mcpServer.js",
+    "start:http": "node mcpServer.js --http",
     "start:sse": "node mcpServer.js --sse",
     "list-tools": "node index.js tools",
+    "discover-tools": "node discover-tools.js",
     "test": "node --test tests/*.test.js",
+    "test:local": "npm test",
     "test:watch": "node --test --watch tests/*.test.js",
     "test:coverage": "c8 node --test tests/*.test.js",
     "test:runner": "node tests/test-runner.js",
     "lint": "echo '🔍 Checking code quality...' && node -c index.js && echo '✅ Syntax check passed'",
-    "validate": "npm run lint && npm test",
+    "validate": "npm run lint && npm run test:local",
     "prepare": "node -e \"if (!process.env.CI && !process.env.NODE_ENV) { try { require('child_process').execSync('husky', {stdio:'inherit'}); } catch(e) {} }\"",
     "pre-commit": "npm run validate"
   },
   "dependencies": {
-    "@modelcontextprotocol/sdk": "^1.9.0",
+    "@modelcontextprotocol/sdk": "^1.17.4",
     "commander": "^13.1.0",
+    "cors": "^2.8.5",
     "dotenv": "^16.4.7",
-    "express": "^5.1.0"
+    "express": "^5.1.0",
+    "zod": "^3.25.46"
   },
   "devDependencies": {
     "c8": "^10.1.2",
     "husky": "^9.1.7"
   },
   "engines": {
-    "node": ">=18.0.0"
+    "node": ">=18.20.0"
   },
   "keywords": [
     "mcp",
