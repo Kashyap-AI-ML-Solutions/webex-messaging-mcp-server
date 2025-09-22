@@ -1,3 +1,5 @@
+[![MseeP.ai Security Assessment Badge](https://mseep.net/pr/kashyap-ai-ml-solutions-webex-messaging-mcp-server-badge.png)](https://mseep.ai/app/kashyap-ai-ml-solutions-webex-messaging-mcp-server)
+
 # Webex MCP Server
 
 A Model Context Protocol (MCP) server that provides AI assistants with comprehensive access to Cisco Webex messaging capabilities.
