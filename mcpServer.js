@@ -143,7 +143,7 @@ async function createMcpServer() {
 async function run() {
   // Transport mode detection following MCP 2025-06-18 patterns
   const args = process.argv.slice(2);
-  const modeFromEnv = (process.env.MCP_MODE || process.env.MODE)?.toLowerCase();
+  const modeFromEnv = (process.env.TRANSPORT || process.env.MCP_MODE || process.env.MODE)?.toLowerCase();
   const isHTTP = args.includes('--http') || modeFromEnv === 'http';
   const isSSE = args.includes('--sse') || modeFromEnv === 'sse';
 

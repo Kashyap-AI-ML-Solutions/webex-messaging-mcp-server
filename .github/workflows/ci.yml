@@ -61,8 +61,8 @@ jobs:
           # Build the Docker image
           docker build -t webex-mcp-server:test .
           echo "WEBEX_PUBLIC_WORKSPACE_API_KEY=test-token" > .env.test
-          # Test tools listing functionality (override entrypoint to avoid starting web server)
-          docker run --rm --env-file .env.test --entrypoint="" webex-mcp-server:test node index.js tools
+          # Test tools listing functionality (override CMD to avoid starting web server)
+          docker run --rm --env-file .env.test webex-mcp-server:test node index.js tools
 
   security:
     name: Security Audit
