@@ -26,6 +26,8 @@ COPY --chown=mcp:nodejs . .
 ENV NODE_ENV=production
 # PORT can be overridden at runtime, defaults to 3001
 ENV PORT=3001
+# Set MCP mode to HTTP for Smithery deployment
+ENV MCP_MODE=http
 
 # Expose port for HTTP mode (configurable via PORT env var)
 EXPOSE $PORT
@@ -37,5 +39,5 @@ USER mcp
 HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
   CMD node -e "console.log('Health check passed')" || exit 1
 
-# Default to STDIO mode for MCP, but allow SSE mode via args
-ENTRYPOINT ["node", "mcpServer.js"]
+# Start in HTTP mode for Smithery deployment
+ENTRYPOINT ["node", "mcpServer.js", "--http"]

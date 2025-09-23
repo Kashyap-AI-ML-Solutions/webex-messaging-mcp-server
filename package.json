@@ -8,7 +8,8 @@
   },
   "type": "module",
   "scripts": {
-    "start": "node mcpServer.js",
+    "start": "node mcpServer.js --http",
+    "start:stdio": "node mcpServer.js",
     "start:http": "node mcpServer.js --http",
     "start:sse": "node mcpServer.js --sse",
     "list-tools": "node index.js tools",
