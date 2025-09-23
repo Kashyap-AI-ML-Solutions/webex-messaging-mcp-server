@@ -1,34 +1,36 @@
 # Smithery configuration file: https://smithery.ai/docs/config#smitheryyaml
 
-runtime: "nodejs"
+runtime: "container"
 
-# Entry point for the MCP server
-main: "mcpServer.js"
+# Docker build configuration
+build:
+  dockerfile: "Dockerfile"           # Path to your Dockerfile
+  dockerBuildPath: "."               # Docker build context
 
-# Environment variable mapping for configuration
-envMapping:
-  webexApiKey: "WEBEX_PUBLIC_WORKSPACE_API_KEY"
-  webexApiBaseUrl: "WEBEX_API_BASE_URL"
+# Start command configuration for HTTP mode
+startCommand:
+  type: "http"
 
-configSchema:
-  # JSON Schema defining the configuration options for the Webex MCP Server
-  type: object
-  required:
-    - webexApiKey
-  properties:
-    webexApiKey:
-      type: string
-      description: Webex API Bearer token from developer.webex.com (without 'Bearer ' prefix)
-      minLength: 10
-    webexApiBaseUrl:
-      type: string
-      description: Base URL for Webex API (defaults to https://webexapis.com/v1)
-      default: "https://webexapis.com/v1"
-      pattern: "^https?://.+"
+  # Configuration schema for the MCP server
+  configSchema:
+    type: object
+    required:
+      - webexApiKey
+    properties:
+      webexApiKey:
+        type: string
+        description: Webex API Bearer token from developer.webex.com (without 'Bearer ' prefix)
+        minLength: 10
+      webexApiBaseUrl:
+        type: string
+        description: Base URL for Webex API (defaults to https://webexapis.com/v1)
+        default: "https://webexapis.com/v1"
+        pattern: "^https?://.+"
 
-exampleConfig:
-  webexApiKey: "your-webex-api-token-here"
-  webexApiBaseUrl: "https://webexapis.com/v1"
+  # Example configuration
+  exampleConfig:
+    webexApiKey: "your-webex-api-token-here"
+    webexApiBaseUrl: "https://webexapis.com/v1"
 
 # Metadata for Smithery marketplace
 metadata:
