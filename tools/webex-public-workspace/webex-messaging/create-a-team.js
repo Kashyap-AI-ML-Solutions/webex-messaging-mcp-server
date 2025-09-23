@@ -64,7 +64,7 @@ const apiTool = {
             description: 'A description of the team.'
           }
         },
-        required: ['name', 'description']
+        required: ['name']
       }
     }
   }

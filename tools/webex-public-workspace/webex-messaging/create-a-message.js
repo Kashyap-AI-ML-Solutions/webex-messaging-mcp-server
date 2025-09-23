@@ -17,6 +17,8 @@ import { getWebexUrl, getWebexJsonHeaders } from '../../../lib/webex-config.js';
 const executeFunction = async ({ roomId, parentId, toPersonId, toPersonEmail, text, markdown, files = [], attachments = [] }) => {
 
   try {
+    // Debug: Log received parameters
+    console.error('[DEBUG] create-a-message received parameters:', { roomId, parentId, toPersonId, toPersonEmail, text, markdown, files, attachments });
     // Construct the message payload (only include defined parameters)
     const payload = {};
 

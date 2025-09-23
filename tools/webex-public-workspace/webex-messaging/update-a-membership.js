@@ -72,7 +72,7 @@ const apiTool = {
             description: 'Indicates if the room is hidden.'
           }
         },
-        required: ['membershipId', 'isModerator', 'isRoomHidden']
+        required: ['membershipId', 'isModerator']
       }
     }
   }

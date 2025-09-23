@@ -74,7 +74,7 @@ const apiTool = {
             description: 'The maximum number of memberships to return.'
           }
         },
-        required: ['roomId']
+        required: []
       }
     }
   }

@@ -15,16 +15,21 @@ import { getWebexUrl, getWebexHeaders, getWebexJsonHeaders } from '../../../lib/
 const executeFunction = async ({ title, teamId, classificationId, isLocked = false, isPublic = false, description = "", isAnnouncementOnly = false }) => {
 
   try {
-    // Construct the request body
-    const body = JSON.stringify({
-      title,
-      teamId,
-      classificationId,
-      isLocked,
-      isPublic,
-      description,
-      isAnnouncementOnly
-    });
+    // Debug: Log received parameters
+    console.error('[DEBUG] create-a-room received parameters:', { title, teamId, classificationId, isLocked, isPublic, description, isAnnouncementOnly });
+    // Construct the request body - only include defined parameters
+    const requestBody = {
+      title
+    };
+
+    if (teamId) requestBody.teamId = teamId;
+    if (classificationId) requestBody.classificationId = classificationId;
+    if (isLocked !== false) requestBody.isLocked = isLocked;
+    if (isPublic !== false) requestBody.isPublic = isPublic;
+    if (description && description !== "") requestBody.description = description;
+    if (isAnnouncementOnly !== false) requestBody.isAnnouncementOnly = isAnnouncementOnly;
+
+    const body = JSON.stringify(requestBody);
 
     // Set up headers for the request
     const headers = getWebexJsonHeaders();
@@ -39,7 +44,7 @@ const executeFunction = async ({ title, teamId, classificationId, isLocked = fal
     // Check if the response was successful
     if (!response.ok) {
       const errorData = await response.json();
-      throw new Error(errorData);
+      throw new Error(JSON.stringify(errorData));
     }
 
     // Parse and return the response data
@@ -94,7 +99,7 @@ const apiTool = {
             description: 'Whether the room is announcement only.'
           }
         },
-        required: ['title', 'teamId', 'classificationId']
+        required: ['title']
       }
     }
   }

@@ -85,7 +85,7 @@ const apiTool = {
             description: 'Indicates if the person should be a moderator.'
           }
         },
-        required: ['teamId', 'personId', 'personEmail']
+        required: ['teamId', 'personEmail']
       }
     }
   }

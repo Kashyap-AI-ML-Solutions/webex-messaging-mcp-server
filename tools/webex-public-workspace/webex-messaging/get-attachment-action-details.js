@@ -55,7 +55,7 @@ const apiTool = {
             description: 'The unique identifier for the attachment action.'
           }
         },
-        required: ['id']
+        required: ['actionId']
       }
     }
   }

@@ -93,7 +93,7 @@ const apiTool = {
             description: 'The owner of the webhook.'
           }
         },
-        required: ['name', 'targetUrl', 'resource', 'event', 'filter', 'secret', 'ownedBy']
+        required: ['name', 'resource', 'event', 'targetUrl', 'roomId']
       }
     }
   }

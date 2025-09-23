@@ -9,6 +9,7 @@ import { StreamableHTTPServerTransport } from "@modelcontextprotocol/sdk/server/
 import { isInitializeRequest } from "@modelcontextprotocol/sdk/types.js";
 import { discoverTools } from "./lib/tools.js";
 import { randomUUID } from "crypto";
+import { z } from "zod";
 
 import path from "path";
 import { fileURLToPath } from "url";
@@ -19,6 +20,48 @@ const __dirname = path.dirname(__filename);
 dotenv.config({ path: path.resolve(__dirname, ".env") });
 
 const SERVER_NAME = "webex-messaging-mcp-server";
+
+/**
+ * Convert JSON Schema properties to Zod schema format
+ * Required by MCP SDK v1.17.4 for proper parameter validation
+ */
+function convertJsonSchemaToZod(properties, required = []) {
+  if (!properties || typeof properties !== 'object') {
+    return {};
+  }
+
+  const zodSchema = {};
+
+  for (const [key, prop] of Object.entries(properties)) {
+    let zodType;
+
+    if (prop.type === 'string') {
+      zodType = z.string();
+    } else if (prop.type === 'number') {
+      zodType = z.number();
+    } else if (prop.type === 'integer') {
+      zodType = z.number().int();
+    } else if (prop.type === 'boolean') {
+      zodType = z.boolean();
+    } else if (prop.type === 'array') {
+      zodType = z.array(z.any());
+    } else if (prop.type === 'object') {
+      zodType = z.object({});
+    } else {
+      // Default to string for unknown types
+      zodType = z.string();
+    }
+
+    // Make optional if not in required array
+    if (!required.includes(key)) {
+      zodType = zodType.optional();
+    }
+
+    zodSchema[key] = zodType;
+  }
+
+  return zodSchema;
+}
 
 /**
  * Create and configure MCP server with tools
@@ -36,7 +79,7 @@ async function createMcpServer() {
 
   server.onerror = (error) => console.error("[MCP Server Error]", error);
 
-  // Discover and register all tools using new pattern
+  // Discover and register all tools
   const tools = await discoverTools();
   console.error(`[MCP Server] Registering ${tools.length} tools`);
 
@@ -53,13 +96,24 @@ async function createMcpServer() {
         definition.name,
         {
           title: definition.name.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase()),
-          description: definition.description
-          // 🚨 CRITICAL: NO inputSchema here - causes keyValidator._parse errors in v1.17.4+
+          description: definition.description,
+          // MCP SDK v1.17.4 requires inputSchema with Zod schemas for parameter validation
+          inputSchema: convertJsonSchemaToZod(definition.parameters?.properties || {}, definition.parameters?.required || [])
         },
         async (args) => {
           try {
-            // args contains the actual parameters passed by the client
-            const result = await tool.function(args);
+            // Debug logging to see what we actually receive
+            console.error(`[DEBUG] Tool ${definition.name} called with args:`, JSON.stringify(args));
+            console.error(`[DEBUG] Args type:`, typeof args);
+            console.error(`[DEBUG] Args keys:`, Object.keys(args || {}));
+
+            // Handle both function and handler patterns
+            const toolFunction = tool.function || tool.handler;
+            if (!toolFunction) {
+              throw new Error(`Tool ${definition.name} has no function or handler`);
+            }
+
+            const result = await toolFunction(args);
             return {
               content: [{
                 type: 'text',
@@ -89,7 +143,7 @@ async function createMcpServer() {
 async function run() {
   // Transport mode detection following MCP 2025-06-18 patterns
   const args = process.argv.slice(2);
-  const modeFromEnv = process.env.MCP_MODE?.toLowerCase();
+  const modeFromEnv = (process.env.MCP_MODE || process.env.MODE)?.toLowerCase();
   const isHTTP = args.includes('--http') || modeFromEnv === 'http';
   const isSSE = args.includes('--sse') || modeFromEnv === 'sse';
 

@@ -95,7 +95,7 @@ const apiTool = {
             required: ['Name', 'Url', 'Email', 'Tel']
           }
         },
-        required: ['type', 'messageId', 'inputs']
+        required: ['messageId', 'inputs']
       }
     }
   }

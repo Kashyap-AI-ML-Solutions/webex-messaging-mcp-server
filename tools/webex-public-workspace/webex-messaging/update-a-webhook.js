@@ -93,7 +93,7 @@ const apiTool = {
             description: 'The status of the webhook (e.g., active).'
           }
         },
-        required: ['webhookId', 'name', 'targetUrl', 'secret', 'status']
+        required: ['webhookId', 'name', 'event']
       }
     }
   }

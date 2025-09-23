@@ -80,7 +80,7 @@ const apiTool = {
             description: 'Whether the person should be a moderator in the room.'
           }
         },
-        required: ['roomId', 'personId', 'personEmail']
+        required: ['roomId', 'personEmail']
       }
     }
   }

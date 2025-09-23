@@ -98,7 +98,7 @@ const apiTool = {
             description: 'Limit the maximum number of people in the response.'
           }
         },
-        required: []
+        required: ['email']
       }
     }
   }
