@@ -35,7 +35,7 @@ const executeFunction = async ({ roomId, parentId, mentionedPeople, before, befo
     // Check if the response was successful
     if (!response.ok) {
       const errorData = await response.json();
-      throw new Error(errorData);
+      throw new Error(JSON.stringify(errorData));
     }
 
     // Parse and return the response data

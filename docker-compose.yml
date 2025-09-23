@@ -4,33 +4,51 @@ services:
     container_name: webex-mcp-server
     environment:
       # Webex API Configuration
-      - WEBEX_API_BASE_URL=https://webexapis.com/v1
+      - WEBEX_API_BASE_URL=${WEBEX_API_BASE_URL:-https://webexapis.com/v1}
       - WEBEX_PUBLIC_WORKSPACE_API_KEY=${WEBEX_PUBLIC_WORKSPACE_API_KEY}
       - WEBEX_USER_EMAIL=${WEBEX_USER_EMAIL}
       # Server Configuration
       - NODE_ENV=production
-      - PORT=3001
+      - PORT=${PORT:-3001}
+      - MCP_MODE=${MCP_MODE:-}
     ports:
-      # Only needed for SSE mode
-      - "3001:3001"
+      # Only needed for HTTP mode - uses PORT env var with fallback to 3001
+      - "${PORT:-3001}:${PORT:-3001}"
     # For STDIO mode (default), no ports needed
     stdin_open: true
     tty: true
     restart: unless-stopped
-    
-  # Example for SSE mode
+
+  # Example for HTTP mode using MCP_MODE
+  webex-mcp-server-http:
+    build: .
+    container_name: webex-mcp-server-http
+    environment:
+      - WEBEX_API_BASE_URL=${WEBEX_API_BASE_URL:-https://webexapis.com/v1}
+      - WEBEX_PUBLIC_WORKSPACE_API_KEY=${WEBEX_PUBLIC_WORKSPACE_API_KEY}
+      - WEBEX_USER_EMAIL=${WEBEX_USER_EMAIL}
+      - NODE_ENV=production
+      - PORT=${PORT:-3001}
+      - MCP_MODE=http
+    ports:
+      - "${PORT:-3001}:${PORT:-3001}"
+    restart: unless-stopped
+    profiles:
+      - http
+
+  # Example for SSE mode (deprecated but kept for compatibility)
   webex-mcp-server-sse:
     build: .
     container_name: webex-mcp-server-sse
     command: ["node", "mcpServer.js", "--sse"]
     environment:
-      - WEBEX_API_BASE_URL=https://webexapis.com/v1
+      - WEBEX_API_BASE_URL=${WEBEX_API_BASE_URL:-https://webexapis.com/v1}
       - WEBEX_PUBLIC_WORKSPACE_API_KEY=${WEBEX_PUBLIC_WORKSPACE_API_KEY}
       - WEBEX_USER_EMAIL=${WEBEX_USER_EMAIL}
       - NODE_ENV=production
-      - PORT=3001
+      - PORT=${PORT:-3001}
     ports:
-      - "3001:3001"
+      - "${PORT:-3001}:${PORT:-3001}"
     restart: unless-stopped
     profiles:
       - sse

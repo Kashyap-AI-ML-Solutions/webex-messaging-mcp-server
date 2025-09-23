@@ -108,7 +108,7 @@ const apiTool = {
             description: 'Indicates if the room is read-only.'
           }
         },
-        required: ['roomId']
+        required: ['roomId', 'title']
       }
     }
   }

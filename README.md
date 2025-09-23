@@ -23,7 +23,7 @@ This MCP server enables AI assistants to interact with Webex messaging through 5
 
 - ✅ **Complete Webex API Coverage**: 52 tools covering all major messaging operations
 - ✅ **Docker Support**: Production-ready containerization
-- ✅ **Dual Transport**: Both STDIO and SSE (Server-Sent Events) modes
+- ✅ **Dual Transport**: Both STDIO and HTTP (StreamableHTTP) modes
 - ✅ **Enterprise Ready**: Supports Cisco enterprise authentication
 - ✅ **Type Safe**: Full TypeScript/JavaScript implementation with proper error handling
 - ✅ **Centralized Configuration**: Easy token and endpoint management
@@ -65,9 +65,55 @@ Webex Bearer tokens are short-lived. Your current token expires in 12 hours. To 
    # List available tools
    node index.js tools
 
-   # Start MCP server
+   # Discover tools with detailed analysis
+   npm run discover-tools
+
+   # Start MCP server (STDIO mode - default)
    node mcpServer.js
+
+   # Start MCP server (HTTP mode)
+   npm run start:http
    ```
+
+## 🔍 Tool Discovery
+
+The server includes comprehensive tool discovery capabilities:
+
+### Tool Discovery Commands
+
+```bash
+# Human-readable tool analysis
+npm run discover-tools
+
+# JSON output for programmatic use
+npm run discover-tools -- --json
+
+# Filter tools by category
+ENABLED_TOOLS=create_message,list_rooms npm run discover-tools
+
+# Get help
+npm run discover-tools -- --help
+```
+
+### Tool Manifest
+
+The `tools-manifest.json` file provides:
+- **Tool Categories**: Messages, Rooms, Teams, Memberships, People, Webhooks, Enterprise
+- **52 Total Tools**: Complete Webex messaging API coverage
+- **Environment Configuration**: Required and optional variables
+- **Testing Information**: Coverage and validation details
+- **Migration History**: MCP protocol upgrade documentation
+
+### Tool Organization
+
+Tools are organized by functionality:
+- **Messages** (6 tools): Create, list, edit, delete messages
+- **Rooms** (6 tools): Room management and configuration
+- **Teams** (5 tools): Team creation and management
+- **Memberships** (10 tools): Room and team membership operations
+- **People** (6 tools): User profile and directory management
+- **Webhooks** (7 tools): Event notifications and webhook management
+- **Enterprise** (12 tools): ECM folders, room tabs, attachments
 
 ### Docker Usage
 
@@ -91,7 +137,8 @@ Webex Bearer tokens are short-lived. Your current token expires in 12 hours. To 
 | `WEBEX_PUBLIC_WORKSPACE_API_KEY` | Yes | Webex API token (without "Bearer " prefix) | - |
 | `WEBEX_API_BASE_URL` | No | Webex API base URL | `https://webexapis.com/v1` |
 | `WEBEX_USER_EMAIL` | No | Your Webex email (for reference) | - |
-| `PORT` | No | Port for SSE mode | `3001` |
+| `PORT` | No | Port for HTTP mode | `3001` |
+| `MCP_MODE` | No | Transport mode (`stdio` or `http`) | `stdio` |
 
 ### Getting a Webex API Token
 
@@ -102,36 +149,54 @@ Webex Bearer tokens are short-lived. Your current token expires in 12 hours. To 
 
 ## MCP Client Integration
 
-### Claude Desktop
+### Claude Desktop (STDIO Mode)
 
 Add to your Claude Desktop configuration:
 
 ```json
 {
   "mcpServers": {
-            "webex-messaging": {
-                "command": "docker",
-                "args": [
-                  "run",
-                  "-i",
-                  "--rm",
-                  "-e",
-                  "WEBEX_PUBLIC_WORKSPACE_API_KEY",
-                  "-e",
-                  "WEBEX_USER_EMAIL",
-                  "-e",
-                  "WEBEX_API_BASE_URL",
-                  "webex-mcp-server"
-                ],
-                "env": {
-                  "WEBEX_USER_EMAIL": "your.email@company.com",
-                  "WEBEX_API_BASE_URL": "https://webexapis.com/v1",
-                  "WEBEX_PUBLIC_WORKSPACE_API_KEY": "your_token_here"
-                }
-            },
+    "webex-messaging": {
+      "command": "docker",
+      "args": [
+        "run",
+        "-i",
+        "--rm",
+        "-e",
+        "WEBEX_PUBLIC_WORKSPACE_API_KEY",
+        "-e",
+        "WEBEX_USER_EMAIL",
+        "-e",
+        "WEBEX_API_BASE_URL",
+        "webex-mcp-server"
+      ],
+      "env": {
+        "WEBEX_USER_EMAIL": "your.email@company.com",
+        "WEBEX_API_BASE_URL": "https://webexapis.com/v1",
+        "WEBEX_PUBLIC_WORKSPACE_API_KEY": "your_token_here"
+      }
+    }
   }
 }
 ```
+
+### HTTP Mode Integration
+
+For HTTP-based MCP clients, start the server in HTTP mode:
+
+```bash
+# Start HTTP server
+npm run start:http
+
+# Server endpoints:
+# Health check: http://localhost:3001/health
+# MCP endpoint: http://localhost:3001/mcp
+```
+
+The server supports MCP 2025-06-18 protocol with StreamableHTTP transport, including:
+- Proper CORS configuration with `mcp-session-id` header exposure
+- Session management for stateful connections
+- Server-Sent Events (SSE) response format
 
 ### Other MCP Clients
 
@@ -140,9 +205,9 @@ For STDIO mode:
 docker run -i --rm --env-file .env webex-mcp-server
 ```
 
-For SSE mode:
+For HTTP mode:
 ```bash
-docker run -p 3001:3001 --rm --env-file .env webex-mcp-server --sse
+docker run -p 3001:3001 --rm --env-file .env webex-mcp-server --http
 ```
 
 ## Available Tools
@@ -207,6 +272,53 @@ docker run -p 3001:3001 --rm --env-file .env webex-mcp-server --sse
 - `update_ecm_linked_folder` - Modify ECM folders
 - `unlink_ecm_linked_folder` - Remove ECM links
 
+## Transport Modes
+
+### STDIO Mode (Default)
+The default transport mode for MCP clients like Claude Desktop:
+
+```bash
+# Start in STDIO mode
+node mcpServer.js
+# or
+npm start
+```
+
+### HTTP Mode (StreamableHTTP)
+HTTP-based transport supporting MCP 2025-06-18 protocol:
+
+```bash
+# Start in HTTP mode
+npm run start:http
+# or
+node mcpServer.js --http
+```
+
+**HTTP Mode Features:**
+- **Health Check**: `GET http://localhost:3001/health`
+- **MCP Endpoint**: `POST http://localhost:3001/mcp`
+- **Session Management**: Automatic session ID handling
+- **CORS Support**: Proper cross-origin configuration
+- **Protocol**: MCP 2025-06-18 with StreamableHTTP transport
+
+**Environment Variables:**
+- `MCP_MODE=http` - Force HTTP mode
+- `PORT=3001` - Custom port (default: 3001)
+
+### Smithery Integration
+The server is configured for automatic deployment via [Smithery](https://smithery.ai) with HTTP runtime:
+
+```yaml
+# smithery.yaml
+runtime: "nodejs"
+main: "mcpServer.js"
+envMapping:
+  webexApiKey: "WEBEX_PUBLIC_WORKSPACE_API_KEY"
+  webexApiBaseUrl: "WEBEX_API_BASE_URL"
+```
+
+Deploy with: `smithery deploy`
+
 ## Development
 
 ### Project Structure
@@ -255,6 +367,9 @@ npm test
 
 # Run with coverage
 npm run test:coverage
+
+# Run tests locally (same as npm test)
+npm run test:local
 
 # Validate code quality + tests
 npm run validate

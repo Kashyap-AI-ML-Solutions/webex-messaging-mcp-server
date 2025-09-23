@@ -24,10 +24,11 @@ COPY --chown=mcp:nodejs . .
 
 # Set environment variables
 ENV NODE_ENV=production
+# PORT can be overridden at runtime, defaults to 3001
 ENV PORT=3001
 
-# Expose port for SSE mode (optional)
-EXPOSE 3001
+# Expose port for HTTP mode (configurable via PORT env var)
+EXPOSE $PORT
 
 # Switch to non-root user
 USER mcp

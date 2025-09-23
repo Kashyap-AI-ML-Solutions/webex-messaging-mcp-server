@@ -34,7 +34,7 @@ const executeFunction = async ({ parentId, personId, personEmail }) => {
     // Check if the response was successful
     if (!response.ok) {
       const errorData = await response.json();
-      throw new Error(errorData);
+      throw new Error(JSON.stringify(errorData));
     }
 
     // Parse and return the response data
@@ -76,7 +76,7 @@ const apiTool = {
             description: 'The person email to filter messages in a 1:1 room.'
           }
         },
-        required: ['parentId', 'personId', 'personEmail']
+        required: []
       }
     }
   }
