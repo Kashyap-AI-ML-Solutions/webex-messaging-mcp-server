@@ -8,9 +8,9 @@
   },
   "type": "module",
   "scripts": {
-    "start": "node mcpServer.js --http",
+    "start": "npm run start:http",
     "start:stdio": "node mcpServer.js",
-    "start:http": "node mcpServer.js --http",
+    "start:http": "TRANSPORT=http node mcpServer.js",
     "start:sse": "node mcpServer.js --sse",
     "list-tools": "node index.js tools",
     "discover-tools": "node discover-tools.js",
