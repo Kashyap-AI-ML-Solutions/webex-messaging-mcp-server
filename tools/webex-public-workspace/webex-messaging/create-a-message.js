@@ -120,7 +120,7 @@ const apiTool = {
             description: 'An array of attachment objects.'
           }
         },
-        required: ['roomId', 'text']
+        required: ['text']
       }
     }
   }
