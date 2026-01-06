@@ -1,4 +1,4 @@
-[![MseeP.ai Security Assessment Badge](https://mseep.net/pr/kashyap-ai-ml-solutions-webex-messaging-mcp-server-badge.png)](https://mseep.ai/app/kashyap-ai-ml-solutions-webex-messaging-mcp-server)
+[![MseeP.ai Security Assessment Badge](https://mseep.net/pr/kashyap-ai-ml-solutions-webex-messaging-mcp-server-badge.png)](https://mseep.ai/app/kashyap-ai-ml-solutions-webex-messaging-mcp-server) [![smithery badge](https://smithery.ai/badge/@Kashyap-AI-ML-Solutions/webex-messaging-mcp-server)](https://smithery.ai/server/@Kashyap-AI-ML-Solutions/webex-messaging-mcp-server)
 
 # Webex MCP Server
 
