@@ -68,7 +68,7 @@ Integration tests for specific Webex tool implementations with mocked API calls.
 - ✅ Error handling for API failures
 
 #### `mcp-server.test.js`
-Tests MCP server integration and tool registration capabilities with MCP 2025-06-18 protocol.
+Tests MCP server integration and tool registration capabilities with MCP 2025-11-25 protocol.
 
 **Coverage:**
 - MCP server creation with McpServer class
@@ -79,7 +79,7 @@ Tests MCP server integration and tool registration capabilities with MCP 2025-06
 - Protocol version compliance
 
 **Key Tests:**
-- ✅ Server metadata configuration (MCP 2025-06-18)
+- ✅ Server metadata configuration (MCP 2025-11-25)
 - ✅ Tool availability for registration
 - ✅ MCP format compliance with new SDK
 - ✅ JSON schema validation (Zod-compatible)
@@ -180,7 +180,7 @@ Tests use a controlled environment with:
 - Test-specific environment variables
 - Isolated configuration state
 - Network error simulation
-- MCP 2025-06-18 protocol compliance testing
+- MCP 2025-11-25 protocol compliance testing
 - Zod schema validation testing
 
 ### Tool Discovery Testing
@@ -198,7 +198,7 @@ ENABLED_TOOLS=create_message,list_rooms npm run discover-tools
 ```
 
 **Discovery Features:**
-- ✅ **Tool Validation**: Checks MCP 2025-06-18 compliance
+- ✅ **Tool Validation**: Checks MCP 2025-11-25 compliance
 - ✅ **Duplicate Detection**: Identifies conflicting tool names
 - ✅ **Category Analysis**: Validates tool organization
 - ✅ **Manifest Verification**: Compares against `tools-manifest.json`
@@ -219,7 +219,7 @@ ENABLED_TOOLS=create_message,list_rooms npm run discover-tools
 
 ### 🔗 Integration Tests
 - Tool discovery system
-- MCP server integration (MCP 2025-06-18)
+- MCP server integration (MCP 2025-11-25)
 - API request construction
 - Authentication flows
 - Transport mode testing (STDIO and HTTP)
@@ -293,9 +293,9 @@ afterEach(() => {
 ## Recent Improvements
 
 ### � MCP Protocol Migration (Latest Update)
-- **Upgraded MCP SDK**: From 1.9.0 to 1.17.4+ with MCP 2025-06-18 protocol
+- **Upgraded MCP SDK**: From 1.9.0 to 1.25.2+ with MCP 2025-11-25 protocol
 - **New Transport Support**: Added StreamableHTTP transport alongside STDIO
-- **Parameter Passing Fix**: Removed inputSchema from registerTool calls (critical SDK 1.17.4+ fix)
+- **Parameter Passing Fix**: Removed inputSchema from registerTool calls (critical SDK 1.25.2+ fix)
 - **Zod Schema Compatibility**: Ensured all 52 tools have proper type: 'object' declarations
 - **HTTP Mode Testing**: Added comprehensive HTTP transport testing
 - **Session Management**: Implemented proper mcp-session-id header handling
@@ -374,17 +374,17 @@ curl http://localhost:3001/health
 curl -X POST http://localhost:3001/mcp \
   -H "Content-Type: application/json" \
   -H "Accept: application/json, text/event-stream" \
-  -d '{"jsonrpc": "2.0", "id": 1, "method": "initialize", "params": {"protocolVersion": "2025-06-18", "capabilities": {}, "clientInfo": {"name": "test", "version": "1.0.0"}}}'
+  -d '{"jsonrpc": "2.0", "id": 1, "method": "initialize", "params": {"protocolVersion": "2025-11-25", "capabilities": {}, "clientInfo": {"name": "test", "version": "1.0.0"}}}'
 
 # Clean up
 kill $SERVER_PID
 ```
 
-### MCP 2025-06-18 Protocol Testing
+### MCP 2025-11-25 Protocol Testing
 - **Session Management**: Tests proper `mcp-session-id` header handling
 - **CORS Configuration**: Validates `exposedHeaders` configuration
 - **StreamableHTTP Transport**: Tests SSE response format
-- **Protocol Compliance**: Ensures MCP 2025-06-18 compatibility
+- **Protocol Compliance**: Ensures MCP 2025-11-25 compatibility
 
 ## Continuous Integration
 

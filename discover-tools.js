@@ -4,7 +4,7 @@
  * Webex MCP Server Tool Discovery Utility
  * 
  * This utility provides comprehensive tool discovery and analysis capabilities
- * for the Webex Messaging MCP Server following MCP 2025-06-18 best practices.
+ * for the Webex Messaging MCP Server following MCP 2025-11-25 best practices.
  * 
  * Features:
  * - Dynamic tool discovery from tools/ directory
@@ -45,7 +45,7 @@ function loadToolsManifest() {
 }
 
 /**
- * Validate tool structure for MCP 2025-06-18 compliance
+ * Validate tool structure for MCP 2025-11-25 compliance
  */
 function validateTool(tool) {
   const issues = [];

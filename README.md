@@ -193,7 +193,7 @@ npm run start:http
 # MCP endpoint: http://localhost:3001/mcp
 ```
 
-The server supports MCP 2025-06-18 protocol with StreamableHTTP transport, including:
+The server supports MCP 2025-11-25 protocol with StreamableHTTP transport, including:
 - Proper CORS configuration with `mcp-session-id` header exposure
 - Session management for stateful connections
 - Server-Sent Events (SSE) response format
@@ -285,7 +285,7 @@ npm start
 ```
 
 ### HTTP Mode (StreamableHTTP)
-HTTP-based transport supporting MCP 2025-06-18 protocol:
+HTTP-based transport supporting MCP 2025-11-25 protocol:
 
 ```bash
 # Start in HTTP mode
@@ -299,7 +299,7 @@ node mcpServer.js --http
 - **MCP Endpoint**: `POST http://localhost:3001/mcp`
 - **Session Management**: Automatic session ID handling
 - **CORS Support**: Proper cross-origin configuration
-- **Protocol**: MCP 2025-06-18 with StreamableHTTP transport
+- **Protocol**: MCP 2025-11-25 with StreamableHTTP transport
 
 **Environment Variables:**
 - `MCP_MODE=http` - Force HTTP mode

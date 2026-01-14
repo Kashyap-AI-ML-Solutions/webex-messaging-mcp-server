@@ -25,12 +25,12 @@
     "pre-commit": "npm run validate"
   },
   "dependencies": {
-    "@modelcontextprotocol/sdk": "^1.17.4",
+    "@modelcontextprotocol/sdk": "^1.25.2",
     "commander": "^13.1.0",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^5.1.0",
-    "zod": "^3.25.46"
+    "zod": "^3.25.76"
   },
   "devDependencies": {
     "c8": "^10.1.2",

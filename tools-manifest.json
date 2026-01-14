@@ -2,8 +2,8 @@
   "name": "webex-messaging-mcp-server",
   "version": "0.1.0",
   "description": "A comprehensive MCP server providing AI assistants with full access to Cisco Webex messaging capabilities",
-  "protocol": "MCP 2025-06-18",
-  "sdk_version": "1.17.4+",
+  "protocol": "MCP 2025-11-25",
+  "sdk_version": "1.25.2+",
   "total_tools": 52,
   "categories": {
     "messages": {
@@ -155,7 +155,7 @@
     "last_updated": "2025-09-22",
     "mcp_protocol_migration": {
       "from_sdk": "1.9.0",
-      "to_sdk": "1.17.4+",
+      "to_sdk": "1.25.2+",
       "migration_date": "2025-09-22",
       "breaking_changes": [
         "Parameter passing pattern (removed inputSchema from registerTool)",
