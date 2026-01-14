@@ -23,7 +23,7 @@ const SERVER_NAME = "webex-messaging-mcp-server";
 
 /**
  * Convert JSON Schema properties to Zod schema format
- * Required by MCP SDK v1.17.4 for proper parameter validation
+ * Required by MCP SDK v1.25.2 for proper parameter validation
  */
 function convertJsonSchemaToZod(properties, required = []) {
   if (!properties || typeof properties !== 'object') {
@@ -65,7 +65,7 @@ function convertJsonSchemaToZod(properties, required = []) {
 
 /**
  * Create and configure MCP server with tools
- * Following MCP 2025-06-18 protocol patterns
+ * Following MCP 2025-11-25 protocol patterns
  */
 async function createMcpServer() {
   const server = new McpServer({
@@ -97,7 +97,7 @@ async function createMcpServer() {
         {
           title: definition.name.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase()),
           description: definition.description,
-          // MCP SDK v1.17.4 requires inputSchema with Zod schemas for parameter validation
+          // MCP SDK v1.25.2 requires inputSchema with Zod schemas for parameter validation
           inputSchema: convertJsonSchemaToZod(definition.parameters?.properties || {}, definition.parameters?.required || [])
         },
         async (args) => {
@@ -141,7 +141,7 @@ async function createMcpServer() {
 }
 
 async function run() {
-  // Transport mode detection following MCP 2025-06-18 patterns
+  // Transport mode detection following MCP 2025-11-25 patterns
   const args = process.argv.slice(2);
   const modeFromEnv = (process.env.TRANSPORT || process.env.MCP_MODE || process.env.MODE)?.toLowerCase();
   const isHTTP = args.includes('--http') || modeFromEnv === 'http';
@@ -152,7 +152,7 @@ async function run() {
 
   // Deprecation warning for SSE
   if (isSSE) {
-    console.error('WARNING: SSE mode is deprecated in MCP 2025-06-18. Use StreamableHTTP instead.');
+    console.error('WARNING: SSE mode is deprecated in MCP 2025-11-25. Use StreamableHTTP instead.');
     console.error('Use --http flag or MCP_MODE=http for HTTP mode.');
   }
 
@@ -175,7 +175,7 @@ async function run() {
       res.json({
         status: 'healthy',
         mode: 'HTTP',
-        protocol: 'MCP 2025-06-18',
+        protocol: 'MCP 2025-11-25',
         server: SERVER_NAME,
         version: '0.1.0'
       });
