@@ -58,11 +58,19 @@ jobs:
 
       - name: Test Docker image
         run: |
-          # Build the Docker image
           docker build -t webex-mcp-server:test .
           echo "WEBEX_PUBLIC_WORKSPACE_API_KEY=test-token" > .env.test
-          # Test tools listing functionality (override CMD to avoid starting web server)
+
+          # Test 1: Tools listing functionality
           docker run --rm --env-file .env.test webex-mcp-server:test node index.js tools
+
+          # Test 2: HTTP mode health check
+          docker run -d --name webex-http-test --env-file .env.test -e TRANSPORT=http -p 3001:3001 webex-mcp-server:test
+          sleep 5
+          curl -f http://localhost:3001/health || (docker logs webex-http-test && exit 1)
+          docker stop webex-http-test && docker rm webex-http-test
+
+          echo "✅ All Docker tests passed"
 
   security:
     name: Security Audit
