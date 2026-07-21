@@ -1,0 +1,11 @@
+{
+  "scene": 1,
+  "iteration": 1,
+  "judge_model": "claude-fable-5",
+  "verdict": "accept",
+  "score": 4,
+  "machine_checks": {"frozen_video": true, "duration": "8.000s", "vcodec": "h264", "audio_present": true},
+  "rationale": "All storyboard beats present: frantic typing on three keyboards, chaos crescendo with hands thrown up, face-plant slump at the end. Golden-hour open-plan office and oblivious coworkers match reference. Key chat-bubble text legible in first half (URGENT!, ASAP, FEEDBACK?, DUE YESTERDAY!).",
+  "known_flaws": "Some chat-bubble text garbles in the final seconds (FEBACK?, CRALNK?) and mid-scene bubbles briefly read as translucent soap bubbles; minor in motion, typical text-rendering artifact, not worth a $0.80 re-roll.",
+  "cost_usd": 0.80
+}

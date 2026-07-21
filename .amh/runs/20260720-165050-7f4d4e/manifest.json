@@ -1,0 +1,63 @@
+{
+  "schema_version": "1.0",
+  "run_id": "20260720-165050-7f4d4e",
+  "amh_version": "0.1.0",
+  "task": "video",
+  "brief": "subject: a sleek glowing AI assistant orb hovering over the same now-tidy desk, ",
+  "created_at": "2026-07-20T23:50:50.057338+00:00",
+  "events": [
+    {
+      "at": "2026-07-20T23:50:50.057747+00:00",
+      "kind": "estimate",
+      "breakdown": "8s x $0.1/s",
+      "worst_case_usd": 0.8,
+      "price_state": "ok",
+      "estimate_file": "/Users/kashyapkambhatla/Documents/AI Agents for Image and Video Generation/webex-messaging-mcp-server/.amh/estimates/675c3fc37746d30c.json"
+    },
+    {
+      "at": "2026-07-20T23:51:43.254230+00:00",
+      "kind": "veo_operation",
+      "operation_name": "models/veo-3.1-fast-generate-preview/operations/l1b1kpblvysn"
+    },
+    {
+      "at": "2026-07-20T23:51:43.257484+00:00",
+      "kind": "deliverable_spend",
+      "deliverable_id": "dlv_b88aa5a7",
+      "cumulative_usd": 1.6,
+      "worst_case_total_usd": 4.8
+    }
+  ],
+  "generations": [
+    {
+      "schema_version": "1.0",
+      "request_id": "c920c2e1-6d95-45a1-b55b-cc75e6c657c2",
+      "route": "gemini_api_key",
+      "provider": "google",
+      "model": "veo-3.1-fast-generate-preview",
+      "tool": null,
+      "file_path": "/Users/kashyapkambhatla/Documents/AI Agents for Image and Video Generation/webex-messaging-mcp-server/.amh/runs/20260720-165050-7f4d4e/scene_00.mp4",
+      "sha256": "9a68963febf853d713aa3387b31bcb7d06c24953549c0a33ae75921d5b79e3ca",
+      "duration_ms": 52698,
+      "cost_usd_actual": 0.8,
+      "created_at": "2026-07-20T23:51:43.238940+00:00",
+      "prompt_sent": "subject: a sleek glowing AI assistant orb hovering over the same now-tidy desk, connected by luminous threads to a fanned-out deck of translucent holographic tool cards; action: the orb pulses and the deck of tool cards fans out like a magician's card trick, cards labeled create_message, create_room, create_team, create_webhook fly forward and snap into a large holographic team-messaging workspace where chat messages post themselves, a team roster fills in, and green checkmarks cascade down; scene: the same office transformed, calm and tidy, cool ambient light, a large translucent holographic messaging workspace floating above the desk; style: futuristic product-launch CGI, iridescent blue and teal gradients, particle light trails, high-end motion graphics; camera_movement: smooth slow orbital arc around the desk revealing the holographic interface; sound_effects: soft satisfying whooshes, gentle synth pulse, a subtle ding as each checkmark lands",
+      "controls_applied": {
+        "duration_seconds": 8
+      },
+      "controls_ignored": {}
+    }
+  ],
+  "evals": [],
+  "approvals": [
+    {
+      "at": "2026-07-20T23:50:50.058270+00:00",
+      "kind": "spend_consent",
+      "detail": "--yes worst_case=$0.80"
+    }
+  ],
+  "costs": {
+    "estimated_usd": 0.8,
+    "actual_usd": 0.8,
+    "basis": "registry_price"
+  }
+}

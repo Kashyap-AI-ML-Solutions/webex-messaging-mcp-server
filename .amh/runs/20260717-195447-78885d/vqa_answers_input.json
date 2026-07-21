@@ -1,0 +1,10 @@
+{
+  "tok_subject": "no",
+  "tok_action": "yes",
+  "tok_location": "yes",
+  "tok_camera_control": "yes",
+  "tok_lighting": "yes",
+  "tok_style": "yes",
+  "no_garbled_text": "yes",
+  "no_watermark": "yes"
+}

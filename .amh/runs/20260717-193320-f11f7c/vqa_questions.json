@@ -1,0 +1,47 @@
+{
+  "source": "deterministic_parser",
+  "prompt_sha256": "2d68f831723aa51dde99de0252841e7ed9bdf4a98157856c8de8f4d3012cacd5",
+  "questions": [
+    {
+      "id": "tok_subject",
+      "question": "Is the main subject clearly sleek isometric technical architecture illustration of a central glowing hexagonal MCP server hub node connecting a luminous AI assistant orb on the left to a constellation of Webex messaging service modules on the right (chat bubble panels, team space cards, webhook signal beacons, people directory tiles)?",
+      "expected": "yes"
+    },
+    {
+      "id": "tok_action",
+      "question": "Is the subject depicted streams of light data packets flowing along curved luminous pipelines from the AI orb through the central hub outward into the messaging modules?",
+      "expected": "yes"
+    },
+    {
+      "id": "tok_location",
+      "question": "Is the setting recognizably floating above a dark navy abstract digital plane with a subtle receding grid horizon?",
+      "expected": "yes"
+    },
+    {
+      "id": "tok_camera_control",
+      "question": "Is the framing/camera consistent with 'three-quarter isometric aerial view, wide 16:9 framing, generous negative space in the upper third for a headline'?",
+      "expected": "yes"
+    },
+    {
+      "id": "tok_lighting",
+      "question": "Is the lighting consistent with 'cool teal and emerald rim light with soft cyan glows against a deep navy background, gentle volumetric haze rising from the plane'?",
+      "expected": "yes"
+    },
+    {
+      "id": "tok_style",
+      "question": "Does the overall style read as 'premium SaaS marketing hero art, clean vector-inspired 3D render, minimal and uncluttered, high polish, absolutely no words, no letters, no numbers, no logos, no watermarks'?",
+      "expected": "yes"
+    },
+    {
+      "id": "no_garbled_text",
+      "question": "Is all visible text crisp, correctly spelled, and non-garbled?",
+      "expected": "yes"
+    },
+    {
+      "id": "no_watermark",
+      "question": "Is the image free of watermarks, logos, or signatures that were not requested?",
+      "expected": "yes"
+    }
+  ],
+  "note": null
+}

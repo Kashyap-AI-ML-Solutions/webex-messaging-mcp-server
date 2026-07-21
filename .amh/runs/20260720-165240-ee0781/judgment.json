@@ -1,0 +1,11 @@
+{
+  "scene": 3,
+  "iteration": 1,
+  "judge_model": "claude-fable-5",
+  "verdict": "accept",
+  "score": 5,
+  "machine_checks": {"frozen_video": true, "mean_frame_delta": 15.3375, "duration": "8.000s", "vcodec": "h264", "audio_present": true, "transcription_similarity": 0.919},
+  "rationale": "Tagline text 52 TOOLS. ANY AGENT. ANY LLM. renders crisply and stays stable for the entire scene. Colored AI orbs cable into the single universal port as scripted. Spokesperson delivers the exact line (ASR transcript: '52 Webex tools. Any agent. Any LLM. Honestly, it feels like cheating.', similarity 0.919) ending on a wry smirk to camera. Deadpan premium-ad tone achieved.",
+  "known_flaws": "Background gains extra faint chart doodles mid-scene (acceptable as floating minimal UI elements); mouth animation briefly broad rather than deadpan mid-line.",
+  "cost_usd": 0.80
+}

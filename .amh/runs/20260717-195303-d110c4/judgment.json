@@ -1,0 +1,10 @@
+{
+  "prompt_adherence": 7,
+  "visual_quality": 9,
+  "coherence": 8,
+  "creativity": 8,
+  "verdict": "refine",
+  "feedback": "Big improvement on the human's feedback: crisp, correctly-spelled 'Webex MCP Server' headline, '52 TOOLS' badge, 'MCP' hub label, and labeled tool-category cards make the repo's purpose explicit. Typography is clean throughout with zero garbling. Defect that forces refine: the six module cards are not the six requested categories - 'Messages' appears twice (top-right and bottom-left cards) and 'Rooms' is missing entirely. For a README hero enumerating the server's tool categories, a duplicated category and a missing one is a factual error, not a cosmetic one.",
+  "prompt_patch": "Emphasize EXACTLY six unique cards, each label used exactly once: Messages, Rooms, Teams, People, Webhooks, Enterprise; give Rooms a distinct meeting-room/door icon; explicitly forbid repeating any label.",
+  "judge_model": "claude-fable-5"
+}

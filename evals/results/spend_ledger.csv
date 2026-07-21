@@ -1,0 +1,10 @@
+at,eval_id,route,model,estimated_usd,actual_usd,run_id
+2026-07-17T14:03:31.704536+00:00,-,gemini_api_key,gemini-3.1-flash-image,0.067,0.067,20260717-193320-f11f7c
+2026-07-17T14:23:15.107299+00:00,webex-hero-iter2,gemini_api_key,gemini-3.1-flash-image,0.067,0.067,20260717-195303-d110c4
+2026-07-17T14:24:59.789241+00:00,webex-hero-iter3,gemini_api_key,gemini-3.1-flash-image,0.067,0.067,20260717-195447-78885d
+2026-07-20T23:48:14.953343+00:00,ref_scene1,gemini_api_key,gemini-3.1-flash-image,0.067,0.067,20260720-164806-a8e0c2
+2026-07-20T23:48:28.628371+00:00,ref_scene2,gemini_api_key,gemini-3.1-flash-image,0.067,0.067,20260720-164821-63aec1
+2026-07-20T23:48:34.974672+00:00,ref_scene3,gemini_api_key,gemini-3.1-flash-image,0.067,0.067,20260720-164828-54ce2f
+2026-07-20T23:50:01.891026+00:00,scene1_iter1,gemini_api_key,veo-3.1-fast-generate-preview,0.8,0.8,20260720-164908-60a1a5
+2026-07-20T23:51:43.256994+00:00,scene2_iter1,gemini_api_key,veo-3.1-fast-generate-preview,0.8,0.8,20260720-165050-7f4d4e
+2026-07-20T23:53:33.686336+00:00,scene3_iter1,gemini_api_key,veo-3.1-fast-generate-preview,0.8,0.8,20260720-165240-ee0781

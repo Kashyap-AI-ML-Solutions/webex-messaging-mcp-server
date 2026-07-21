@@ -1,0 +1,32 @@
+{
+  "source": "deterministic_parser",
+  "prompt_sha256": "632084393da1d9f951a02b212a5ba3671d617800a9ab2a41f1eff0104e019e39",
+  "questions": [
+    {
+      "id": "tok_subject",
+      "question": "Is the main subject clearly a sleek glowing AI assistant orb hovering over a tidy modern desk, connected by luminous threads to a fanned-out deck of translucent holographic tool cards?",
+      "expected": "yes"
+    },
+    {
+      "id": "tok_action",
+      "question": "Is the subject depicted cards labeled create_message, create_room, create_team, create_webhook fan out like a magician's card trick toward a large holographic team-messaging workspace panel with green checkmarks?",
+      "expected": "yes"
+    },
+    {
+      "id": "tok_style",
+      "question": "Does the overall style read as 'futuristic product-launch CGI, iridescent blue and teal gradients, particle light trails, high-end motion graphics, 16:9 cinematic still'?",
+      "expected": "yes"
+    },
+    {
+      "id": "no_garbled_text",
+      "question": "Is all visible text crisp, correctly spelled, and non-garbled?",
+      "expected": "yes"
+    },
+    {
+      "id": "no_watermark",
+      "question": "Is the image free of watermarks, logos, or signatures that were not requested?",
+      "expected": "yes"
+    }
+  ],
+  "note": null
+}

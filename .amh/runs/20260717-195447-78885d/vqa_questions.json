@@ -1,0 +1,47 @@
+{
+  "source": "deterministic_parser",
+  "prompt_sha256": "867cb086d7f0041f8d8fdf7154a302961a7beeb21ccb3c70ec082994a4dcfa32",
+  "questions": [
+    {
+      "id": "tok_subject",
+      "question": "Is the main subject clearly isometric marketing hero illustration for a developer tool, with a bold clean sans-serif headline reading exactly \"Webex MCP Server\" and a small pill badge reading exactly \"52 TOOLS\" in the upper third, above a central glowing hexagonal hub labeled exactly \"MCP\" that connects a luminous AI assistant robot orb on the left to EXACTLY SIX tidy labeled service module cards fanned out on the right, six different cards with six different captions, each caption used exactly once and never repeated: card 1 a chat-bubble icon labeled \"Messages\", card 2 a meeting-room door icon labeled \"Rooms\", card 3 a three-person group icon labeled \"Teams\", card 4 a single person icon labeled \"People\", card 5 a lightning-bolt icon labeled \"Webhooks\", card 6 an office building icon labeled \"Enterprise\"?",
+      "expected": "yes"
+    },
+    {
+      "id": "tok_action",
+      "question": "Is the subject depicted luminous data packets flowing along curved glowing pipelines from the AI orb through the MCP hub outward into each of the six labeled module cards?",
+      "expected": "yes"
+    },
+    {
+      "id": "tok_location",
+      "question": "Is the setting recognizably dark navy abstract digital plane with a subtle receding grid horizon?",
+      "expected": "yes"
+    },
+    {
+      "id": "tok_camera_control",
+      "question": "Is the framing/camera consistent with 'three-quarter isometric aerial view, wide 16:9 framing, headline text centered in the upper negative space'?",
+      "expected": "yes"
+    },
+    {
+      "id": "tok_lighting",
+      "question": "Is the lighting consistent with 'cool teal and emerald rim light with soft cyan glows against a deep navy background, gentle volumetric haze'?",
+      "expected": "yes"
+    },
+    {
+      "id": "tok_style",
+      "question": "Does the overall style read as 'premium SaaS marketing hero art, clean vector-inspired 3D render, minimal and uncluttered, crisp perfectly-spelled legible typography, the ONLY words in the image are: Webex MCP Server, 52 TOOLS, MCP, Messages, Rooms, Teams, People, Webhooks, Enterprise, each module caption exactly once'?",
+      "expected": "yes"
+    },
+    {
+      "id": "no_garbled_text",
+      "question": "Is all visible text crisp, correctly spelled, and non-garbled?",
+      "expected": "yes"
+    },
+    {
+      "id": "no_watermark",
+      "question": "Is the image free of watermarks, logos, or signatures that were not requested?",
+      "expected": "yes"
+    }
+  ],
+  "note": null
+}

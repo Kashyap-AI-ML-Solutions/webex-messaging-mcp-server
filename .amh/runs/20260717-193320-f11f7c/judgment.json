@@ -1,0 +1,10 @@
+{
+  "prompt_adherence": 8,
+  "visual_quality": 9,
+  "coherence": 9,
+  "creativity": 8,
+  "verdict": "pass",
+  "feedback": "Strong first-shot hero. Composition matches the architectural brief: AI assistant orb (left) feeds twin luminous pipelines - a nice accidental echo of the server's dual STDIO/HTTP transports - into a glowing central hub with a vertical light beam, fanning out right to recognizable messaging modules (chat bubble panels, people/directory tiles, webhook beacon). Deep navy grid plane, teal/emerald rim lighting, volumetric haze, and clean upper-third negative space for a headline are all present. Deviations: hub is a rounded square, not the requested hexagon (cosmetic, does not harm the marketing purpose); lower-right module cluster is slightly denser than the rest of the frame and a few cards connect via thin traces rather than full pipelines. No text, letters, logos, or watermarks anywhere. These deviations do not justify a $0.067 re-roll that would risk losing this composition (route has no seed support).",
+  "prompt_patch": null,
+  "judge_model": "claude-fable-5"
+}

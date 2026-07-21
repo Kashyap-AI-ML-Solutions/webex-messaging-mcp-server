@@ -1,0 +1,32 @@
+{
+  "source": "deterministic_parser",
+  "prompt_sha256": "89fee224d3c3523e9be3dd972d3fee531218bc97a7d7c03b5dc28e472c132b79",
+  "questions": [
+    {
+      "id": "tok_subject",
+      "question": "Is the main subject clearly a confident wry spokesperson in a tailored navy suit standing in a minimalist infinite-white studio beside a giant glowing universal connector port?",
+      "expected": "yes"
+    },
+    {
+      "id": "tok_action",
+      "question": "Is the subject depicted glowing cables from several differently colored abstract AI orbs converging and snapping into the single universal port, bold clean floating text reading 52 TOOLS. ANY AGENT. ANY LLM.?",
+      "expected": "yes"
+    },
+    {
+      "id": "tok_style",
+      "question": "Does the overall style read as 'deadpan premium tech commercial, crisp studio lighting, 16:9 cinematic still'?",
+      "expected": "yes"
+    },
+    {
+      "id": "no_garbled_text",
+      "question": "Is all visible text crisp, correctly spelled, and non-garbled?",
+      "expected": "yes"
+    },
+    {
+      "id": "no_watermark",
+      "question": "Is the image free of watermarks, logos, or signatures that were not requested?",
+      "expected": "yes"
+    }
+  ],
+  "note": null
+}

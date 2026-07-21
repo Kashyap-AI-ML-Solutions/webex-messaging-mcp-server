@@ -1,0 +1,11 @@
+{
+  "scene": 2,
+  "iteration": 1,
+  "judge_model": "claude-fable-5",
+  "verdict": "accept",
+  "score": 4,
+  "machine_checks": {"frozen_video": true, "mean_frame_delta": 9.7047, "duration": "8.000s", "vcodec": "h264", "audio_present": true},
+  "rationale": "All beats delivered: tool cards fan out with create_message / create_room / create_team / create_webhook fully legible, cards snap into the TEAM WORKSPACE panel, roster fills, green checkmarks cascade at the end. Orbital camera arc and iridescent CGI style match the reference frame closely.",
+  "known_flaws": "AI orb flattens into an ellipsoid during the final ~1.5s (frames n>150) while focus is on the checkmark cascade; small panel text garbles as it animates. Judged minor relative to a $0.80 re-roll with likely similar artifacts.",
+  "cost_usd": 0.80
+}

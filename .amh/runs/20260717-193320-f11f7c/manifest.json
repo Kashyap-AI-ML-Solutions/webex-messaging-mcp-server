@@ -1,0 +1,85 @@
+{
+  "schema_version": "1.0",
+  "run_id": "20260717-193320-f11f7c",
+  "amh_version": "0.1.0",
+  "task": "image",
+  "brief": "Marketing hero image for the webex-messaging-mcp-server README: visualize the MCP server as the architectural bridge between AI assistants and Cisco Webex messaging services",
+  "created_at": "2026-07-17T14:03:20.947962+00:00",
+  "events": [
+    {
+      "at": "2026-07-17T14:03:20.948365+00:00",
+      "kind": "estimate",
+      "unit_usd": 0.067,
+      "candidates": 1,
+      "max_retries": 0,
+      "worst_case_attempts": 1,
+      "worst_case_usd": 0.067,
+      "breakdown": "1 candidate(s) x 1 attempt(s) x $0.067",
+      "price_state": "ok"
+    }
+  ],
+  "generations": [
+    {
+      "schema_version": "1.0",
+      "request_id": "d35f4195-8dff-48c8-859e-7e71ab87af7a",
+      "route": "gemini_api_key",
+      "provider": "google",
+      "model": "gemini-3.1-flash-image",
+      "tool": null,
+      "file_path": "/Users/kashyapkambhatla/Documents/AI Agents for Image and Video Generation/webex-messaging-mcp-server/.amh/runs/20260717-193320-f11f7c/img_00.png",
+      "sha256": "2dc47c1304a52c4e834f1d5350bac068a3473c47a7b067c9d8ad00a59b90907e",
+      "duration_ms": 9695,
+      "cost_usd_actual": 0.067,
+      "created_at": "2026-07-17T14:03:31.700219+00:00",
+      "prompt_sent": "subject: sleek isometric technical architecture illustration of a central glowing hexagonal MCP server hub node connecting a luminous AI assistant orb on the left to a constellation of Webex messaging service modules on the right (chat bubble panels, team space cards, webhook signal beacons, people directory tiles); action: streams of light data packets flowing along curved luminous pipelines from the AI orb through the central hub outward into the messaging modules; location: floating above a dark navy abstract digital plane with a subtle receding grid horizon; camera_control: three-quarter isometric aerial view, wide 16:9 framing, generous negative space in the upper third for a headline; lighting: cool teal and emerald rim light with soft cyan glows against a deep navy background, gentle volumetric haze rising from the plane; style: premium SaaS marketing hero art, clean vector-inspired 3D render, minimal and uncluttered, high polish, absolutely no words, no letters, no numbers, no logos, no watermarks",
+      "controls_applied": {},
+      "controls_ignored": {}
+    }
+  ],
+  "evals": [
+    {
+      "tier": 1,
+      "name": "alignment_score",
+      "evaluator_model": "google/siglip-base-patch16-224",
+      "score": 0.8794,
+      "calibrated": false,
+      "usage": "ranking/filtering signal only until Phase 2 calibration (plan \u00a75.1)",
+      "image": ".amh/runs/20260717-193320-f11f7c/img_00.png",
+      "image_sha256": "2dc47c1304a52c4e834f1d5350bac068a3473c47a7b067c9d8ad00a59b90907e"
+    },
+    {
+      "tier": 2,
+      "name": "constraint_check",
+      "score": 0.875,
+      "passed": true,
+      "answered": 8,
+      "total": 8,
+      "recorded_at": "2026-07-17T14:05:15.654834+00:00"
+    },
+    {
+      "prompt_adherence": 8,
+      "visual_quality": 9,
+      "coherence": 9,
+      "creativity": 8,
+      "verdict": "pass",
+      "feedback": "Strong first-shot hero. Composition matches the architectural brief: AI assistant orb (left) feeds twin luminous pipelines - a nice accidental echo of the server's dual STDIO/HTTP transports - into a glowing central hub with a vertical light beam, fanning out right to recognizable messaging modules (chat bubble panels, people/directory tiles, webhook beacon). Deep navy grid plane, teal/emerald rim lighting, volumetric haze, and clean upper-third negative space for a headline are all present. Deviations: hub is a rounded square, not the requested hexagon (cosmetic, does not harm the marketing purpose); lower-right module cluster is slightly denser than the rest of the frame and a few cards connect via thin traces rather than full pipelines. No text, letters, logos, or watermarks anywhere. These deviations do not justify a $0.067 re-roll that would risk losing this composition (route has no seed support).",
+      "prompt_patch": null,
+      "judge_model": "claude-fable-5",
+      "tier": 3,
+      "rubric_version": "1.0",
+      "judge_mode": "single-judge (self-preference possible)"
+    }
+  ],
+  "approvals": [
+    {
+      "at": "2026-07-17T14:03:20.948865+00:00",
+      "kind": "spend_consent",
+      "detail": "--yes worst_case=$0.067"
+    }
+  ],
+  "costs": {
+    "estimated_usd": 0.067,
+    "actual_usd": 0.067,
+    "basis": "registry_price"
+  }
+}
