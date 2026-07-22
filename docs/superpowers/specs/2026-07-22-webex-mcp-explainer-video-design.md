@@ -13,9 +13,26 @@ The primary audience is prospective customers and hands-on users evaluating AI-a
 ## Format
 
 - 16:9 landscape, 1920×1080 delivery target.
-- Short-ad pacing: approximately 15 seconds. The media-video harness generates two eight-second source scenes; the final editorial cut targets 15 seconds, while a 16-second source/QC master may be retained for auditability.
+- Short-ad pacing: approximately 15 seconds. The `agentic-media:media-video` skill generates two eight-second source scenes; the final editorial cut targets 15 seconds, while a 16-second source/QC master may be retained for auditability.
 - Two generated scenes with one continuous visual idea: presenter → full-screen infographic → presenter.
 - Maximum of six evaluated generation iterations per scene. Refinement stops as soon as a candidate passes all required checks; six is a ceiling, not a target.
+
+## Governing Skill and Mandatory Workflow
+
+This production must be executed with the `agentic-media:media-video` skill. Its workflow governs generation, evaluation, budget enforcement, refinement, and delivery. The render may not substitute an ad hoc video-generation process.
+
+The required skill stages are:
+
+1. **Host handshake and route check** — write `.amh/host_capabilities.json` for the Codex host and run `amh doctor --task video`. Video generation is BYO-key; if the doctor reports that the route is unavailable, stop and surface its setup guide.
+2. **Repository-grounded storyboard and prompt enhancement** — create one prompt per scene in the exact token shape `subject: ...; action: ...; scene: ...; style: ...; camera_angle: ...; camera_movement: ...; sound_effects: ...`. Ground each scene in four to eight real repository names or terms. Dialogue may be placed in at most one scene. Run `amh eval prompt --task video` on every prompt and fix all errors before any paid call.
+3. **Mandatory reference frames** — use the companion `agentic-media:media-image` loop to generate one reference frame per scene. Inspect every reference before video spend for presenter identity, hand anatomy, studio geometry, infographic physics, watermarks, and garbled text. A rejected reference is fixed before continuing.
+4. **Deliverable budget, estimate, and consent** — create one deliverable estimate for two scenes and six maximum iterations per scene, then perform the required per-scene estimate before every generation. Use the deliverable ID and explicit consent on every paid call. Never bypass an exhausted or blocked budget.
+5. **Per-scene machine checks and VQA** — run `amh eval video` for duration, codec, audio, real motion, and transcript matching where dialogue is present. Open the generated `vqa_questions.json`, watch the scene, answer every question honestly, and record the answers with `amh eval vqa-record`.
+6. **Judge and refinement loop** — evaluate prompt adherence, visual quality, coherence, and creativity. Use a hash-matched separated-context judge where supported; otherwise record an honest self-judge. Apply specific prompt corrections and regenerate only when the verdict is `refine`, stopping after a pass or the six-iteration ceiling.
+7. **Stitch and cross-scene verification** — stitch the accepted source scenes with `amh stitch`, then run the final motion, format, duration, audio, and declared-cut checks. The 15-second editorial derivative must receive an additional final check after typography, voice, sound, and timing are composited.
+8. **Audited delivery and human gate** — report enhanced prompts, reference review, per-scene scores, cross-scene results, rejected attempts, and ledger cost. Because the worst-case budget exceeds $2, present the completed candidate for explicit human approval and record that verdict before declaring the render final.
+
+No video-generation spend is authorized by this specification alone. The skill’s recorded estimate and consent gate remains mandatory.
 
 ## Business-Use-Case Analysis
 
