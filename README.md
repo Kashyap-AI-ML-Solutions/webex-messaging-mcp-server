@@ -8,6 +8,16 @@ A Model Context Protocol (MCP) server that provides AI assistants with comprehen
   <img width="380" height="200" src="https://glama.ai/mcp/servers/@Kashyap-AI-ML-Solutions/webex-messaging-mcp-server/badge" alt="Webex Server MCP server" />
 </a>
 
+## From business intent to Webex action
+
+AI agents can use this server as a collaboration action layer: translate a business goal into a sequence of Webex operations, choose the relevant capabilities, and carry the workflow through to completion. That can mean notifying customers, assembling incident-response rooms, maintaining customer teams and spaces, governing people and memberships, reacting to Webex events, or connecting enterprise content and approval interactions.
+
+Because the server exposes messages, rooms, teams, memberships, people, webhooks, events, tabs, attachment actions, and ECM folders as composable MCP tools, agents can build workflows around the business need instead of being limited to one hard-coded automation.
+
+<p align="center">
+  <img src="assets/webex-mcp-business-outcomes.svg" width="100%" alt="Animated diagram showing an AI agent using the Webex MCP Server to activate customer notifications, incident response rooms, customer collaboration, access governance, event automation, and knowledge and approval workflows." />
+</p>
+
 ## Overview
 
 This MCP server enables AI assistants to interact with Webex messaging through 52 different tools covering:

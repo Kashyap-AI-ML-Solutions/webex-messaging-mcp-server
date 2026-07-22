@@ -1,0 +1,16 @@
+{
+  "tok_subject": "yes",
+  "tok_action": "yes",
+  "tok_location": "yes",
+  "tok_camera_control": "yes",
+  "tok_lighting": "yes",
+  "tok_style": "yes",
+  "no_garbled_text": "yes",
+  "no_watermark": "yes",
+  "business_outcomes_complete": "yes",
+  "capability_mapping_correct": "yes",
+  "no_tool_count": "yes",
+  "no_overflow": "yes",
+  "readme_legibility": "yes",
+  "reduced_motion": "yes"
+}
