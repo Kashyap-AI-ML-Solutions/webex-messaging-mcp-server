@@ -77,13 +77,17 @@ fi
 print_status "Updating package.json version to $VERSION"
 npm version $VERSION --no-git-tag-version
 
+# Keep runtime and marketplace metadata aligned with package.json
+print_status "Synchronizing release metadata to $VERSION"
+node scripts/sync-version.js "$VERSION"
+
 # Run tests
 print_status "Running tests..."
 npm run validate
 
 # Commit version bump
 print_status "Committing version bump"
-git add package.json package-lock.json
+git add package.json package-lock.json mcpServer.js smithery.yaml tools-manifest.json
 git commit -m "chore: bump version to $VERSION"
 
 # Create and push tag

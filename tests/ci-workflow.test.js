@@ -21,14 +21,21 @@ test("registers QEMU before Buildx for the multi-platform Docker build", () => {
 });
 
 test("installs JavaScript dependencies on the native build platform", () => {
-  assert.match(
-    dockerfile,
-    /^FROM --platform=\$BUILDPLATFORM node:[^\s]+ AS builder$/m,
+  const builderStage = dockerfile.match(
+    /^FROM --platform=\$BUILDPLATFORM node:[^\s]+ AS builder$(?<body>[\s\S]*?)(?=^FROM )/m,
+  );
+  const productionStage = dockerfile.match(
+    /^FROM node:[^\s]+ AS production$(?<body>[\s\S]*)/m,
+  );
+
+  assert.ok(
+    builderStage,
     "the npm install stage should not run Node under target-platform emulation",
   );
-  assert.match(
-    dockerfile,
-    /^FROM node:[^\s]+ AS production$/m,
+  assert.ok(
+    productionStage,
     "the production stage should still use the requested target platform",
   );
+  assert.match(builderStage.groups.body, /\bnpm ci\b/);
+  assert.doesNotMatch(productionStage.groups.body, /\bnpm ci\b/);
 });
