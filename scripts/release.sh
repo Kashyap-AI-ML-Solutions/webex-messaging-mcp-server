@@ -2,7 +2,7 @@
 
 # Release script for Webex MCP Server
 # Usage: ./scripts/release.sh [version]
-# Example: ./scripts/release.sh 0.1.0
+# Example: ./scripts/release.sh 0.2.1
 
 set -e
 
@@ -34,7 +34,7 @@ print_error() {
 if [ $# -eq 0 ]; then
     print_error "Version number is required"
     echo "Usage: $0 <version>"
-    echo "Example: $0 0.1.0"
+    echo "Example: $0 0.2.1"
     exit 1
 fi
 
@@ -43,7 +43,7 @@ TAG="v$VERSION"
 
 # Validate version format (basic semver check)
 if ! [[ $VERSION =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
-    print_error "Invalid version format. Use semantic versioning (e.g., 0.1.0)"
+    print_error "Invalid version format. Use semantic versioning (e.g., 0.2.1)"
     exit 1
 fi
 
@@ -77,13 +77,17 @@ fi
 print_status "Updating package.json version to $VERSION"
 npm version $VERSION --no-git-tag-version
 
+# Keep runtime and marketplace metadata aligned with package.json
+print_status "Synchronizing release metadata to $VERSION"
+node scripts/sync-version.js "$VERSION"
+
 # Run tests
 print_status "Running tests..."
 npm run validate
 
 # Commit version bump
 print_status "Committing version bump"
-git add package.json package-lock.json
+git add package.json package-lock.json mcpServer.js smithery.yaml tools-manifest.json
 git commit -m "chore: bump version to $VERSION"
 
 # Create and push tag
