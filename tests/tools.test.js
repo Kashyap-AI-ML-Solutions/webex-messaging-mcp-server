@@ -33,6 +33,8 @@ describe('Tools Discovery Module', () => {
         assert.ok(tool.definition.function.name, 'Tool should have a name');
         assert.ok(tool.definition.function.description, 'Tool should have a description');
         assert.ok(tool.definition.function.parameters, 'Tool should have parameters');
+        assert.ok(tool.annotations, 'Tool should have MCP annotations');
+        assert.strictEqual(tool.annotations.openWorldHint, true);
         assert.strictEqual(tool.definition.type, 'function', 'Tool type should be function');
       });
     });
