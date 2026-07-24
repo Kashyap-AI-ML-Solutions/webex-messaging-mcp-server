@@ -3,7 +3,7 @@ import { getWebexUrl, getWebexHeaders, getWebexJsonHeaders } from '../../../lib/
  * Function to list direct messages in a 1:1 room using the Webex Messaging API.
  *
  * @param {Object} args - Arguments for the message listing.
- * @param {string} args.parentId - The parent ID to filter messages.
+ * @param {string} [args.parentId] - The optional parent ID to filter messages.
  * @param {string} args.personId - The person ID to filter messages in a 1:1 room.
  * @param {string} args.personEmail - The person email to filter messages in a 1:1 room.
  * @returns {Promise<Object>} - The result of the message listing.
@@ -13,7 +13,9 @@ const executeFunction = async ({ parentId, personId, personEmail }) => {
   try {
     // Construct the URL with query parameters
     const url = new URL(getWebexUrl('/messages/direct'));
-    url.searchParams.append('parentId', parentId);
+    if (parentId) {
+      url.searchParams.append('parentId', parentId);
+    }
 
     // Add either personId OR personEmail, not both
     if (personId) {

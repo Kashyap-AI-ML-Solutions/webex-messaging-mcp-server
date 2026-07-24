@@ -1,6 +1,6 @@
 # Release Guide for Webex MCP Server
 
-This guide walks you through creating your first v0.1.0 release and setting up automated Docker Hub publishing.
+This guide walks you through creating the v0.2.0 release and using the automated Docker Hub and GitHub Release publishing workflow.
 
 ## 🚀 Quick Start
 
@@ -39,7 +39,7 @@ git checkout main
 git pull origin main
 
 # Run the release script
-./scripts/release.sh 0.1.0
+./scripts/release.sh 0.2.0
 ```
 
 ### 4. Create Release (Option B: Manual)
@@ -50,37 +50,28 @@ If you prefer manual control:
 # Ensure clean working directory
 git status
 
-# Update version (already done - package.json shows 0.1.0)
+# Update version (already done - package.json shows 0.2.0)
 # Commit any final changes
 git add .
-git commit -m "chore: prepare for v0.1.0 release"
+git commit -m "chore: prepare for v0.2.0 release"
 
 # Create and push tag
-git tag v0.1.0
+git tag v0.2.0
 git push origin main
-git push origin v0.1.0
+git push origin v0.2.0
 ```
 
 ## 📋 What Happens During Release
 
-### GitHub Actions Workflow
+When a semantic-version tag is pushed, GitHub Actions:
 
-When you push a tag (e.g., `v0.1.0`), the CD workflow automatically:
+1. Runs linting, tests, and coverage.
+2. Builds and publishes the AMD64 and ARM64 Docker image.
+3. Creates a non-draft, non-prerelease GitHub Release with generated notes.
 
-1. **🧪 Runs Tests**
-   - Executes all 118 unit tests
-   - Runs linting and code quality checks
-   - Generates test coverage report
-
-2. **🐳 Builds Docker Image**
-   - Multi-platform build (AMD64 + ARM64)
-   - Uses Docker Buildx for cross-platform support
-   - Optimized multi-stage build from Dockerfile
-
-3. **📦 Publishes to Docker Hub**
-   - Tags: `latest`, `0.1.0`, `v0.1.0`
-   - Pushes to `YOUR_USERNAME/webex-mcp-server`
-   - Generates build summary
+The GitHub Release job runs only after Docker publishing succeeds. Rerunning
+the workflow is safe because the job checks whether the release already
+exists before creating it.
 
 ### Expected Timeline
 
@@ -117,14 +108,14 @@ Once published, test your Docker image:
 
 ```bash
 # Pull the image
-docker pull YOUR_USERNAME/webex-mcp-server:0.1.0
+docker pull YOUR_USERNAME/webex-mcp-server:0.2.0
 
 # Test with your environment
-docker run -i --rm --env-file .env YOUR_USERNAME/webex-mcp-server:0.1.0
+docker run -i --rm --env-file .env YOUR_USERNAME/webex-mcp-server:0.2.0
 
 # Test tool listing
 echo "WEBEX_PUBLIC_WORKSPACE_API_KEY=your-token" > .env.test
-docker run --rm --env-file .env.test YOUR_USERNAME/webex-mcp-server:0.1.0 node index.js tools
+docker run --rm --env-file .env.test YOUR_USERNAME/webex-mcp-server:0.2.0 node index.js tools
 ```
 
 ## 🔧 Troubleshooting
@@ -150,8 +141,8 @@ docker run --rm --env-file .env.test YOUR_USERNAME/webex-mcp-server:0.1.0 node i
 4. **Tag Already Exists**
    ```bash
    # Delete tag if needed
-   git tag -d v0.1.0
-   git push origin :refs/tags/v0.1.0
+   git tag -d v0.2.0
+   git push origin :refs/tags/v0.2.0
    ```
 
 ### Debug Steps
@@ -163,9 +154,9 @@ docker run --rm --env-file .env.test YOUR_USERNAME/webex-mcp-server:0.1.0 node i
 
 ## 📈 Next Steps
 
-After successful v0.1.0 release:
+After successful v0.2.0 release:
 
-1. **Create release notes** on GitHub
+1. **Review generated release notes** on GitHub
 2. **Update documentation** with new image tags
 3. **Plan next version** (v0.1.1, v0.2.0, etc.)
 4. **Monitor usage** on Docker Hub
@@ -176,10 +167,10 @@ For subsequent releases:
 
 ```bash
 # For patch releases (bug fixes)
-./scripts/release.sh 0.1.1
+./scripts/release.sh 0.2.1
 
 # For minor releases (new features)
-./scripts/release.sh 0.2.0
+./scripts/release.sh 0.3.0
 
 # For major releases (breaking changes)
 ./scripts/release.sh 1.0.0
