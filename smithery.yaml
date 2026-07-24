@@ -36,7 +36,7 @@ startCommand:
 metadata:
   name: "Webex Messaging MCP Server"
   description: "A comprehensive MCP server providing AI assistants with full access to Cisco Webex messaging capabilities including messages, rooms, teams, people, webhooks, and enterprise features."
-  version: "0.1.0"
+  version: "0.2.1"
   author: "Kashyap Kambhatla"
   license: "MIT"
   homepage: "https://github.com/Kashyap-AI-ML-Solutions/webex-messaging-mcp-server/blob/main/README.md"
