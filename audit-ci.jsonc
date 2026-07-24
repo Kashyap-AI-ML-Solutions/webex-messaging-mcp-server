@@ -1,0 +1,15 @@
+{
+  "$schema": "https://github.com/IBM/audit-ci/raw/main/docs/schema.json",
+  "moderate": true,
+  "package-manager": "npm",
+  "report-type": "summary",
+  "allowlist": [
+    {
+      "GHSA-frvp-7c67-39w9|@modelcontextprotocol/sdk>@hono/node-server": {
+        "active": true,
+        "notes": "The MCP SDK v1.x pins the Node 18-compatible Hono adapter. This server does not import Hono or its vulnerable serve-static middleware; remove this exception when the SDK adopts @hono/node-server >=2.0.5.",
+        "expiry": "31 October 2026"
+      }
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "prompt_adherence": 9,
+  "visual_quality": 9,
+  "coherence": 9,
+  "creativity": 8,
+  "verdict": "pass",
+  "feedback": "The presenter reference has a stable non-identifiable face, natural studio lighting, coherent wardrobe, a clear right-hand pointing gesture with correct visible anatomy, and a clean cyan portal that leaves room for the transition. There is no readable generated text, fake UI, watermark, or visible logo.",
+  "prompt_patch": null,
+  "judge_model": "GPT-5 (self-judge)",
+  "judge_context": "self"
+}

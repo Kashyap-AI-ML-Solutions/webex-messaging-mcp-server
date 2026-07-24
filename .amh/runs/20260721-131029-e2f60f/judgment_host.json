@@ -1,0 +1,10 @@
+{
+  "prompt_adherence": 9,
+  "visual_quality": 9,
+  "coherence": 9,
+  "creativity": 8,
+  "verdict": "pass",
+  "feedback": "The refined SVG presents a clear AI-agent-to-MCP-to-business-outcomes story, covers six repository-supported use cases without relying on a tool count, remains clean at 800x450, and uses restrained sequential animation with a complete reduced-motion state. The capability-orbit metaphor is distinctive while staying legible and enterprise-appropriate.",
+  "prompt_patch": null,
+  "judge_model": "GPT-5 (single self-judge)"
+}

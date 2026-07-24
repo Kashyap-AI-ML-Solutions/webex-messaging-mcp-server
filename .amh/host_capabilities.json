@@ -1,0 +1,9 @@
+{
+  "schema_version": "1.0",
+  "host": "codex",
+  "host_version": "unknown",
+  "native_tools": [
+    "ImageGen"
+  ],
+  "written_at": "2026-07-22T19:51:10Z"
+}

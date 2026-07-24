@@ -1,0 +1,11 @@
+{
+  "prompt_adherence": 9,
+  "visual_quality": 9,
+  "coherence": 9,
+  "creativity": 8,
+  "verdict": "pass",
+  "feedback": "The corrected infographic reference has one stable central hub, exactly six distinct outcome nodes, coherent connectors, clean repository-aligned icons, generous safe margins, and a color/light language that matches the presenter portal. It contains no generated words, logos, fake UI, people, watermarks, or topology defects. The uncalibrated Tier-1 score is anomalously low, but direct full-resolution inspection and the deterministic VQA constraints show strong prompt adherence.",
+  "prompt_patch": null,
+  "judge_model": "GPT-5 (self-judge)",
+  "judge_context": "self"
+}

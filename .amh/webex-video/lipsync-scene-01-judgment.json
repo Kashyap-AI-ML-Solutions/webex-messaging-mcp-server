@@ -1,0 +1,16 @@
+{
+  "prompt_adherence": 6,
+  "visual_quality": 8,
+  "coherence": 8,
+  "creativity": 7,
+  "verdict": "refine",
+  "feedback": "The described presenter, wardrobe, studio, eye-level composition, text-free six-node portal, lighting, and polished enterprise-film look are present. No captions, labels, watermark, letters, or numbers are visible. Identity, face, clothing, and background remain stable; hands and teeth are generally natural, though the portal's heterogeneous outer icons morph into repeated person glyphs. Dense 24 fps inspection shows a clean closed mouth only on the first frame, followed by obvious jaw/lip opening around 0.04 seconds, violating the required closed-mouth hold through 0.3 seconds. Thereafter the mouth articulates continuously with varied plausible shapes and no obvious frozen, doubled, or deformed mouth. However, articulation remains visible while portal activation and the push begin around 6.5-6.8 seconds, so speech and camera/portal action are not cleanly separated, and the mouth does not demonstrably close and hold at exactly 6.8 seconds. The final portal occupies only the right portion of the frame rather than filling it. The stated transcript similarity of 1.0 supports exact word sequence, but I did not audition the audio with the available visual tools; it does not independently prove frame-accurate phoneme synchronization.",
+  "prompt_patch": "Preserve the accepted presenter identity, wardrobe, studio, stable face, natural articulation, text-free styling, and six-node portal. Enforce a visibly motionless closed mouth for the first 0.30 seconds, with the first jaw or lip movement occurring only after 0.30 seconds. Keep the camera and portal completely static and inactive throughout every spoken phoneme. Finish the exact sentence early enough that the lips are fully closed and held for at least three consecutive frames before any cyan activation or camera movement begins. Start the portal activation and smooth push only after that confirmed closed-mouth hold; keep all six semantic icon designs stable rather than morphing into repeated person symbols, and continue the push until the cyan portal covers 100 percent of the final frame. Keep both gestures restrained, with the second gesture beginning specifically on 'Webex spaces.'",
+  "judge_model": "gpt-5",
+  "judge_context": "separated-context",
+  "separation": {
+    "mechanism": "subagent",
+    "asset_sha256": "4270c4ea9be08f634f14694445096fe21bfd0a097ede5d3216c376bba2bf78ad",
+    "prompt_sha256": "d2d8750eeb3f93a1f68a63f4c1a99655d71afdbe0bbb5d1289afcc1307586ffd"
+  }
+}

@@ -1,0 +1,106 @@
+{
+  "schema_version": "1.0",
+  "run_id": "20260722-130135-3a15d8",
+  "amh_version": "0.2.0",
+  "task": "video",
+  "brief": "subject: A non-identifiable white American male technology presenter in his earl",
+  "created_at": "2026-07-22T20:01:35.198910+00:00",
+  "events": [
+    {
+      "at": "2026-07-22T20:01:35.199477+00:00",
+      "kind": "estimate",
+      "breakdown": "8s x $0.1/s",
+      "worst_case_usd": 0.8,
+      "price_state": "ok",
+      "estimate_file": "/Users/kashyapkambhatla/Documents/AI Agents for Image and Video Generation/webex-messaging-mcp-server/.amh/estimates/531f7dba3bfd9b20.json"
+    },
+    {
+      "at": "2026-07-22T20:01:35.200161+00:00",
+      "kind": "prompt_lint",
+      "task": "video",
+      "passed": true,
+      "findings": [
+        {
+          "level": "warn",
+          "code": "W_RECOMMENDED",
+          "detail": "consider a 'dialogue:' token \u2014 each filled token becomes a quality check"
+        }
+      ]
+    },
+    {
+      "at": "2026-07-22T20:01:37.753930+00:00",
+      "kind": "veo_operation_submitted",
+      "operation_name": "models/veo-3.1-fast-generate-preview/operations/xzyh1b6m1csd"
+    },
+    {
+      "at": "2026-07-22T20:02:19.081957+00:00",
+      "kind": "veo_operation",
+      "operation_name": "models/veo-3.1-fast-generate-preview/operations/xzyh1b6m1csd"
+    },
+    {
+      "at": "2026-07-22T20:02:19.086356+00:00",
+      "kind": "deliverable_spend",
+      "deliverable_id": "dlv_7f164ba7",
+      "cumulative_usd": 0.8,
+      "worst_case_total_usd": 4.8
+    }
+  ],
+  "generations": [
+    {
+      "schema_version": "1.1",
+      "task": "video",
+      "request_id": "3e2d1d32-991e-45db-8cdb-238d1599de70",
+      "route": "gemini_api_key",
+      "provider": "google",
+      "model": "veo-3.1-fast-generate-preview",
+      "tool": null,
+      "file_path": "/Users/kashyapkambhatla/Documents/AI Agents for Image and Video Generation/webex-messaging-mcp-server/.amh/runs/20260722-130135-3a15d8/scene_00.mp4",
+      "sha256": "987422c5716fa74318f367e5daf4e223c0cdc9d564784ba4750c42185bf32106",
+      "duration_ms": 43067,
+      "cost_usd_actual": 0.8,
+      "created_at": "2026-07-22T20:02:19.068553+00:00",
+      "prompt_sent": "subject: A non-identifiable white American male technology presenter in his early forties with a warm, trustworthy senior-engineer presence, natural skin texture, tidy short brown hair, and a charcoal overshirt over a stone crew-neck shirt; he introduces the Webex MCP Server as the collaboration action layer connecting AI agents to repository capabilities including Messages, Rooms, Teams, Memberships, Webhooks, and ECM, while no product logo, fake user interface, or readable generated text appears; action: During the first three seconds he faces camera with calm professional energy, makes one small explanatory hand gesture, then turns slightly and points with an anatomically correct right hand toward a simple cyan circular MCP portal at screen right; during the remaining five seconds he lowers his hand, turns smoothly back toward camera, and holds a composed concluding posture with subtle natural mouth and facial movement suitable for later voice synchronization, with no abrupt pose change, extra fingers, face drift, wardrobe change, or audible dialogue; scene: A refined minimalist enterprise video studio with a warm gray architectural wall, light oak console, one soft practical lamp, restrained blue accent light, shallow depth of field, uncluttered negative space around the portal, consistent studio geometry, and no watermarks or visible brands; style: Premium editorial technology film, photorealistic but natural, calm and credible, soft cinematic key light with controlled fill and a subtle cyan rim, 16:9 landscape composition, temporally consistent identity and clothing, realistic hands and skin, restrained color grade, no glossy commercial exaggeration, no captions, no subtitles, and no legible text; camera_angle: Eye-level medium waist-up shot on a 50mm lens with the presenter placed left of center and the cyan portal at screen right, natural perspective and level horizon; camera_movement: A very slow six-inch dolly in as he begins, then a smooth gentle pan following the pointing hand toward the portal before easing back to the original presenter framing, with continuous motion and no cuts, whip pans, zoom jumps, or morphing; sound_effects: Quiet treated-studio room tone, subtle clothing movement, one soft cyan activation chime at the pointing gesture, no spoken words, no music swell, no harsh transients, and no background voices. ",
+      "controls_applied": {
+        "duration_seconds": 8
+      },
+      "controls_ignored": {}
+    }
+  ],
+  "evals": [
+    {
+      "tier": 2,
+      "name": "constraint_check",
+      "score": 0.556,
+      "passed": false,
+      "answered": 9,
+      "total": 9,
+      "recorded_at": "2026-07-22T20:04:34.345857+00:00"
+    },
+    {
+      "prompt_adherence": 6,
+      "visual_quality": 9,
+      "coherence": 8,
+      "creativity": 7,
+      "verdict": "refine",
+      "feedback": "The presenter identity, studio, wardrobe, hand anatomy, and pointing gesture are strong, and the machine format and real-motion checks pass. Refine because the generated portal disappears instead of the camera traveling through it, the presenter appears to speak despite the no-dialogue instruction, and the crisp MCP lettering violates the prompt\u2019s blanket text prohibition. Preserve the successful identity and composition, explicitly permit only MCP, and specify a timed portal expansion and exact reverse move for editorial insertion of the infographic.",
+      "prompt_patch": "subject: A non-identifiable white American male technology presenter in his early forties with a warm, trustworthy senior-engineer presence, natural skin texture, tidy short brown hair, and the same charcoal overshirt and stone crew-neck shirt from the supplied reference; he introduces the Webex MCP Server as the collaboration action layer connecting AI agents to repository capabilities including Messages, Rooms, Teams, Memberships, Webhooks, and ECM; beside him is one simple cyan circular portal containing exactly the three large crisp letters MCP and no other words, numbers, logos, captions, subtitles, or fake user interface; action: For the first two seconds he faces camera with calm professional energy and one small explanatory gesture; from two to three-and-a-half seconds he turns slightly and points with his anatomically correct left hand toward the cyan MCP portal at screen right, holding the point steadily; from three-and-a-half to four-and-a-quarter seconds the portal expands coherently toward the lens until cyan light fills the frame; from four-and-a-quarter to five seconds the same motion reverses along the same path and restores the presenter and portal; for the final three seconds he lowers his hand, faces camera, keeps a stable concluding posture, and makes slow controlled natural mouth movements suitable for later voice synchronization, with no identity drift, extra fingers, wardrobe change, abrupt pose change, or audible dialogue; scene: The same refined minimalist enterprise video studio from the reference with a warm gray architectural wall, light oak console, one soft practical lamp, restrained blue accent light, shallow depth of field, uncluttered negative space around the portal, consistent geometry, and no watermark or visible brand; style: Premium editorial technology film, photorealistic but natural, calm and credible, soft cinematic key light with controlled fill and a subtle cyan rim, 16:9 landscape composition, temporally consistent identity and clothing, realistic hands and skin, restrained color grade, the exact crisp letters MCP allowed inside the portal but no other legible text, no glossy commercial exaggeration, no captions, and no subtitles; camera_angle: Eye-level medium waist-up shot on a 50mm lens with the presenter placed left of center and the MCP portal at screen right, natural perspective and level horizon; camera_movement: Begin nearly locked with a very slow six-inch dolly in, then execute one smooth causal push following the pointing hand directly into the center of the portal until cyan fills the frame, immediately retrace that exact axis back to the original presenter composition, and hold steady for the conclusion, with no cuts, whip pans, zoom jumps, camera roll, or morphing; sound_effects: Quiet treated-studio room tone, subtle clothing movement, one soft cyan activation chime as the portal expands, no spoken words, no music swell, no harsh transients, and no background voices.",
+      "judge_model": "GPT-5 (self-judge)",
+      "judge_context": "self",
+      "tier": 3,
+      "rubric_version": "1.1",
+      "judge_mode": "single-judge (self-preference possible)"
+    }
+  ],
+  "approvals": [
+    {
+      "at": "2026-07-22T20:01:35.201005+00:00",
+      "kind": "spend_consent",
+      "detail": "--yes worst_case=$0.80"
+    }
+  ],
+  "costs": {
+    "estimated_usd": 0.8,
+    "actual_usd": 0.8,
+    "basis": "registry_price"
+  }
+}

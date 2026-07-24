@@ -1,0 +1,8 @@
+at,eval_id,route,model,estimated_usd,actual_usd,run_id
+2026-07-22T20:02:19.085570+00:00,scene-01-iter-1,gemini_api_key,veo-3.1-fast-generate-preview,0.8,0.8,20260722-130135-3a15d8
+2026-07-22T20:07:44.895642+00:00,scene-01-iter-3,gemini_api_key,veo-3.1-fast-generate-preview,0.8,0.8,20260722-130651-e9c6ab
+2026-07-22T20:15:22.651375+00:00,scene-02-iter-1,gemini_api_key,veo-3.1-fast-generate-preview,0.8,0.8,20260722-131439-352d5a
+2026-07-22T20:17:44.124423+00:00,scene-02-iter-2,gemini_api_key,veo-3.1-fast-generate-preview,0.8,0.8,20260722-131700-aa9e7b
+2026-07-22T20:19:54.721085+00:00,scene-02-iter-3,gemini_api_key,veo-3.1-fast-generate-preview,0.8,0.8,20260722-131911-f46f70
+2026-07-22T21:16:27.319969+00:00,-,gemini_api_key,veo-3.1-fast-generate-preview,0.8,0.8,20260722-141542-7707c7
+2026-07-22T21:24:12.748662+00:00,-,gemini_api_key,veo-3.1-fast-generate-preview,0.8,0.8,20260722-142329-48ed8f

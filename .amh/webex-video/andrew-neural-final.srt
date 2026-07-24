@@ -1,0 +1,12 @@
+1
+00:00:00,050 --> 00:00:04,135
+Give A.I. agents a direct path from business intent to Webex action.
+
+2
+00:00:04,135 --> 00:00:10,665
+Notify customers, launch incident rooms, organize account teams, govern access, and automate approvals.
+
+3
+00:00:10,665 --> 00:00:14,836
+Install the Webex M.C.P. Server, connect Webex, and try it.
+

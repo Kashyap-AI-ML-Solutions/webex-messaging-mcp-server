@@ -1,0 +1,11 @@
+{
+  "prompt_adherence": 8,
+  "visual_quality": 9,
+  "coherence": 9,
+  "creativity": 8,
+  "verdict": "pass",
+  "feedback": "The final infographic candidate preserves exactly six stable icon nodes, one central hub, coherent connectors, sequential activation, clean cyan-teal-violet color, a controlled pullback, and no generated letters, captions, labels, pseudo-text, watermark, or spelling risk. Decorative circuit traces appear near the frame edges despite the minimal-ornament request, but they remain nonverbal, coherent, and visually supportive rather than distracting, so the scene passes for final compositing with verified vector labels.",
+  "prompt_patch": null,
+  "judge_model": "GPT-5 (self-judge)",
+  "judge_context": "self"
+}

@@ -1,0 +1,77 @@
+{
+  "source": "deterministic_parser_plus_project_checks",
+  "prompt_sha256": "5d4093f8268cea1d21d4b00431c01664884dfd1422c2772cc2d696d5d589631e",
+  "questions": [
+    {
+      "id": "tok_subject",
+      "question": "Is the main subject clearly an animated SVG explainer showing an AI agent, the Webex MCP Server as the central orchestration hub, and business outcomes in a capability orbit?",
+      "expected": "yes"
+    },
+    {
+      "id": "tok_action",
+      "question": "Does the 12-second animation send intent into the MCP hub, activate outbound connectors sequentially, and finish with success indicators while explanatory text remains stationary?",
+      "expected": "yes"
+    },
+    {
+      "id": "tok_location",
+      "question": "Is the setting a self-contained 1600x900 deep-navy SVG with generous margins, a separated AI agent, a central MCP hub, and six non-overlapping outcome nodes?",
+      "expected": "yes"
+    },
+    {
+      "id": "tok_camera_control",
+      "question": "Is the framing flat and orthographic with consistent geometry, large system-sans typography, short capability tags, no perspective, and no element outside the viewBox?",
+      "expected": "yes"
+    },
+    {
+      "id": "tok_lighting",
+      "question": "Are blue, teal, cyan, and violet glows restrained and used to communicate active flow while text remains high contrast?",
+      "expected": "yes"
+    },
+    {
+      "id": "tok_style",
+      "question": "Does the image read as a premium enterprise infographic with crisp vector iconography, embedded CSS animation, reduced-motion support, semantic accessibility text, and no JavaScript or external fonts?",
+      "expected": "yes"
+    },
+    {
+      "id": "no_garbled_text",
+      "question": "Is all visible text crisp, correctly spelled, non-garbled, fully contained, and free from collisions?",
+      "expected": "yes"
+    },
+    {
+      "id": "no_watermark",
+      "question": "Is the image free of watermarks, copied logos, and signatures?",
+      "expected": "yes"
+    },
+    {
+      "id": "business_outcomes_complete",
+      "question": "Are customer notifications, incident response rooms, customer account collaboration, access and lifecycle governance, event-driven automation, and knowledge and approvals all present?",
+      "expected": "yes"
+    },
+    {
+      "id": "capability_mapping_correct",
+      "question": "Do those outcomes map respectively to Messages; Rooms and Memberships; Teams and Spaces; People and Memberships; Webhooks and Events; and ECM, Tabs, and Actions?",
+      "expected": "yes"
+    },
+    {
+      "id": "no_tool_count",
+      "question": "Is the irrelevant tool count absent from the image?",
+      "expected": "yes"
+    },
+    {
+      "id": "no_overflow",
+      "question": "Are there no clipped labels, overflowing boxes, overlapping outcome groups, or elements outside the SVG canvas?",
+      "expected": "yes"
+    },
+    {
+      "id": "readme_legibility",
+      "question": "Does the visual hierarchy and outcome separation remain understandable in the inspected 800x450 README-width render?",
+      "expected": "yes"
+    },
+    {
+      "id": "reduced_motion",
+      "question": "Does prefers-reduced-motion disable all animations while leaving a complete and meaningful static composition?",
+      "expected": "yes"
+    }
+  ],
+  "note": "Questions combine the media-image token parser with repository-specific business, layout, animation, and accessibility checks."
+}

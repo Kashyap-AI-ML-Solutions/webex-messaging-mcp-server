@@ -1,0 +1,309 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title description">
+  <title id="title">AI agents turn business intent into coordinated Webex action</title>
+  <desc id="description">An AI agent sends a business goal to the Webex MCP Server, which activates six Webex collaboration outcomes: customer notifications, incident response rooms, customer account collaboration, access and lifecycle governance, event-driven automation, and knowledge and approvals.</desc>
+
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#06131f"/>
+      <stop offset="0.55" stop-color="#0a1c2d"/>
+      <stop offset="1" stop-color="#071722"/>
+    </linearGradient>
+    <linearGradient id="hub-fill" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1378e5"/>
+      <stop offset="0.52" stop-color="#078fba"/>
+      <stop offset="1" stop-color="#14a58f"/>
+    </linearGradient>
+    <linearGradient id="agent-fill" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#112a42"/>
+      <stop offset="1" stop-color="#0b2032"/>
+    </linearGradient>
+    <radialGradient id="hub-aura">
+      <stop offset="0" stop-color="#1bc6d1" stop-opacity="0.23"/>
+      <stop offset="0.58" stop-color="#1473e6" stop-opacity="0.08"/>
+      <stop offset="1" stop-color="#1473e6" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#82a8c6" stroke-opacity="0.045" stroke-width="1"/>
+    </pattern>
+    <filter id="soft-glow" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="node-glow" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M1 1 9 5 1 9" fill="none" stroke="#5fd5d1" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <style>
+    text {
+      font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      text-rendering: geometricPrecision;
+    }
+    .eyebrow { fill: #77e3dc; font-size: 15px; font-weight: 760; letter-spacing: 2.6px; }
+    .headline { fill: #f4fbff; font-size: 43px; font-weight: 760; letter-spacing: -1.1px; }
+    .subhead { fill: #a8bfd2; font-size: 19px; font-weight: 450; }
+    .agent-kicker { fill: #7ce6de; font-size: 14px; font-weight: 760; letter-spacing: 2px; }
+    .agent-title { fill: #f6fbff; font-size: 28px; font-weight: 730; letter-spacing: -0.45px; }
+    .agent-copy { fill: #b3c7d7; font-size: 17px; font-weight: 440; }
+    .chip-text { fill: #d8e9f5; font-size: 14px; font-weight: 610; }
+    .flow-label { fill: #91b6cd; font-size: 14px; font-weight: 650; letter-spacing: 1.5px; }
+    .hub-kicker { fill: #d9ffff; font-size: 15px; font-weight: 760; letter-spacing: 2.1px; }
+    .hub-title { fill: #ffffff; font-size: 46px; font-weight: 820; letter-spacing: -1.2px; }
+    .hub-subtitle { fill: #d9f8fb; font-size: 16px; font-weight: 560; }
+    .outcome-title { fill: #f5fbff; font-size: 21px; font-weight: 720; letter-spacing: -0.25px; }
+    .capability { fill: #9bb8cb; font-size: 13px; font-weight: 680; letter-spacing: 0.7px; }
+    .orbit-caption { fill: #6f94aa; font-size: 13px; font-weight: 650; letter-spacing: 1.5px; }
+
+    .agent-card { animation: agent-breathe 12s ease-in-out infinite; }
+    .hub-core { transform-box: fill-box; transform-origin: center; animation: hub-pulse 12s ease-in-out infinite; }
+    .hub-ring { transform-box: fill-box; transform-origin: center; animation: ring-pulse 4s ease-in-out infinite; }
+    .inbound-flow { stroke-dasharray: 0.14 0.86; stroke-dashoffset: 1; animation: inbound 12s ease-in-out infinite; }
+    .connector-flow { stroke-dasharray: 0.12 0.88; stroke-dashoffset: 1; opacity: 0; animation: connector-run 12s ease-out infinite; }
+    .outcome { transform-box: fill-box; transform-origin: center; animation: outcome-focus 12s ease-in-out infinite; }
+    .outcome .check { opacity: 0.36; animation: check-on 12s ease-in-out infinite; }
+
+    .flow-1, .outcome-1, .outcome-1 .check { animation-delay: 2.4s; }
+    .flow-2, .outcome-2, .outcome-2 .check { animation-delay: 3.35s; }
+    .flow-3, .outcome-3, .outcome-3 .check { animation-delay: 4.3s; }
+    .flow-4, .outcome-4, .outcome-4 .check { animation-delay: 5.25s; }
+    .flow-5, .outcome-5, .outcome-5 .check { animation-delay: 6.2s; }
+    .flow-6, .outcome-6, .outcome-6 .check { animation-delay: 7.15s; }
+
+    @keyframes agent-breathe {
+      0%, 100% { opacity: 0.96; }
+      10%, 18% { opacity: 1; }
+    }
+    @keyframes inbound {
+      0%, 4% { opacity: 0; stroke-dashoffset: 1; }
+      7% { opacity: 1; }
+      20% { opacity: 1; stroke-dashoffset: 0; }
+      25%, 100% { opacity: 0; stroke-dashoffset: -0.25; }
+    }
+    @keyframes hub-pulse {
+      0%, 13%, 100% { transform: scale(1); filter: none; }
+      19%, 25% { transform: scale(1.025); filter: url(#soft-glow); }
+      31% { transform: scale(1); filter: none; }
+    }
+    @keyframes ring-pulse {
+      0%, 100% { opacity: 0.28; transform: scale(0.985); }
+      50% { opacity: 0.7; transform: scale(1.025); }
+    }
+    @keyframes connector-run {
+      0%, 2% { opacity: 0; stroke-dashoffset: 1; }
+      5% { opacity: 0.95; }
+      15% { opacity: 0.95; stroke-dashoffset: 0; }
+      20%, 100% { opacity: 0; stroke-dashoffset: -0.15; }
+    }
+    @keyframes outcome-focus {
+      0%, 2%, 21%, 100% { transform: scale(1); }
+      7%, 14% { transform: scale(1.055); }
+    }
+    @keyframes check-on {
+      0%, 4% { opacity: 0.36; }
+      8%, 68% { opacity: 1; }
+      82%, 100% { opacity: 0.36; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .agent-card, .hub-core, .hub-ring, .inbound-flow, .connector-flow, .outcome, .outcome .check {
+        animation: none !important;
+      }
+      .inbound-flow, .connector-flow { opacity: 0.5; stroke-dashoffset: 0; }
+      .outcome .check { opacity: 1; }
+    }
+  </style>
+
+  <rect width="1600" height="900" fill="url(#background)"/>
+  <rect width="1600" height="900" fill="url(#grid)"/>
+  <circle cx="1010" cy="465" r="465" fill="url(#hub-aura)"/>
+  <path d="M0 794C292 700 390 852 688 785s539-69 912 51v64H0Z" fill="#0c2635" fill-opacity="0.48"/>
+
+  <g id="header">
+    <rect x="60" y="42" width="144" height="30" rx="15" fill="#0f3444" stroke="#1e6670"/>
+    <circle cx="80" cy="57" r="5" fill="#54d8cf"/>
+    <text x="94" y="62" class="eyebrow" style="font-size:12px;letter-spacing:1.5px">WEBEX MCP</text>
+    <text x="60" y="126" class="headline">From business intent to coordinated action</text>
+    <text x="60" y="162" class="subhead">AI agents plan the work. The MCP server turns that plan into governed Webex collaboration.</text>
+  </g>
+
+  <g id="ai-agent" class="agent-card">
+    <rect x="60" y="260" width="304" height="434" rx="32" fill="url(#agent-fill)" stroke="#284b64" stroke-width="2"/>
+    <rect x="82" y="282" width="64" height="64" rx="20" fill="#102f4a" stroke="#2f7294"/>
+    <g transform="translate(98 298)" fill="none" stroke="#6ce0d9" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="16" cy="16" r="5" fill="#123d54"/>
+      <circle cx="3" cy="7" r="3"/>
+      <circle cx="29" cy="7" r="3"/>
+      <circle cx="3" cy="27" r="3"/>
+      <circle cx="29" cy="27" r="3"/>
+      <path d="m7 9 5 4m8 0 5-4M7 25l5-5m8 0 5 5"/>
+    </g>
+    <text x="166" y="307" class="agent-kicker">AI AGENT</text>
+    <text x="166" y="337" class="agent-title" style="font-size:22px">Understands the goal</text>
+
+    <text x="88" y="392" class="agent-title">“Help the business</text>
+    <text x="88" y="428" class="agent-title">move forward.”</text>
+    <text x="88" y="466" class="agent-copy">Reasons across context, policy,</text>
+    <text x="88" y="492" class="agent-copy">people and the desired outcome.</text>
+
+    <g id="intent-chips">
+      <rect x="88" y="528" width="116" height="38" rx="19" fill="#102d43" stroke="#285b74"/>
+      <text x="111" y="553" class="chip-text">Communicate</text>
+      <rect x="214" y="528" width="116" height="38" rx="19" fill="#102d43" stroke="#285b74"/>
+      <text x="240" y="553" class="chip-text">Coordinate</text>
+      <rect x="88" y="578" width="116" height="38" rx="19" fill="#102d43" stroke="#285b74"/>
+      <text x="118" y="603" class="chip-text">Automate</text>
+      <rect x="214" y="578" width="116" height="38" rx="19" fill="#102d43" stroke="#285b74"/>
+      <text x="246" y="603" class="chip-text">Govern</text>
+    </g>
+    <path d="M88 643h242" stroke="#294a60"/>
+    <circle cx="96" cy="667" r="4" fill="#4ed2c8"/>
+    <text x="110" y="672" class="agent-copy" style="font-size:14px">Plans steps and selects capabilities</text>
+  </g>
+
+  <g id="intent-to-mcp">
+    <path d="M364 472C470 472 612 472 835 472" fill="none" stroke="#274f68" stroke-width="4" stroke-linecap="round" marker-end="url(#arrow)"/>
+    <path class="inbound-flow" pathLength="1" d="M364 472C470 472 612 472 835 472" fill="none" stroke="#65e5dd" stroke-width="6" stroke-linecap="round"/>
+    <rect x="470" y="438" width="204" height="28" rx="14" fill="#0b2234" stroke="#23495e"/>
+    <text x="572" y="457" text-anchor="middle" class="flow-label" style="font-size:12px">BUSINESS INTENT</text>
+  </g>
+
+  <g id="capability-orbit">
+    <ellipse cx="980" cy="470" rx="320" ry="300" fill="none" stroke="#4ca4bf" stroke-opacity="0.15" stroke-width="2" stroke-dasharray="3 12"/>
+    <ellipse cx="980" cy="470" rx="246" ry="227" fill="none" stroke="#5e9fbd" stroke-opacity="0.1"/>
+    <text x="1402" y="839" text-anchor="end" class="orbit-caption">BUSINESS OUTCOMES • ACTIVATED AS NEEDED</text>
+
+    <g id="base-connectors" fill="none" stroke="#2a6680" stroke-opacity="0.72" stroke-width="2.5" stroke-linecap="round">
+      <path d="M903 389C861 345 809 310 742 284"/>
+      <path d="M974 356C975 294 976 247 978 199"/>
+      <path d="M1057 389C1111 347 1161 323 1223 304"/>
+      <path d="M1091 486C1153 504 1204 530 1253 568"/>
+      <path d="M1017 581C1030 612 1042 640 1052 665"/>
+      <path d="M906 552C842 582 786 620 734 665"/>
+    </g>
+    <g id="animated-connectors" fill="none" stroke="#6fe4dc" stroke-width="4" stroke-linecap="round">
+      <path class="connector-flow flow-1" pathLength="1" d="M903 389C861 345 809 310 742 284"/>
+      <path class="connector-flow flow-2" pathLength="1" d="M974 356C975 294 976 247 978 199"/>
+      <path class="connector-flow flow-3" pathLength="1" d="M1057 389C1111 347 1161 323 1223 304"/>
+      <path class="connector-flow flow-4" pathLength="1" d="M1091 486C1153 504 1204 530 1253 568"/>
+      <path class="connector-flow flow-5" pathLength="1" d="M1017 581C1030 612 1042 640 1052 665"/>
+      <path class="connector-flow flow-6" pathLength="1" d="M906 552C842 582 786 620 734 665"/>
+    </g>
+  </g>
+
+  <g id="webex-mcp-hub" class="hub-core">
+    <circle class="hub-ring" cx="980" cy="470" r="132" fill="none" stroke="#4bd7d0" stroke-width="2" stroke-opacity="0.55"/>
+    <circle cx="980" cy="470" r="114" fill="#0b2a3d" stroke="#43bfc0" stroke-width="2"/>
+    <circle cx="980" cy="470" r="98" fill="url(#hub-fill)"/>
+    <path d="M934 420c26-25 66-25 92 0m-75 18c16-15 42-15 58 0m-38 20c5-5 13-5 18 0" fill="none" stroke="#d9ffff" stroke-width="5" stroke-linecap="round" opacity="0.82"/>
+    <text x="980" y="496" text-anchor="middle" class="hub-kicker">WEBEX</text>
+    <text x="980" y="542" text-anchor="middle" class="hub-title">MCP</text>
+    <text x="980" y="566" text-anchor="middle" class="hub-subtitle">COLLABORATION LAYER</text>
+  </g>
+
+  <g id="customer-notifications" class="outcome outcome-1">
+    <circle cx="714" cy="264" r="48" fill="#0d3047" stroke="#3c9cc0" stroke-width="2"/>
+    <circle class="check" cx="749" cy="229" r="13" fill="#32c9b8"/>
+    <path class="check" d="m743 229 4 4 8-9" fill="none" stroke="#06241f" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <g transform="translate(690 240)" fill="none" stroke="#70d9ee" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 7h38v25H24l-10 8v-8H5z"/>
+      <path d="M14 16h20M14 23h13"/>
+    </g>
+    <text x="714" y="333" text-anchor="middle" class="outcome-title">Customer notifications</text>
+    <rect x="647" y="349" width="134" height="28" rx="14" fill="#0c293c" stroke="#285e77"/>
+    <text x="714" y="368" text-anchor="middle" class="capability">MESSAGES</text>
+  </g>
+
+  <g id="incident-response" class="outcome outcome-2">
+    <circle cx="980" cy="176" r="48" fill="#172d4c" stroke="#716ed0" stroke-width="2"/>
+    <circle class="check" cx="1015" cy="141" r="13" fill="#7f78de"/>
+    <path class="check" d="m1009 141 4 4 8-9" fill="none" stroke="#17142d" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <g transform="translate(956 152)" fill="none" stroke="#aaa5ff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M24 4 44 39H4z"/>
+      <path d="M24 16v10m0 7h.01"/>
+    </g>
+    <text x="980" y="245" text-anchor="middle" class="outcome-title">Incident response rooms</text>
+    <rect x="885" y="261" width="190" height="28" rx="14" fill="#13263f" stroke="#55549b"/>
+    <text x="980" y="280" text-anchor="middle" class="capability">ROOMS • MEMBERSHIPS</text>
+  </g>
+
+  <g id="customer-collaboration" class="outcome outcome-3">
+    <circle cx="1260" cy="288" r="48" fill="#0e3540" stroke="#28a89d" stroke-width="2"/>
+    <circle class="check" cx="1295" cy="253" r="13" fill="#36c7b7"/>
+    <path class="check" d="m1289 253 4 4 8-9" fill="none" stroke="#082822" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <g transform="translate(1235 264)" fill="none" stroke="#79e0d4" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="18" cy="14" r="8"/>
+      <circle cx="36" cy="18" r="6"/>
+      <path d="M3 42c1-11 8-17 15-17s14 6 15 17M30 30c9-2 15 4 16 12"/>
+    </g>
+    <text x="1260" y="357" text-anchor="middle" class="outcome-title">Customer account</text>
+    <text x="1260" y="383" text-anchor="middle" class="outcome-title">collaboration</text>
+    <rect x="1180" y="399" width="160" height="28" rx="14" fill="#0c2c35" stroke="#278078"/>
+    <text x="1260" y="418" text-anchor="middle" class="capability">TEAMS • SPACES</text>
+  </g>
+
+  <g id="access-governance" class="outcome outcome-4">
+    <circle cx="1290" cy="590" r="48" fill="#20303e" stroke="#d0964c" stroke-width="2"/>
+    <circle class="check" cx="1325" cy="555" r="13" fill="#f0aa53"/>
+    <path class="check" d="m1319 555 4 4 8-9" fill="none" stroke="#35220b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <g transform="translate(1266 566)" fill="none" stroke="#f2bf78" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M24 3 43 10v13c0 12-8 20-19 25C13 43 5 35 5 23V10z"/>
+      <path d="m15 25 7 7 13-15"/>
+    </g>
+    <text x="1290" y="659" text-anchor="middle" class="outcome-title">Access &amp; lifecycle</text>
+    <text x="1290" y="685" text-anchor="middle" class="outcome-title">governance</text>
+    <rect x="1193" y="701" width="194" height="28" rx="14" fill="#252d31" stroke="#816039"/>
+    <text x="1290" y="720" text-anchor="middle" class="capability">PEOPLE • MEMBERSHIPS</text>
+  </g>
+
+  <g id="event-automation" class="outcome outcome-5">
+    <circle cx="1040" cy="690" r="48" fill="#182d48" stroke="#5089d4" stroke-width="2"/>
+    <circle class="check" cx="1075" cy="655" r="13" fill="#5e9de6"/>
+    <path class="check" d="m1069 655 4 4 8-9" fill="none" stroke="#0e213a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <g transform="translate(1016 666)" fill="none" stroke="#85baff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="9" cy="10" r="6"/>
+      <circle cx="39" cy="10" r="6"/>
+      <circle cx="24" cy="39" r="6"/>
+      <path d="m14 13 7 20m13-20-7 20M15 10h18"/>
+    </g>
+    <text x="1040" y="759" text-anchor="middle" class="outcome-title">Event-driven automation</text>
+    <rect x="953" y="775" width="174" height="28" rx="14" fill="#14283e" stroke="#3e689b"/>
+    <text x="1040" y="794" text-anchor="middle" class="capability">WEBHOOKS • EVENTS</text>
+  </g>
+
+  <g id="knowledge-approvals" class="outcome outcome-6">
+    <circle cx="700" cy="690" r="48" fill="#292845" stroke="#8a72cf" stroke-width="2"/>
+    <circle class="check" cx="735" cy="655" r="13" fill="#9b83e2"/>
+    <path class="check" d="m729 655 4 4 8-9" fill="none" stroke="#251f3d" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <g transform="translate(675 666)" fill="none" stroke="#c2afff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 12h18l5 6h21v27H3z"/>
+      <path d="m17 32 6 6 12-14"/>
+    </g>
+    <text x="700" y="759" text-anchor="middle" class="outcome-title">Knowledge &amp; approvals</text>
+    <rect x="578" y="775" width="244" height="28" rx="14" fill="#22223a" stroke="#66559b"/>
+    <text x="700" y="794" text-anchor="middle" class="capability">ECM • TABS • ACTIONS</text>
+  </g>
+
+  <g id="footer-flow" transform="translate(60 837)">
+    <circle cx="5" cy="5" r="5" fill="#5edbd3"/>
+    <text x="20" y="10" class="flow-label" style="font-size:13px">UNDERSTAND</text>
+    <path d="M126 5h38" stroke="#31596e" stroke-width="2" marker-end="url(#arrow)"/>
+    <circle cx="186" cy="5" r="5" fill="#4ab7d4"/>
+    <text x="201" y="10" class="flow-label" style="font-size:13px">PLAN</text>
+    <path d="M258 5h38" stroke="#31596e" stroke-width="2" marker-end="url(#arrow)"/>
+    <circle cx="318" cy="5" r="5" fill="#4a8fe2"/>
+    <text x="333" y="10" class="flow-label" style="font-size:13px">ACT</text>
+    <path d="M380 5h38" stroke="#31596e" stroke-width="2" marker-end="url(#arrow)"/>
+    <circle cx="440" cy="5" r="5" fill="#8979d7"/>
+    <text x="455" y="10" class="flow-label" style="font-size:13px">COLLABORATE</text>
+  </g>
+</svg>

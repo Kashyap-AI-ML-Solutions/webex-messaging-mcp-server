@@ -1,0 +1,53 @@
+{
+  "source": "deterministic_parser",
+  "task": "image",
+  "prompt_sha256": "67743525db8afdd2c4031c55d1925aca4878d5f5f49526c75ba6a0139cae96cf",
+  "questions": [
+    {
+      "id": "tok_subject",
+      "question": "Is the main subject clearly A production reference still of a non-identifiable white American male technology presenter in his early forties with a calm senior-engineer presence, tidy short brown hair, natural skin texture, charcoal overshirt over a stone crew-neck shirt, framed beside a simple cyan circular portal representing the Webex MCP Server?",
+      "expected": "yes"
+    },
+    {
+      "id": "tok_action",
+      "question": "Is the subject depicted He stands left of center facing camera, right arm naturally extended in one clear pointing gesture toward the portal at screen right, five anatomically correct fingers, relaxed shoulders, trustworthy neutral expression, stable wardrobe, no speech pose?",
+      "expected": "yes"
+    },
+    {
+      "id": "tok_location",
+      "question": "Is the setting recognizably A refined minimalist enterprise video studio with warm gray architectural wall, light oak console, one soft practical lamp, restrained blue accent illumination, uncluttered negative space, 16:9 landscape layout, no brands or watermarks?",
+      "expected": "yes"
+    },
+    {
+      "id": "tok_camera_control",
+      "question": "Is the framing/camera consistent with 'Eye-level medium waist-up composition on a 50mm lens, presenter left of center, cyan portal right of center, level horizon, natural perspective, clean editorial framing, no crop through hands or head'?",
+      "expected": "yes"
+    },
+    {
+      "id": "tok_lighting",
+      "question": "Is the lighting consistent with 'Soft cinematic key, controlled fill, subtle cyan rim, warm practical in the background, realistic skin color, shallow depth of field, no blown highlights or muddy shadows'?",
+      "expected": "yes"
+    },
+    {
+      "id": "tok_style",
+      "question": "Does the overall style read as 'Premium photorealistic editorial technology film, calm and credible, natural texture rather than glossy advertising, spatially coherent, suitable as an identity and set-continuity reference for an eight-second video scene'?",
+      "expected": "yes"
+    },
+    {
+      "id": "tok_negative_constraints",
+      "question": "Is the result free of every one of: 'no readable text, no captions, no Cisco or Webex logo, no fake UI, no watermark, no extra fingers, no fused fingers, no warped hand, no duplicate limb, no face asymmetry, no age drift, no plastic skin, no extreme bokeh, no busy props, no cyberpunk styling, no headset, no tie, no audience.'?",
+      "expected": "yes"
+    },
+    {
+      "id": "no_garbled_text",
+      "question": "Is all visible text crisp, correctly spelled, and non-garbled?",
+      "expected": "yes"
+    },
+    {
+      "id": "no_watermark",
+      "question": "Is the image free of watermarks, logos, or signatures that were not requested?",
+      "expected": "yes"
+    }
+  ],
+  "note": null
+}

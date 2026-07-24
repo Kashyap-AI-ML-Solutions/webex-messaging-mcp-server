@@ -1,0 +1,53 @@
+{
+  "source": "deterministic_parser",
+  "task": "video",
+  "prompt_sha256": "548ac182b189177ae56491a70ef07955678c2401d0affdbef9192047749f80a0",
+  "questions": [
+    {
+      "id": "tok_subject",
+      "question": "Is the main subject clearly A textless cinematic motion graphic that preserves the supplied infographic reference exactly: one stable central cyan-and-teal server hub connected to exactly six stable circular icon nodes?",
+      "expected": "yes"
+    },
+    {
+      "id": "tok_action",
+      "question": "Is the subject depicted Begin on the supplied reference composition, send one cyan pulse into the central hub, illuminate each of the six existing outer icon nodes clockwise one at a time, hold all six active together, then reduce the complete unchanged composition smoothly to fifty-five percent of frame width and hold it against plain navy through the final frame?",
+      "expected": "yes"
+    },
+    {
+      "id": "tok_scene",
+      "question": "Is the scene recognizably One uninterrupted deep navy canvas with the supplied subtle grid and generous safe margins, containing only the central hub, six connected icon nodes, and restrained data glows?",
+      "expected": "yes"
+    },
+    {
+      "id": "tok_camera_angle",
+      "question": "Is the camera angle consistent with 'Centered head-on orthographic view of the supplied symmetrical six-node composition with level horizon and no perspective distortion'?",
+      "expected": "yes"
+    },
+    {
+      "id": "tok_camera_movement",
+      "question": "Is the camera movement consistent with 'Make one restrained forward push of less than ten percent during activation, then one straight slow pullback that stops when the unchanged system occupies fifty-five percent of frame width, followed by a still hold through the end, with no orbit, cut, whip pan, camera roll, corridor reveal, excessive retreat, or spatial discontinuity'?",
+      "expected": "yes"
+    },
+    {
+      "id": "tok_sound_effects",
+      "question": "Are the sound effects consistent with 'Low warm technology ambience, one soft inbound pulse, six delicate activation ticks, and one restrained completion shimmer, with no speech, vocals, loud bass hit, or musical change.'?",
+      "expected": "yes"
+    },
+    {
+      "id": "tok_style",
+      "question": "Does the overall style read as 'Premium enterprise editorial motion design, flat-to-2.5D geometry, deep navy with cyan, teal, blue, and restrained violet, crisp high-contrast icon edges, controlled bloom only during activation, clean textless iconography, no ornamental micro-details, no glyph-like marks, and no spelling risk because no text exists'?",
+      "expected": "yes"
+    },
+    {
+      "id": "no_garbled_text",
+      "question": "Is all visible text crisp, correctly spelled, and non-garbled?",
+      "expected": "yes"
+    },
+    {
+      "id": "no_watermark",
+      "question": "Is the image free of watermarks, logos, or signatures that were not requested?",
+      "expected": "yes"
+    }
+  ],
+  "note": null
+}

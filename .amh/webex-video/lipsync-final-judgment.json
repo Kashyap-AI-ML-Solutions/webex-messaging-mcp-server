@@ -1,0 +1,12 @@
+{
+  "adherence": 9,
+  "visual_quality": 9,
+  "coherence": 9,
+  "text_accuracy": 10,
+  "lip_motion_plausibility": 9,
+  "verdict": "pass",
+  "feedback": "The narrative timing and composition are clear: visible presenter, clean full-screen infographic, smooth zoom-down reveal, then CTA. All six infographic states and the final v3 CTA panel are crisp, readable, and correctly spelled. The presenter's identity, wardrobe, lighting, and proportions remain consistent; sampled speaking mouth shapes are varied, plausible, and unobscured, while the revealed silent presenter has a closed mouth at 9.15s. The brief 9.30–9.45s CTA fade shows minor underlying-icon ghosting, but it resolves cleanly and is not pass-blocking. No subjective audio-quality or exact phoneme-alignment judgment was made.",
+  "judge_model": "gpt-5",
+  "judge_context": "separated-context",
+  "asset_sha256": "e4977d485ae74a8931adcd2cd480204c1cce98dc6463bd76883a3e7bb9a7b003"
+}

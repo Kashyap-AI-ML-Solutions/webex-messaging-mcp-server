@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+  <defs>
+    <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b2636" stop-opacity="0.98"/>
+      <stop offset="1" stop-color="#061723" stop-opacity="0.99"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#68e2da"/>
+      <stop offset="1" stop-color="#4ea8ff"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="624" y="50" width="616" height="620" rx="34" fill="url(#panel)" stroke="#72e6df" stroke-opacity="0.72" stroke-width="2"/>
+  <rect x="666" y="90" width="118" height="5" rx="2.5" fill="url(#accent)"/>
+  <text x="666" y="132" fill="#a8d7e8" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="700" letter-spacing="3">WEBEX MCP SERVER</text>
+  <text x="666" y="193" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="700">Install. Connect. Try.</text>
+  <text x="666" y="231" fill="#c8dce8" font-family="Arial, Helvetica, sans-serif" font-size="20">Give AI agents secure Webex messaging tools.</text>
+
+  <g transform="translate(666 280)">
+    <circle cx="28" cy="28" r="27" fill="#103b4c" stroke="#66ded8" stroke-width="2"/>
+    <text x="28" y="36" text-anchor="middle" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700">1</text>
+    <text x="76" y="24" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700">Install the server</text>
+    <text x="76" y="51" fill="#b9cfdb" font-family="Arial, Helvetica, sans-serif" font-size="17">Add the MCP integration to your agent.</text>
+  </g>
+
+  <line x1="694" y1="350" x2="694" y2="382" stroke="#4d8aa0" stroke-width="2"/>
+
+  <g transform="translate(666 392)">
+    <circle cx="28" cy="28" r="27" fill="#103b4c" stroke="#66ded8" stroke-width="2"/>
+    <text x="28" y="36" text-anchor="middle" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700">2</text>
+    <text x="76" y="24" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700">Connect Webex</text>
+    <text x="76" y="51" fill="#b9cfdb" font-family="Arial, Helvetica, sans-serif" font-size="17">Authorize the teams and spaces you need.</text>
+  </g>
+
+  <line x1="694" y1="462" x2="694" y2="494" stroke="#4d8aa0" stroke-width="2"/>
+
+  <g transform="translate(666 504)">
+    <circle cx="28" cy="28" r="27" fill="#103b4c" stroke="#66ded8" stroke-width="2"/>
+    <text x="28" y="36" text-anchor="middle" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700">3</text>
+    <text x="76" y="24" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700">Try an agent workflow</text>
+    <text x="76" y="51" fill="#b9cfdb" font-family="Arial, Helvetica, sans-serif" font-size="17">Notify, coordinate, govern, and automate.</text>
+  </g>
+
+  <rect x="666" y="608" width="532" height="4" rx="2" fill="url(#accent)" opacity="0.9"/>
+</svg>

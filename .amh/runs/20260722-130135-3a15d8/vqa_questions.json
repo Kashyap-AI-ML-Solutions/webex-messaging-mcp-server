@@ -1,0 +1,53 @@
+{
+  "source": "deterministic_parser",
+  "task": "video",
+  "prompt_sha256": "650f735d2e42add045a673ab7e75972f3b5bc76df0656809540307ce59c76807",
+  "questions": [
+    {
+      "id": "tok_subject",
+      "question": "Is the main subject clearly A non-identifiable white American male technology presenter in his early forties with a warm, trustworthy senior-engineer presence, natural skin texture, tidy short brown hair, and a charcoal overshirt over a stone crew-neck shirt?",
+      "expected": "yes"
+    },
+    {
+      "id": "tok_action",
+      "question": "Is the subject depicted During the first three seconds he faces camera with calm professional energy, makes one small explanatory hand gesture, then turns slightly and points with an anatomically correct right hand toward a simple cyan circular MCP portal at screen right?",
+      "expected": "yes"
+    },
+    {
+      "id": "tok_scene",
+      "question": "Is the scene recognizably A refined minimalist enterprise video studio with a warm gray architectural wall, light oak console, one soft practical lamp, restrained blue accent light, shallow depth of field, uncluttered negative space around the portal, consistent studio geometry, and no watermarks or visible brands?",
+      "expected": "yes"
+    },
+    {
+      "id": "tok_camera_angle",
+      "question": "Is the camera angle consistent with 'Eye-level medium waist-up shot on a 50mm lens with the presenter placed left of center and the cyan portal at screen right, natural perspective and level horizon'?",
+      "expected": "yes"
+    },
+    {
+      "id": "tok_camera_movement",
+      "question": "Is the camera movement consistent with 'A very slow six-inch dolly in as he begins, then a smooth gentle pan following the pointing hand toward the portal before easing back to the original presenter framing, with continuous motion and no cuts, whip pans, zoom jumps, or morphing'?",
+      "expected": "yes"
+    },
+    {
+      "id": "tok_sound_effects",
+      "question": "Are the sound effects consistent with 'Quiet treated-studio room tone, subtle clothing movement, one soft cyan activation chime at the pointing gesture, no spoken words, no music swell, no harsh transients, and no background voices.'?",
+      "expected": "yes"
+    },
+    {
+      "id": "tok_style",
+      "question": "Does the overall style read as 'Premium editorial technology film, photorealistic but natural, calm and credible, soft cinematic key light with controlled fill and a subtle cyan rim, 16:9 landscape composition, temporally consistent identity and clothing, realistic hands and skin, restrained color grade, no glossy commercial exaggeration, no captions, no subtitles, and no legible text'?",
+      "expected": "yes"
+    },
+    {
+      "id": "no_garbled_text",
+      "question": "Is all visible text crisp, correctly spelled, and non-garbled?",
+      "expected": "yes"
+    },
+    {
+      "id": "no_watermark",
+      "question": "Is the image free of watermarks, logos, or signatures that were not requested?",
+      "expected": "yes"
+    }
+  ],
+  "note": null
+}

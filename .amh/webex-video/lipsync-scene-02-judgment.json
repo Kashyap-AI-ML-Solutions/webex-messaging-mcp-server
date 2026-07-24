@@ -1,0 +1,16 @@
+{
+  "prompt_adherence": 4,
+  "visual_quality": 6,
+  "coherence": 6,
+  "creativity": 5,
+  "verdict": "refine",
+  "feedback": "The presenter, wardrobe, studio lighting, gesture, and facial identity remain mostly stable, and sampled mouth/jaw shapes look visually plausible without obvious deformation. However, speech-like mouth motion begins at 0.0s instead of after 1.2s, so the requested silent opening fails; exact phoneme synchronization cannot be established from still grids alone. The opening is already a medium shot rather than beginning inside a full-frame cyan portal, while a strong portal/camera move occurs around 7.5s instead of the requested locked final hold. The infographic also violates the explicit no-text/no-fake-interface constraint and contains garbled labels such as 'Teac Itc' and 'Etrhern'. The machine transcript confirms the exact words only; no subjective audio or voice-quality audition was performed.",
+  "prompt_patch": "Treat all Webex workflow terms as off-screen prior-scene context. Render only abstract iconography with zero letters, numbers, labels, captions, or interface text. Begin at 0.0s with the cyan portal filling the frame and the presenter's mouth fully closed; pull back smoothly until 1.2s, lock the camera through 8.0s, confine speech-like mouth motion to 1.2–5.7s, then hold a closed-mouth expression without any late portal move.",
+  "judge_model": "gpt-5",
+  "judge_context": "separated-context",
+  "separation": {
+    "mechanism": "subagent",
+    "asset_sha256": "78ecbc1f6e684a236ccbe6b2686d1376c787b4b1823435a4c100eb00033459a0",
+    "prompt_sha256": "dcae9167885a72179a9034f450965413e6ffe5a4925a28786f378c4145a85301"
+  }
+}

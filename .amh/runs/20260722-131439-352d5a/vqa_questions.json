@@ -1,0 +1,53 @@
+{
+  "source": "deterministic_parser",
+  "task": "video",
+  "prompt_sha256": "555af8688494388267a793b3e395088d9059b32507d862ec8ae1fe679c1dcb5a",
+  "questions": [
+    {
+      "id": "tok_subject",
+      "question": "Is the main subject clearly A cinematic full-screen Webex MCP Server orchestration infographic with one stable central cyan-and-teal MCP hub and six clean unlabeled outcome nodes representing Customer notifications through Messages, Incident response through Rooms and Memberships, Account collaboration through Teams and Spaces, Access governance through People and Memberships, Event automation through Webhooks and Events, and Knowledge and approvals through ECM, Room Tabs, and Attachment Actions?",
+      "expected": "yes"
+    },
+    {
+      "id": "tok_action",
+      "question": "Is the subject depicted A cyan pulse enters the central hub, the six outcome nodes activate sequentially in the narration order with coherent connector flows and restrained success glows, then the complete system holds long enough to read before the camera retraces its path toward the original portal?",
+      "expected": "yes"
+    },
+    {
+      "id": "tok_scene",
+      "question": "Is the scene recognizably Deep navy spatial canvas derived from the repository\u2019s webex-mcp-business-outcomes information architecture, with generous margins, a subtle technical grid, crisp geometric icons for notification, incident, account team, access shield, event flow, and enterprise knowledge approval, consistent spacing, and open areas reserved for post-production typography?",
+      "expected": "yes"
+    },
+    {
+      "id": "tok_camera_angle",
+      "question": "Is the camera angle consistent with 'Centered orthographic-to-shallow-perspective view facing the MCP hub head-on, with symmetrical six-node layout and no extreme lens distortion'?",
+      "expected": "yes"
+    },
+    {
+      "id": "tok_camera_movement",
+      "question": "Is the camera movement consistent with 'Begin as though passing through the same cyan portal from scene one, ease into a measured forward push toward the central hub, add a subtle clockwise parallax arc while the six nodes activate, hold the complete composition, then smoothly pull back on the same axis to a portal-sized framing for the cut back to the presenter, with no abrupt cuts, whip pans, camera roll, or spatial discontinuity'?",
+      "expected": "yes"
+    },
+    {
+      "id": "tok_sound_effects",
+      "question": "Are the sound effects consistent with 'Low warm technology ambience, one soft inbound pulse, six delicate activation ticks synchronized to the nodes, a restrained completion shimmer, no speech, no vocals, no loud bass hit, and no distracting musical change.'?",
+      "expected": "yes"
+    },
+    {
+      "id": "tok_style",
+      "question": "Does the overall style read as 'Premium enterprise editorial motion graphic with flat-to-2.5D geometry, deep navy, cyan, teal, blue, and restrained violet, crisp high-contrast edges, controlled bloom used only for active data flow, visually aligned with the presenter studio, no dense dashboard, no tiny ornamental elements, no rendered words, and no spelling risk'?",
+      "expected": "yes"
+    },
+    {
+      "id": "no_garbled_text",
+      "question": "Is all visible text crisp, correctly spelled, and non-garbled?",
+      "expected": "yes"
+    },
+    {
+      "id": "no_watermark",
+      "question": "Is the image free of watermarks, logos, or signatures that were not requested?",
+      "expected": "yes"
+    }
+  ],
+  "note": null
+}

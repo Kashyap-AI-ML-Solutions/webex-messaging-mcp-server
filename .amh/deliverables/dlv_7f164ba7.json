@@ -1,0 +1,49 @@
+{
+  "deliverable_id": "dlv_7f164ba7",
+  "scenes": 2,
+  "max_iterations": 3,
+  "duration_s": 8,
+  "tier": "fast",
+  "model": "veo-3.1-fast-generate-preview",
+  "per_scene_worst_usd": 0.8,
+  "worst_case_total_usd": 4.8,
+  "spent_usd": 4.0,
+  "runs": [
+    {
+      "run_id": "20260722-130135-3a15d8",
+      "actual_usd": 0.8,
+      "at": "2026-07-22T20:02:19.085990+00:00"
+    },
+    {
+      "run_id": "20260722-130651-e9c6ab",
+      "actual_usd": 0.8,
+      "at": "2026-07-22T20:07:44.895902+00:00"
+    },
+    {
+      "run_id": "20260722-131439-352d5a",
+      "actual_usd": 0.8,
+      "at": "2026-07-22T20:15:22.652002+00:00"
+    },
+    {
+      "run_id": "20260722-131700-aa9e7b",
+      "actual_usd": 0.8,
+      "at": "2026-07-22T20:17:44.124667+00:00"
+    },
+    {
+      "run_id": "20260722-131911-f46f70",
+      "actual_usd": 0.8,
+      "at": "2026-07-22T20:19:54.721493+00:00"
+    }
+  ],
+  "created_at": "2026-07-22T20:00:11.592427+00:00",
+  "in_flight": null,
+  "reconciliations": [
+    {
+      "at": "2026-07-22T20:05:56Z",
+      "run_id": "20260722-130439-14ee20",
+      "operation_name": "models/veo-3.1-fast-generate-preview/operations/gq81ofi9cryl",
+      "actual_usd": 0,
+      "reason": "Provider completed with rai_filtered audio failure and explicitly reported that the attempt was not charged."
+    }
+  ]
+}

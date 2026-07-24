@@ -1,0 +1,106 @@
+{
+  "schema_version": "1.0",
+  "run_id": "20260722-131911-f46f70",
+  "amh_version": "0.2.0",
+  "task": "video",
+  "brief": "subject: A textless cinematic motion graphic that preserves the supplied infogra",
+  "created_at": "2026-07-22T20:19:11.419286+00:00",
+  "events": [
+    {
+      "at": "2026-07-22T20:19:11.420130+00:00",
+      "kind": "estimate",
+      "breakdown": "8s x $0.1/s",
+      "worst_case_usd": 0.8,
+      "price_state": "ok",
+      "estimate_file": "/Users/kashyapkambhatla/Documents/AI Agents for Image and Video Generation/webex-messaging-mcp-server/.amh/estimates/75a968e25f90600b.json"
+    },
+    {
+      "at": "2026-07-22T20:19:11.420821+00:00",
+      "kind": "prompt_lint",
+      "task": "video",
+      "passed": true,
+      "findings": [
+        {
+          "level": "warn",
+          "code": "W_RECOMMENDED",
+          "detail": "consider a 'dialogue:' token \u2014 each filled token becomes a quality check"
+        }
+      ]
+    },
+    {
+      "at": "2026-07-22T20:19:13.471400+00:00",
+      "kind": "veo_operation_submitted",
+      "operation_name": "models/veo-3.1-fast-generate-preview/operations/qkffx8psnicm"
+    },
+    {
+      "at": "2026-07-22T20:19:54.716575+00:00",
+      "kind": "veo_operation",
+      "operation_name": "models/veo-3.1-fast-generate-preview/operations/qkffx8psnicm"
+    },
+    {
+      "at": "2026-07-22T20:19:54.721954+00:00",
+      "kind": "deliverable_spend",
+      "deliverable_id": "dlv_7f164ba7",
+      "cumulative_usd": 4.0,
+      "worst_case_total_usd": 4.8
+    }
+  ],
+  "generations": [
+    {
+      "schema_version": "1.1",
+      "task": "video",
+      "request_id": "59010964-c10a-48dc-afc9-93422f8ece32",
+      "route": "gemini_api_key",
+      "provider": "google",
+      "model": "veo-3.1-fast-generate-preview",
+      "tool": null,
+      "file_path": "/Users/kashyapkambhatla/Documents/AI Agents for Image and Video Generation/webex-messaging-mcp-server/.amh/runs/20260722-131911-f46f70/scene_00.mp4",
+      "sha256": "c56161241b0f8177ceb38315862e6119d98ad1eeb7666e9329caccf207bac7fc",
+      "duration_ms": 42735,
+      "cost_usd_actual": 0.8,
+      "created_at": "2026-07-22T20:19:54.695941+00:00",
+      "prompt_sent": "subject: A textless cinematic motion graphic that preserves the supplied infographic reference exactly: one stable central cyan-and-teal server hub connected to exactly six stable circular icon nodes; the six existing icons conceptually map to the repository capabilities Messages, Rooms, Teams, Memberships, Webhooks, and ECM, but these names remain metadata only and never appear visually; use only the shapes already present in the supplied reference and create no new symbols, labels, interface panels, walls, controls, letters, words, numbers, captions, pseudo-code, logos, or watermarks; action: Begin on the supplied reference composition, send one cyan pulse into the central hub, illuminate each of the six existing outer icon nodes clockwise one at a time, hold all six active together, then reduce the complete unchanged composition smoothly to fifty-five percent of frame width and hold it against plain navy through the final frame; preserve the exact node count, icon shapes, connector topology, positions, colors, and background throughout, with no morphing, duplication, replacement, additional elements, text generation, or environment transformation; scene: One uninterrupted deep navy canvas with the supplied subtle grid and generous safe margins, containing only the central hub, six connected icon nodes, and restrained data glows; it remains a flat open navy field from first frame to last and never becomes a dashboard, room, tunnel, corridor, wall, door, screen, panel, or labeled diagram; style: Premium enterprise editorial motion design, flat-to-2.5D geometry, deep navy with cyan, teal, blue, and restrained violet, crisp high-contrast icon edges, controlled bloom only during activation, clean textless iconography, no ornamental micro-details, no glyph-like marks, and no spelling risk because no text exists; camera_angle: Centered head-on orthographic view of the supplied symmetrical six-node composition with level horizon and no perspective distortion; camera_movement: Make one restrained forward push of less than ten percent during activation, then one straight slow pullback that stops when the unchanged system occupies fifty-five percent of frame width, followed by a still hold through the end, with no orbit, cut, whip pan, camera roll, corridor reveal, excessive retreat, or spatial discontinuity; sound_effects: Low warm technology ambience, one soft inbound pulse, six delicate activation ticks, and one restrained completion shimmer, with no speech, vocals, loud bass hit, or musical change. ",
+      "controls_applied": {
+        "duration_seconds": 8
+      },
+      "controls_ignored": {}
+    }
+  ],
+  "evals": [
+    {
+      "tier": 2,
+      "name": "constraint_check",
+      "score": 0.778,
+      "passed": true,
+      "answered": 9,
+      "total": 9,
+      "recorded_at": "2026-07-22T20:20:57.664818+00:00"
+    },
+    {
+      "prompt_adherence": 8,
+      "visual_quality": 9,
+      "coherence": 9,
+      "creativity": 8,
+      "verdict": "pass",
+      "feedback": "The final infographic candidate preserves exactly six stable icon nodes, one central hub, coherent connectors, sequential activation, clean cyan-teal-violet color, a controlled pullback, and no generated letters, captions, labels, pseudo-text, watermark, or spelling risk. Decorative circuit traces appear near the frame edges despite the minimal-ornament request, but they remain nonverbal, coherent, and visually supportive rather than distracting, so the scene passes for final compositing with verified vector labels.",
+      "prompt_patch": null,
+      "judge_model": "GPT-5 (self-judge)",
+      "judge_context": "self",
+      "tier": 3,
+      "rubric_version": "1.1",
+      "judge_mode": "single-judge (self-preference possible)"
+    }
+  ],
+  "approvals": [
+    {
+      "at": "2026-07-22T20:19:11.421709+00:00",
+      "kind": "spend_consent",
+      "detail": "--yes worst_case=$0.80"
+    }
+  ],
+  "costs": {
+    "estimated_usd": 0.8,
+    "actual_usd": 0.8,
+    "basis": "registry_price"
+  }
+}

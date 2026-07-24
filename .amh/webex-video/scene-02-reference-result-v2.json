@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.1",
+  "task": "image",
+  "request_id": "c6af89b9-0aa2-4f81-b91d-30428db4b40a",
+  "route": "host_native",
+  "provider": "codex",
+  "model": "gpt-image via Codex ImageGen",
+  "tool": "ImageGen",
+  "file_path": ".amh/webex-video/scene-02-infographic-reference-v2.png",
+  "sha256": "4c2a332fc1a9d2d26c736e3015f566102cfda9f88dba2e15adad5519c6dfa2fd",
+  "duration_ms": null,
+  "cost_usd_actual": 0,
+  "prompt_sent": "subject: A matching full-screen cinematic Webex MCP Server orchestration infographic seen after the camera travels completely through the cyan circular portal in the supplied studio reference, using the same cyan light language, one stable central cyan-and-teal hub, and six evenly spaced unlabeled outcome nodes representing Customer notifications through Messages, Incident response through Rooms and Memberships, Account collaboration through Teams and Spaces, Access governance through People and Memberships, Event automation through Webhooks and Events, and Knowledge and approvals through ECM, Room Tabs, and Attachment Actions; show these outcomes only through distinct clean icons, not text; action: Depict the fully activated completion state with coherent connector lines from the central hub to all six nodes, restrained success glows, stable topology, generous empty space beside each node for later vector labels, and a clear visual hierarchy from hub to outcomes; location: Deep navy spatial canvas derived from the repository’s webex-mcp-business-outcomes information architecture, subtle technical grid, generous safe margins, balanced 16:9 landscape layout, no presenter visible; camera_control: Centered head-on orthographic-to-shallow-perspective view, symmetrical six-node radial layout, level horizon, no extreme distortion, no cropped nodes, no overlaps, large readable shapes that remain clear on mobile; lighting: Controlled cyan, teal, blue, and restrained violet emission, crisp high-contrast edges, subtle volumetric depth only around active connectors, no muddy bloom; style: Premium enterprise editorial motion-graphics reference, flat-to-2.5D geometric system, technically credible, aesthetically aligned with the supplied minimalist studio, clean and spacious, suitable for an eight-second camera push and pull; negative_constraints: no letters, no words, no numbers, no captions, no Cisco or Webex logo, no watermark, no fake product UI, no pseudo-code, no duplicate nodes, no malformed icons, no inconsistent connector routing, no tiny ornament, no dense dashboard, no illegible text, no spelling risk, no person, no hand, no face.",
+  "controls_applied": {
+    "format": "png",
+    "width": 1672,
+    "height": 941,
+    "aspect_ratio": "16:9",
+    "reference_images": [
+      ".amh/webex-video/scene-02-infographic-reference.png",
+      ".amh/webex-video/scene-01-presenter-reference.png"
+    ]
+  },
+  "controls_ignored": {},
+  "created_at": "2026-07-22T19:58:26Z"
+}

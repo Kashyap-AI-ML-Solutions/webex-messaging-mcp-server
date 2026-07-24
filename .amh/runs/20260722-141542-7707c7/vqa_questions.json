@@ -1,0 +1,58 @@
+{
+  "source": "deterministic_parser",
+  "task": "video",
+  "prompt_sha256": "d2d8750eeb3f93a1f68a63f4c1a99655d71afdbe0bbb5d1289afcc1307586ffd",
+  "questions": [
+    {
+      "id": "tok_subject",
+      "question": "Is the main subject clearly The same non-identifiable white American male technology presenter in his early forties from the supplied reference, with tidy short brown hair, natural skin texture, charcoal overshirt, stone crew-neck shirt, and a calm senior-engineer presence?",
+      "expected": "yes"
+    },
+    {
+      "id": "tok_action",
+      "question": "Is the subject depicted From zero to three-tenths of a second he faces the camera with his mouth closed and a composed expression?",
+      "expected": "yes"
+    },
+    {
+      "id": "tok_scene",
+      "question": "Is the scene recognizably The refined minimalist enterprise studio from the reference with a warm gray architectural wall, light oak console, soft practical lamp, restrained blue accent light, and one cyan portal at screen right whose six simple icon nodes conceptually represent Messages, Rooms, Teams, Memberships, Webhooks, and ECM without displaying any labels?",
+      "expected": "yes"
+    },
+    {
+      "id": "tok_camera_angle",
+      "question": "Is the camera angle consistent with 'Eye-level medium waist-up shot on a 50mm lens, presenter left of center with uncluttered negative space and the portal at screen right, realistic perspective and level horizon'?",
+      "expected": "yes"
+    },
+    {
+      "id": "tok_camera_movement",
+      "question": "Is the camera movement consistent with 'Locked and stable during all dialogue so the mouth remains fully readable, followed only after the final word by one smooth forward push along the pointing axis into the portal, with no cut, orbit, roll, whip pan, zoom jump, morph, face occlusion, or camera movement during speech'?",
+      "expected": "yes"
+    },
+    {
+      "id": "tok_sound_effects",
+      "question": "Are the sound effects consistent with 'Clean treated-studio ambience under a dry close-miked male voice, with no music, background voices, echo, lip smacks, or competing effects, followed by one soft cyan activation chime only after the speaker finishes'?",
+      "expected": "yes"
+    },
+    {
+      "id": "tok_dialogue",
+      "question": "Is the spoken dialogue exactly: 'The presenter says exactly, 'AI agents notify customers, open incident rooms, manage Webex spaces, govern access, and automate approvals.' The voice style is calm, clear, male voice with a neutral American accent. Warm baritone, steady pace around 140 words per minute. Professional and conversational, like a senior engineer explaining to a colleague. No uptalk, no vocal fry. Even tone throughout, slight emphasis on key technical terms. Natural pauses between sentences.'?",
+      "expected": "yes"
+    },
+    {
+      "id": "tok_style",
+      "question": "Does the overall style read as 'Premium editorial enterprise technology film, photorealistic and natural, temporally stable face, clothing, hands, teeth, jaw, and body proportions, soft cinematic key light, controlled fill, subtle cyan rim, restrained color grade, no visible logo, watermark, caption, subtitle, transcript fragment, lower-third, fake interface, word, letter, or number anywhere in frame'?",
+      "expected": "yes"
+    },
+    {
+      "id": "no_garbled_text",
+      "question": "Is all visible text crisp, correctly spelled, and non-garbled?",
+      "expected": "yes"
+    },
+    {
+      "id": "no_watermark",
+      "question": "Is the image free of watermarks, logos, or signatures that were not requested?",
+      "expected": "yes"
+    }
+  ],
+  "note": null
+}
