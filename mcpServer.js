@@ -20,6 +20,7 @@ const __dirname = path.dirname(__filename);
 dotenv.config({ path: path.resolve(__dirname, ".env") });
 
 const SERVER_NAME = "webex-messaging-mcp-server";
+const SERVER_VERSION = "0.2.1";
 
 /**
  * Convert JSON Schema properties to Zod schema format
@@ -67,10 +68,10 @@ function convertJsonSchemaToZod(properties, required = []) {
  * Create and configure MCP server with tools
  * Following MCP 2025-11-25 protocol patterns
  */
-async function createMcpServer() {
+export async function createMcpServer() {
   const server = new McpServer({
     name: SERVER_NAME,
-    version: "0.1.0",
+    version: SERVER_VERSION,
   }, {
     capabilities: {
       tools: {},
@@ -98,7 +99,8 @@ async function createMcpServer() {
           title: definition.name.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase()),
           description: definition.description,
           // MCP SDK v1.25.2 requires inputSchema with Zod schemas for parameter validation
-          inputSchema: convertJsonSchemaToZod(definition.parameters?.properties || {}, definition.parameters?.required || [])
+          inputSchema: convertJsonSchemaToZod(definition.parameters?.properties || {}, definition.parameters?.required || []),
+          annotations: tool.annotations
         },
         async (args) => {
           try {
@@ -177,7 +179,7 @@ async function run() {
         mode: 'HTTP',
         protocol: 'MCP 2025-11-25',
         server: SERVER_NAME,
-        version: '0.1.0'
+        version: SERVER_VERSION
       });
     });
 
@@ -286,4 +288,9 @@ async function run() {
   }
 }
 
-run().catch(console.error);
+const isDirectExecution =
+  process.argv[1] && path.resolve(process.argv[1]) === __filename;
+
+if (isDirectExecution) {
+  run().catch(console.error);
+}

@@ -1,7 +1,10 @@
 import { describe, it, beforeEach, afterEach } from 'node:test';
 import assert from 'node:assert';
+import { Client } from '@modelcontextprotocol/sdk/client/index.js';
+import { InMemoryTransport } from '@modelcontextprotocol/sdk/inMemory.js';
 import { Server } from '@modelcontextprotocol/sdk/server/index.js';
 import { discoverTools } from '../lib/tools.js';
+import { createMcpServer } from '../mcpServer.js';
 
 describe('MCP Server Integration', () => {
   let originalEnv;
@@ -85,6 +88,86 @@ describe('MCP Server Integration', () => {
           assert.ok(['string', 'number', 'integer', 'boolean', 'array', 'object'].includes(prop.type));
         });
       });
+    });
+
+    it('should return enhanced definitions from the real tools/list protocol', async () => {
+      const [clientTransport, serverTransport] =
+        InMemoryTransport.createLinkedPair();
+      const realServer = await createMcpServer();
+      const client = new Client({
+        name: 'webex-tool-quality-test',
+        version: '1.0.0'
+      });
+
+      try {
+        await realServer.connect(serverTransport);
+        await client.connect(clientTransport);
+
+        const response = await client.listTools();
+        const expectedByName = new Map(
+          tools.map(tool => [tool.definition.function.name, tool])
+        );
+
+        assert.strictEqual(response.tools.length, 52);
+        assert.deepStrictEqual(
+          response.tools.map(tool => tool.name).sort(),
+          [...expectedByName.keys()].sort()
+        );
+
+        response.tools.forEach(tool => {
+          const expected = expectedByName.get(tool.name);
+
+          assert.ok(expected, `Unexpected MCP tool: ${tool.name}`);
+
+          const expectedProperties =
+            expected.definition.function.parameters.properties || {};
+          const effectiveRequired = (
+            expected.definition.function.parameters.required || []
+          ).filter(name => Object.hasOwn(expectedProperties, name));
+
+          assert.strictEqual(
+            tool.description,
+            expected.definition.function.description,
+            `${tool.name} should expose its enhanced description`
+          );
+          assert.deepStrictEqual(
+            tool.annotations,
+            expected.annotations,
+            `${tool.name} should expose its annotations`
+          );
+          assert.strictEqual(tool.inputSchema.type, 'object');
+          assert.deepStrictEqual(
+            Object.keys(tool.inputSchema.properties || {}).sort(),
+            Object.keys(expectedProperties).sort(),
+            `${tool.name} should preserve its input property names`
+          );
+          assert.deepStrictEqual(
+            [...(tool.inputSchema.required || [])].sort(),
+            effectiveRequired.sort(),
+            `${tool.name} should preserve its effective required parameters`
+          );
+        });
+
+        assert.strictEqual(
+          expectedByName.get('get_room_details').annotations.readOnlyHint,
+          true
+        );
+        assert.strictEqual(
+          expectedByName.get('create_message').annotations.idempotentHint,
+          false
+        );
+        assert.strictEqual(
+          expectedByName.get('update_room').annotations.idempotentHint,
+          true
+        );
+        assert.strictEqual(
+          expectedByName.get('delete_room').annotations.destructiveHint,
+          true
+        );
+      } finally {
+        await client.close();
+        await realServer.close();
+      }
     });
   });
 
