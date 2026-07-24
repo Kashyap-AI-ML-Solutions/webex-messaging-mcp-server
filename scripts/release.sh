@@ -83,7 +83,7 @@ npm run validate
 
 # Commit version bump
 print_status "Committing version bump"
-git add package.json
+git add package.json package-lock.json
 git commit -m "chore: bump version to $VERSION"
 
 # Create and push tag

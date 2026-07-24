@@ -993,6 +993,30 @@ describe('Tool Implementation Details', () => {
         tool = tools.find(t => t.definition.function.name === 'list_direct_messages');
       });
 
+      it('should omit parentId when it is not provided', async () => {
+        let capturedRequest;
+        global.fetch = async (url, options) => {
+          capturedRequest = { url, options };
+          return {
+            ok: true,
+            status: 200,
+            json: async () => ({ items: [] })
+          };
+        };
+
+        await tool.function({
+          personEmail: 'test@example.com'
+        });
+
+        const requestUrl = new URL(capturedRequest.url);
+        assert.strictEqual(
+          requestUrl.searchParams.has('parentId'),
+          false,
+          'Should not include parentId when it is omitted'
+        );
+        assert.strictEqual(requestUrl.searchParams.get('personEmail'), 'test@example.com');
+      });
+
       it('should list direct messages with personEmail only', async () => {
         let capturedRequest;
         global.fetch = async (url, options) => {
