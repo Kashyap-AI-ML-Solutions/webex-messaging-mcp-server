@@ -1,6 +1,7 @@
 import { describe, it, beforeEach, afterEach } from 'node:test';
 import assert from 'node:assert';
 import { spawnSync } from 'node:child_process';
+import { createHash } from 'node:crypto';
 import { mkdtempSync, rmSync, symlinkSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
@@ -10,8 +11,15 @@ import { InMemoryTransport } from '@modelcontextprotocol/sdk/inMemory.js';
 import { Server } from '@modelcontextprotocol/sdk/server/index.js';
 import { discoverTools } from '../lib/tools.js';
 import { createMcpServer } from '../mcpServer.js';
+import { toolDefinitionBaseline } from './fixtures/tool-definition-baseline.js';
 
 const mcpServerPath = fileURLToPath(new URL('../mcpServer.js', import.meta.url));
+
+function hashJson(value) {
+  return createHash('sha256')
+    .update(JSON.stringify(value))
+    .digest('hex');
+}
 
 describe('MCP Server Integration', () => {
   let originalEnv;
@@ -168,6 +176,11 @@ describe('MCP Server Integration', () => {
             `${tool.name} should expose its annotations`
           );
           assert.strictEqual(tool.inputSchema.type, 'object');
+          assert.strictEqual(
+            hashJson(tool.inputSchema),
+            toolDefinitionBaseline[tool.name].wireSchemaHash,
+            `${tool.name} should preserve its complete MCP input schema`
+          );
           assert.deepStrictEqual(
             Object.keys(tool.inputSchema.properties || {}).sort(),
             Object.keys(expectedProperties).sort(),

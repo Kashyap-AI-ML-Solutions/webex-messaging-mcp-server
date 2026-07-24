@@ -1,11 +1,13 @@
 import { describe, it } from "node:test";
 import assert from "node:assert/strict";
+import { createHash } from "node:crypto";
 import { toolPaths } from "../tools/paths.js";
 import { discoverTools } from "../lib/tools.js";
 import {
   enhanceToolDefinition,
   toolQualityMetadata,
 } from "../lib/tool-quality-metadata.js";
+import { toolDefinitionBaseline } from "./fixtures/tool-definition-baseline.js";
 
 async function loadRawTools() {
   return Promise.all(
@@ -44,6 +46,12 @@ function sentenceCount(value) {
     .split(/[.!?](?:\s|$)/)
     .filter((part) => part.trim())
     .length;
+}
+
+function hashJson(value) {
+  return createHash("sha256")
+    .update(JSON.stringify(value))
+    .digest("hex");
 }
 
 describe("Tool Quality Metadata", () => {
@@ -115,15 +123,26 @@ describe("Tool Quality Metadata", () => {
     );
 
     assert.equal(enhancedTools.length, rawTools.length);
+    assert.deepEqual(
+      Object.keys(toolDefinitionBaseline).sort(),
+      rawTools.map((tool) => tool.definition.function.name).sort(),
+    );
 
     for (const raw of rawTools) {
       const name = raw.definition.function.name;
       const enhanced = enhancedByName.get(name);
+      const baseline = toolDefinitionBaseline[name];
 
       assert.ok(enhanced, name);
+      assert.equal(raw.definition.function.description, baseline.purpose, name);
+      assert.equal(
+        hashJson(raw.definition.function.parameters),
+        baseline.parametersHash,
+        name,
+      );
       assert.ok(
         enhanced.definition.function.description.startsWith(
-          `${raw.definition.function.description} `,
+          `${baseline.purpose} `,
         ),
         name,
       );

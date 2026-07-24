@@ -289,9 +289,16 @@ async function run() {
   }
 }
 
+function resolvesToFile(candidate, target) {
+  try {
+    return realpathSync(candidate) === realpathSync(target);
+  } catch {
+    return false;
+  }
+}
+
 const isDirectExecution =
-  process.argv[1] &&
-  realpathSync(process.argv[1]) === realpathSync(__filename);
+  process.argv[1] && resolvesToFile(process.argv[1], __filename);
 
 if (isDirectExecution) {
   run().catch(console.error);
