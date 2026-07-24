@@ -1,0 +1,12 @@
+{
+  "tok_subject": "yes",
+  "tok_action": "no",
+  "tok_scene": "yes",
+  "tok_camera_angle": "yes",
+  "tok_camera_movement": "yes",
+  "tok_sound_effects": "yes",
+  "tok_dialogue": "yes",
+  "tok_style": "yes",
+  "no_garbled_text": "yes",
+  "no_watermark": "yes"
+}

@@ -1,0 +1,105 @@
+{
+  "schema_version": "1.0",
+  "run_id": "20260722-141542-7707c7",
+  "amh_version": "0.2.0",
+  "task": "video",
+  "brief": "subject: The same non-identifiable white American male technology presenter in h",
+  "created_at": "2026-07-22T21:15:42.732620+00:00",
+  "events": [
+    {
+      "at": "2026-07-22T21:15:42.733413+00:00",
+      "kind": "estimate",
+      "breakdown": "8s x $0.1/s",
+      "worst_case_usd": 0.8,
+      "price_state": "ok",
+      "estimate_file": "/Users/kashyapkambhatla/Documents/AI Agents for Image and Video Generation/webex-messaging-mcp-server/.amh/estimates/eb3e15e3e64d8d22.json"
+    },
+    {
+      "at": "2026-07-22T21:15:42.734063+00:00",
+      "kind": "prompt_lint",
+      "task": "video",
+      "passed": true,
+      "findings": []
+    },
+    {
+      "at": "2026-07-22T21:15:45.319973+00:00",
+      "kind": "veo_operation_submitted",
+      "operation_name": "models/veo-3.1-fast-generate-preview/operations/0mwg97qerxvk"
+    },
+    {
+      "at": "2026-07-22T21:16:27.316362+00:00",
+      "kind": "veo_operation",
+      "operation_name": "models/veo-3.1-fast-generate-preview/operations/0mwg97qerxvk"
+    },
+    {
+      "at": "2026-07-22T21:16:27.320703+00:00",
+      "kind": "deliverable_spend",
+      "deliverable_id": "dlv_53178324",
+      "cumulative_usd": 0.8,
+      "worst_case_total_usd": 1.6
+    }
+  ],
+  "generations": [
+    {
+      "schema_version": "1.1",
+      "task": "video",
+      "request_id": "fb1c5173-3d25-46f7-932c-f081bebf1992",
+      "route": "gemini_api_key",
+      "provider": "google",
+      "model": "veo-3.1-fast-generate-preview",
+      "tool": null,
+      "file_path": "/Users/kashyapkambhatla/Documents/AI Agents for Image and Video Generation/webex-messaging-mcp-server/.amh/runs/20260722-141542-7707c7/scene_00.mp4",
+      "sha256": "4270c4ea9be08f634f14694445096fe21bfd0a097ede5d3216c376bba2bf78ad",
+      "duration_ms": 43773,
+      "cost_usd_actual": 0.8,
+      "created_at": "2026-07-22T21:16:27.296637+00:00",
+      "prompt_sent": "subject: The same non-identifiable white American male technology presenter in his early forties from the supplied reference, with tidy short brown hair, natural skin texture, charcoal overshirt, stone crew-neck shirt, and a calm senior-engineer presence; he explains how AI agents use the Cisco Webex MCP Server as a collaboration action layer across Messages, Rooms, Teams, Memberships, People, Webhooks, and ECM; action: From zero to three-tenths of a second he faces the camera with his mouth closed and a composed expression; from three-tenths to six-and-eight-tenths seconds he delivers exactly one sentence with precise phoneme-to-mouth synchronization, natural jaw and lip motion, steady eye contact, and two restrained explanatory hand gestures, beginning the second gesture toward the cyan portal at screen right as he says Webex spaces; from six-and-eight-tenths seconds to the end he stops speaking, closes his mouth, holds the point, and the camera follows his fingertip in one smooth causal push until the cyan portal fills the final frame; do not add, omit, reorder, paraphrase, or repeat any spoken word, and do not move the lips before or after the exact sentence; scene: The refined minimalist enterprise studio from the reference with a warm gray architectural wall, light oak console, soft practical lamp, restrained blue accent light, and one cyan portal at screen right whose six simple icon nodes conceptually represent Messages, Rooms, Teams, Memberships, Webhooks, and ECM without displaying any labels; style: Premium editorial enterprise technology film, photorealistic and natural, temporally stable face, clothing, hands, teeth, jaw, and body proportions, soft cinematic key light, controlled fill, subtle cyan rim, restrained color grade, no visible logo, watermark, caption, subtitle, transcript fragment, lower-third, fake interface, word, letter, or number anywhere in frame; camera_angle: Eye-level medium waist-up shot on a 50mm lens, presenter left of center with uncluttered negative space and the portal at screen right, realistic perspective and level horizon; camera_movement: Locked and stable during all dialogue so the mouth remains fully readable, followed only after the final word by one smooth forward push along the pointing axis into the portal, with no cut, orbit, roll, whip pan, zoom jump, morph, face occlusion, or camera movement during speech; sound_effects: Clean treated-studio ambience under a dry close-miked male voice, with no music, background voices, echo, lip smacks, or competing effects, followed by one soft cyan activation chime only after the speaker finishes; dialogue: The presenter says exactly, 'AI agents notify customers, open incident rooms, manage Webex spaces, govern access, and automate approvals.' The voice style is calm, clear, male voice with a neutral American accent. Warm baritone, steady pace around 140 words per minute. Professional and conversational, like a senior engineer explaining to a colleague. No uptalk, no vocal fry. Even tone throughout, slight emphasis on key technical terms. Natural pauses between sentences.",
+      "controls_applied": {
+        "duration_seconds": 8
+      },
+      "controls_ignored": {}
+    }
+  ],
+  "evals": [
+    {
+      "tier": 2,
+      "name": "constraint_check",
+      "score": 0.9,
+      "passed": true,
+      "answered": 10,
+      "total": 10,
+      "recorded_at": "2026-07-22T21:18:52.878923+00:00"
+    },
+    {
+      "prompt_adherence": 6,
+      "visual_quality": 8,
+      "coherence": 8,
+      "creativity": 7,
+      "verdict": "refine",
+      "feedback": "The described presenter, wardrobe, studio, eye-level composition, text-free six-node portal, lighting, and polished enterprise-film look are present. No captions, labels, watermark, letters, or numbers are visible. Identity, face, clothing, and background remain stable; hands and teeth are generally natural, though the portal's heterogeneous outer icons morph into repeated person glyphs. Dense 24 fps inspection shows a clean closed mouth only on the first frame, followed by obvious jaw/lip opening around 0.04 seconds, violating the required closed-mouth hold through 0.3 seconds. Thereafter the mouth articulates continuously with varied plausible shapes and no obvious frozen, doubled, or deformed mouth. However, articulation remains visible while portal activation and the push begin around 6.5-6.8 seconds, so speech and camera/portal action are not cleanly separated, and the mouth does not demonstrably close and hold at exactly 6.8 seconds. The final portal occupies only the right portion of the frame rather than filling it. The stated transcript similarity of 1.0 supports exact word sequence, but I did not audition the audio with the available visual tools; it does not independently prove frame-accurate phoneme synchronization.",
+      "prompt_patch": "Preserve the accepted presenter identity, wardrobe, studio, stable face, natural articulation, text-free styling, and six-node portal. Enforce a visibly motionless closed mouth for the first 0.30 seconds, with the first jaw or lip movement occurring only after 0.30 seconds. Keep the camera and portal completely static and inactive throughout every spoken phoneme. Finish the exact sentence early enough that the lips are fully closed and held for at least three consecutive frames before any cyan activation or camera movement begins. Start the portal activation and smooth push only after that confirmed closed-mouth hold; keep all six semantic icon designs stable rather than morphing into repeated person symbols, and continue the push until the cyan portal covers 100 percent of the final frame. Keep both gestures restrained, with the second gesture beginning specifically on 'Webex spaces.'",
+      "judge_model": "gpt-5",
+      "judge_context": "separated-context",
+      "separation": {
+        "mechanism": "subagent",
+        "asset_sha256": "4270c4ea9be08f634f14694445096fe21bfd0a097ede5d3216c376bba2bf78ad",
+        "prompt_sha256": "d2d8750eeb3f93a1f68a63f4c1a99655d71afdbe0bbb5d1289afcc1307586ffd"
+      },
+      "tier": 3,
+      "rubric_version": "1.1",
+      "judge_mode": "separated-context judge (caller-declared; hash-matched to this run; same base model \u2014 isolation not attested)"
+    }
+  ],
+  "approvals": [
+    {
+      "at": "2026-07-22T21:15:42.734794+00:00",
+      "kind": "spend_consent",
+      "detail": "--yes worst_case=$0.80"
+    }
+  ],
+  "costs": {
+    "estimated_usd": 0.8,
+    "actual_usd": 0.8,
+    "basis": "registry_price"
+  }
+}

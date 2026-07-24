@@ -1,0 +1,53 @@
+{
+  "source": "deterministic_parser",
+  "task": "image",
+  "prompt_sha256": "e49f9fa3c75136e6753785a83cab5e5d44010f56841f93da68970367b50f796e",
+  "questions": [
+    {
+      "id": "tok_subject",
+      "question": "Is the main subject clearly A matching full-screen cinematic Webex MCP Server orchestration infographic seen after the camera travels completely through the cyan circular portal in the supplied studio reference, using the same cyan light language, one stable central cyan-and-teal hub, and six evenly spaced unlabeled outcome nodes representing Customer notifications through Messages, Incident response through Rooms and Memberships, Account collaboration through Teams and Spaces, Access governance through People and Memberships, Event automation through Webhooks and Events, and Knowledge and approvals through ECM, Room Tabs, and Attachment Actions?",
+      "expected": "yes"
+    },
+    {
+      "id": "tok_action",
+      "question": "Is the subject depicted Depict the fully activated completion state with coherent connector lines from the central hub to all six nodes, restrained success glows, stable topology, generous empty space beside each node for later vector labels, and a clear visual hierarchy from hub to outcomes?",
+      "expected": "yes"
+    },
+    {
+      "id": "tok_location",
+      "question": "Is the setting recognizably Deep navy spatial canvas derived from the repository\u2019s webex-mcp-business-outcomes information architecture, subtle technical grid, generous safe margins, balanced 16:9 landscape layout, no presenter visible?",
+      "expected": "yes"
+    },
+    {
+      "id": "tok_camera_control",
+      "question": "Is the framing/camera consistent with 'Centered head-on orthographic-to-shallow-perspective view, symmetrical six-node radial layout, level horizon, no extreme distortion, no cropped nodes, no overlaps, large readable shapes that remain clear on mobile'?",
+      "expected": "yes"
+    },
+    {
+      "id": "tok_lighting",
+      "question": "Is the lighting consistent with 'Controlled cyan, teal, blue, and restrained violet emission, crisp high-contrast edges, subtle volumetric depth only around active connectors, no muddy bloom'?",
+      "expected": "yes"
+    },
+    {
+      "id": "tok_style",
+      "question": "Does the overall style read as 'Premium enterprise editorial motion-graphics reference, flat-to-2.5D geometric system, technically credible, aesthetically aligned with the supplied minimalist studio, clean and spacious, suitable for an eight-second camera push and pull'?",
+      "expected": "yes"
+    },
+    {
+      "id": "tok_negative_constraints",
+      "question": "Is the result free of every one of: 'no letters, no words, no numbers, no captions, no Cisco or Webex logo, no watermark, no fake product UI, no pseudo-code, no duplicate nodes, no malformed icons, no inconsistent connector routing, no tiny ornament, no dense dashboard, no illegible text, no spelling risk, no person, no hand, no face.'?",
+      "expected": "yes"
+    },
+    {
+      "id": "no_garbled_text",
+      "question": "Is all visible text crisp, correctly spelled, and non-garbled?",
+      "expected": "yes"
+    },
+    {
+      "id": "no_watermark",
+      "question": "Is the image free of watermarks, logos, or signatures that were not requested?",
+      "expected": "yes"
+    }
+  ],
+  "note": null
+}

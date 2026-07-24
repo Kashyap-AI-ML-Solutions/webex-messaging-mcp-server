@@ -1,0 +1,8 @@
+{
+  "params_key": "cd1707e2962db8fc",
+  "estimate_usd": 0.8,
+  "duration_s": 8,
+  "model": "veo-3.1-fast-generate-preview",
+  "prompt_sha256": "cd48a94506206051de9ec78e831778ebf446eba258bc5d81fa370a9f6810e706",
+  "created_at": "2026-07-22T20:06:45.811829+00:00"
+}

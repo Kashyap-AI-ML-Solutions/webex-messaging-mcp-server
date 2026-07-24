@@ -1,0 +1,20 @@
+{
+  "tier": 2,
+  "name": "constraint_check",
+  "score": 0.778,
+  "passed": true,
+  "answered": 9,
+  "total": 9,
+  "recorded_at": "2026-07-22T20:20:57.664818+00:00",
+  "answers": {
+    "tok_subject": "yes",
+    "tok_action": "yes",
+    "tok_scene": "no",
+    "tok_camera_angle": "yes",
+    "tok_camera_movement": "yes",
+    "tok_sound_effects": "yes",
+    "tok_style": "no",
+    "no_garbled_text": "yes",
+    "no_watermark": "yes"
+  }
+}

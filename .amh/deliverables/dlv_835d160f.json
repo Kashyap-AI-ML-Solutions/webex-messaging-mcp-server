@@ -1,0 +1,13 @@
+{
+  "deliverable_id": "dlv_835d160f",
+  "scenes": 2,
+  "max_iterations": 6,
+  "duration_s": 8,
+  "tier": "fast",
+  "model": "veo-3.1-fast-generate-preview",
+  "per_scene_worst_usd": 0.8,
+  "worst_case_total_usd": 9.6,
+  "spent_usd": 0.0,
+  "runs": [],
+  "created_at": "2026-07-22T19:59:54.076096+00:00"
+}

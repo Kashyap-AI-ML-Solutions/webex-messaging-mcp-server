@@ -1,0 +1,11 @@
+{
+  "prompt_adherence": 7,
+  "visual_quality": 8,
+  "coherence": 9,
+  "creativity": 8,
+  "verdict": "refine",
+  "feedback": "The scene now has stable presenter identity, natural pointing, a coherent portal expansion and exact reverse, clean studio continuity, real motion, and an exact transcript match of 1.0 for the CTA. It cannot pass as raw footage because Veo added extra WEBEX and SERVER lettering plus large garbled auto-caption fragments at the bottom despite the no-caption constraint. The caption defect is confined to a crop-safe lower band; remove it by a controlled 16:9 reframing and add only verified vector typography in the final composite.",
+  "prompt_patch": "Preserve the accepted presenter identity, studio, pointing gesture, portal transition, and exact spoken CTA. Remove every generated caption, subtitle, ellipsis, transcript fragment, and all portal lettering except the single exact label MCP. Keep the lower third visually empty for verified post-production typography.",
+  "judge_model": "GPT-5 (self-judge)",
+  "judge_context": "self"
+}

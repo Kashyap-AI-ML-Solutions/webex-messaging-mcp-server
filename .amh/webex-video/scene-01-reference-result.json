@@ -1,0 +1,22 @@
+{
+  "schema_version": "1.1",
+  "task": "image",
+  "request_id": "b629eb1f-9a03-4f7d-bc22-470d51dc2147",
+  "route": "host_native",
+  "provider": "codex",
+  "model": "gpt-image via Codex ImageGen",
+  "tool": "ImageGen",
+  "file_path": ".amh/webex-video/scene-01-presenter-reference.png",
+  "sha256": "8287aada854b2c8bf35853be0bd3df846ae488f797e752591add1f13d8dd895b",
+  "duration_ms": null,
+  "cost_usd_actual": 0,
+  "prompt_sent": "subject: A production reference still of a non-identifiable white American male technology presenter in his early forties with a calm senior-engineer presence, tidy short brown hair, natural skin texture, charcoal overshirt over a stone crew-neck shirt, framed beside a simple cyan circular portal representing the Webex MCP Server; repository grounding includes Webex MCP Server, Messages, Rooms, Teams, Memberships, Webhooks, and ECM as conceptual capabilities only, with no readable words or logos in the image; action: He stands left of center facing camera, right arm naturally extended in one clear pointing gesture toward the portal at screen right, five anatomically correct fingers, relaxed shoulders, trustworthy neutral expression, stable wardrobe, no speech pose; location: A refined minimalist enterprise video studio with warm gray architectural wall, light oak console, one soft practical lamp, restrained blue accent illumination, uncluttered negative space, 16:9 landscape layout, no brands or watermarks; camera_control: Eye-level medium waist-up composition on a 50mm lens, presenter left of center, cyan portal right of center, level horizon, natural perspective, clean editorial framing, no crop through hands or head; lighting: Soft cinematic key, controlled fill, subtle cyan rim, warm practical in the background, realistic skin color, shallow depth of field, no blown highlights or muddy shadows; style: Premium photorealistic editorial technology film, calm and credible, natural texture rather than glossy advertising, spatially coherent, suitable as an identity and set-continuity reference for an eight-second video scene; negative_constraints: no readable text, no captions, no Cisco or Webex logo, no fake UI, no watermark, no extra fingers, no fused fingers, no warped hand, no duplicate limb, no face asymmetry, no age drift, no plastic skin, no extreme bokeh, no busy props, no cyberpunk styling, no headset, no tie, no audience.",
+  "controls_applied": {
+    "format": "png",
+    "width": 1672,
+    "height": 941,
+    "aspect_ratio": "16:9"
+  },
+  "controls_ignored": {},
+  "created_at": "2026-07-22T19:56:06Z"
+}

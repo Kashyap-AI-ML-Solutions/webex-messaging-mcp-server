@@ -18,6 +18,44 @@ Because the server exposes messages, rooms, teams, memberships, people, webhooks
   <img src="assets/webex-mcp-business-outcomes.svg" width="100%" alt="Animated diagram showing an AI agent using the Webex MCP Server to activate customer notifications, incident response rooms, customer collaboration, access governance, event automation, and knowledge and approval workflows." />
 </p>
 
+<p align="center">
+  <a href="assets/generated/webex-mcp-explainer-15s.mp4">
+    <img src="assets/webex-mcp-explainer-preview.gif" width="720" alt="15-second explainer showing how AI agents use the Webex MCP Server for customer notifications, incident response, team and space management, access governance, event automation, and approval workflows." />
+  </a>
+  <br />
+  <strong><a href="assets/generated/webex-mcp-explainer-15s.mp4">▶ Watch the 15-second explainer with sound</a></strong>
+</p>
+
+### Create launch-ready media from Claude or Codex
+
+This explainer was created from a plain-language request using the **[Agentic Media Harness](https://github.com/Kashyap-AI-ML-Solutions/agentic-media-harness)**. Its `agentic-media` plugin turns Claude Code or Codex into a production media workflow: it reads your repository, enhances the prompt, generates images or videos, checks motion and script accuracy, iterates on quality, and records every prompt, score, and dollar spent.
+
+Install the plugin once, then create repository-aware product videos, hero images, infographics, and launch assets without leaving your coding agent.
+
+#### Claude Code
+
+```bash
+pip install "git+ssh://git@github.com/Kashyap-AI-ML-Solutions/agentic-media-harness.git#subdirectory=packages/amh"
+claude plugin marketplace add Kashyap-AI-ML-Solutions/agentic-media-harness
+claude plugin install agentic-media@agentic-media-harness
+export GEMINI_API_KEY=your_key_here   # create + enable billing: https://aistudio.google.com/apikey
+```
+
+#### Codex CLI
+
+```bash
+pip install "git+ssh://git@github.com/Kashyap-AI-ML-Solutions/agentic-media-harness.git#subdirectory=packages/amh"
+codex plugin marketplace add Kashyap-AI-ML-Solutions/agentic-media-harness
+codex plugin add agentic-media@agentic-media-harness
+export GEMINI_API_KEY=your_key_here   # optional for images; required for video
+```
+
+You can put `GEMINI_API_KEY=your_key` in the repository's `.env` file instead. Never commit that file.
+
+Then open any repository and ask:
+
+> Use the media-video skill to create a short explainer video for this repository. Read the README first. My budget is $2.50.
+
 ## Overview
 
 This MCP server enables AI assistants to interact with Webex messaging through 52 different tools covering:

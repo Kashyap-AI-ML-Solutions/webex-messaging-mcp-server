@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+  <rect x="380" y="618" width="520" height="82" rx="20" fill="#081c2b" fill-opacity="0.92" stroke="#5fd5d1" stroke-opacity="0.7"/>
+  <text x="640" y="653" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="30" font-weight="700">Customer notifications</text>
+  <text x="640" y="682" text-anchor="middle" fill="#d8e9f5" font-family="Arial, sans-serif" font-size="18" font-weight="600" letter-spacing="2">MESSAGES</text>
+</svg>
