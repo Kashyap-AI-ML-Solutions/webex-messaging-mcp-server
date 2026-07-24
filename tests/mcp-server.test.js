@@ -1,10 +1,17 @@
 import { describe, it, beforeEach, afterEach } from 'node:test';
 import assert from 'node:assert';
+import { spawnSync } from 'node:child_process';
+import { mkdtempSync, rmSync, symlinkSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { Client } from '@modelcontextprotocol/sdk/client/index.js';
 import { InMemoryTransport } from '@modelcontextprotocol/sdk/inMemory.js';
 import { Server } from '@modelcontextprotocol/sdk/server/index.js';
 import { discoverTools } from '../lib/tools.js';
 import { createMcpServer } from '../mcpServer.js';
+
+const mcpServerPath = fileURLToPath(new URL('../mcpServer.js', import.meta.url));
 
 describe('MCP Server Integration', () => {
   let originalEnv;
@@ -57,6 +64,31 @@ describe('MCP Server Integration', () => {
         assert.ok(tool.definition, 'Tool should have MCP definition');
         assert.ok(tool.definition.function.name, 'Tool should have name for registration');
       });
+    });
+
+    it('should start when invoked through a symlinked package binary', () => {
+      const temporaryDirectory = mkdtempSync(
+        path.join(tmpdir(), 'webex-mcp-bin-')
+      );
+      const binaryPath = path.join(temporaryDirectory, 'webex-mcp-server');
+
+      try {
+        symlinkSync(mcpServerPath, binaryPath);
+        const result = spawnSync(process.execPath, [binaryPath], {
+          encoding: 'utf8',
+          input: '',
+          timeout: 5000,
+          env: {
+            ...process.env,
+            WEBEX_PUBLIC_WORKSPACE_API_KEY: 'test-token-123'
+          }
+        });
+
+        assert.strictEqual(result.status, 0, result.stderr);
+        assert.match(result.stderr, /\[MCP Server\] Connected via STDIO transport/);
+      } finally {
+        rmSync(temporaryDirectory, { recursive: true, force: true });
+      }
     });
   });
 

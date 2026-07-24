@@ -9,6 +9,7 @@ import { StreamableHTTPServerTransport } from "@modelcontextprotocol/sdk/server/
 import { isInitializeRequest } from "@modelcontextprotocol/sdk/types.js";
 import { discoverTools } from "./lib/tools.js";
 import { randomUUID } from "crypto";
+import { realpathSync } from "fs";
 import { z } from "zod";
 
 import path from "path";
@@ -289,7 +290,8 @@ async function run() {
 }
 
 const isDirectExecution =
-  process.argv[1] && path.resolve(process.argv[1]) === __filename;
+  process.argv[1] &&
+  realpathSync(process.argv[1]) === realpathSync(__filename);
 
 if (isDirectExecution) {
   run().catch(console.error);
