@@ -1,5 +1,5 @@
 # Multi-stage build for smaller production image
-FROM node:22.12-alpine AS builder
+FROM --platform=$BUILDPLATFORM node:22.12-alpine AS builder
 
 WORKDIR /app
 
