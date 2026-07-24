@@ -1,6 +1,6 @@
 {
   "name": "webex-messaging-mcp-server",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "A comprehensive MCP server providing AI assistants with full access to Cisco Webex messaging capabilities including messages, rooms, teams, people, webhooks, and enterprise features.",
   "main": "index.js",
   "bin": {

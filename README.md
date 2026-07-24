@@ -166,6 +166,17 @@ Tools are organized by functionality:
 - **Webhooks** (7 tools): Event notifications and webhook management
 - **Enterprise** (12 tools): ECM folders, room tabs, attachments
 
+### Tool selection and behavior metadata
+
+All 52 tools publish MCP annotations plus compact selection and behavior
+guidance through `tools/list`. The original purpose sentence and input schema
+remain unchanged; the appended guidance identifies the closest sibling tool,
+whether the operation reads or changes Webex state, and how API errors and
+rate limits are returned.
+
+Annotations are descriptive hints for MCP clients, not authorization controls.
+The Webex access token and organization policies remain authoritative.
+
 ### Docker Usage
 
 1. **Build and run:**
